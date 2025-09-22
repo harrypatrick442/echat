@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared-private\MessageTypes\MessageTypes.csproj" />
+    <ProjectReference Include="..\..\shared-public\Ajax\Ajax.csproj" />
+    <ProjectReference Include="..\Constants\GlobalConstants.csproj" />
+    <ProjectReference Include="..\..\shared-public\EnvironmentEnums\EnvironmentEnums.csproj" />
+    <ProjectReference Include="..\..\shared-public\Fundamental\CSharp\Fundamental.csproj" />
+    <ProjectReference Include="..\Hashing\Hashing.csproj" />
+    <ProjectReference Include="..\..\shared-public\Initialization\CSharp\Initialization.csproj" />
+    <ProjectReference Include="..\..\shared-public\JSON\CSharp\JSON.csproj" />
+    <ProjectReference Include="..\..\shared-public\Logging\CSharp\Logging.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataMemberNames\Requests\" />
+    <Folder Include="DataMemberNames\Responses\" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="BTree\**" />
+    <EmbeddedResource Remove="BTree\**" />
+    <None Remove="BTree\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="IdentifierLock_LockInstance.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared-public\DatabaseCore\DatabaseCore.csproj" />
+    <ProjectReference Include="..\InterserverComs\InterserverComs.csproj" />
+    <ProjectReference Include="..\..\shared-public\Logging\CSharp\Logging.csproj" />
+    <ProjectReference Include="..\..\shared-private\MessageTypes\MessageTypes.csproj" />
+  </ItemGroup>
+</Project>

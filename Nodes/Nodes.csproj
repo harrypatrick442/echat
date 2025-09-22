@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="OldNodes.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared-public\BasicEvents\CSharp\BasicEvents.csproj" />
+    <ProjectReference Include="..\..\shared-public\Core\CSharp\Core.csproj" />
+    <ProjectReference Include="..\..\shared-public\Logging\CSharp\Logging.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Setups\Network\RetrocauseLive.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Setups\Network\RetrocauseDevelopment.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Setups\Network\Network_before_changes_15_03_2024.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Setups\Network\Development.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Setups\Network\Live.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Ids\" />
+  </ItemGroup>
+</Project>

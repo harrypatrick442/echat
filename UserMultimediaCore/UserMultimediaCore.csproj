@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared-public\Core\CSharp\Core.csproj" />
+    <ProjectReference Include="..\MultimediaCore\MultimediaCore.csproj" />
+    <ProjectReference Include="..\MultimediaServerCore\MultimediaServerCore.csproj" />
+    <ProjectReference Include="..\UsersEnums\UsersEnums.csproj" />
+    <ProjectReference Include="..\Users\Users.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataMemberNames\Responses\" />
+    <Folder Include="Enums\" />
+  </ItemGroup>
+</Project>

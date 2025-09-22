@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">EChat</string>
+    <string name="app_text">Make frieds, date, meet new people!</string>
+	<string name="reload_button">Reload Button</string>
+	<string name="spinner">Spinner</string>
+	<string name="offline">Offline</string>
+</resources>

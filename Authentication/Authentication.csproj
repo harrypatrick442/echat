@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.3.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared-public\Core\CSharp\Core.csproj" />
+    <ProjectReference Include="..\..\shared-public\DependencyManagement\DependencyManagement.csproj" />
+    <ProjectReference Include="..\..\shared-public\Emailing\Emailing.csproj" />
+    <ProjectReference Include="..\KeyValuePairDatabase\KeyValuePairDatabase.csproj" />
+    <ProjectReference Include="..\Sessions\Sessions.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Pages\Pages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Pages.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Pages\Pages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Pages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

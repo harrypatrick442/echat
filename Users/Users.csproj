@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Authentication\Authentication.csproj" />
+    <ProjectReference Include="..\..\shared-public\Core\CSharp\Core.csproj" />
+    <ProjectReference Include="..\..\shared-public\DatabaseCore\DatabaseCore.csproj" />
+    <ProjectReference Include="..\LocationCore\LocationCore.csproj" />
+    <ProjectReference Include="..\..\shared-private\MessageTypes\MessageTypes.csproj" />
+    <ProjectReference Include="..\MultimediaCore\MultimediaCore.csproj" />
+    <ProjectReference Include="..\NotificationsCore\NotificationsCore.csproj" />
+    <ProjectReference Include="..\UserLocation\UserLocation.csproj" />
+    <ProjectReference Include="..\UserRoutedMessages\UserRoutedMessages.csproj" />
+    <ProjectReference Include="..\UserRouting\UserRouting.csproj" />
+    <ProjectReference Include="..\UsersEnums\UsersEnums.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="test\" />
+  </ItemGroup>
+</Project>

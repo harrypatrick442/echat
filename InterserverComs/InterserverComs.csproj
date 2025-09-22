@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="BCrypt" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CertificateManagement\CertificateManagement.csproj" />
+    <ProjectReference Include="..\Constants\GlobalConstants.csproj" />
+    <ProjectReference Include="..\..\shared-public\Logging\CSharp\Logging.csproj" />
+    <ProjectReference Include="..\Logging_ClientFriendly\Logging_ClientFriendly.csproj" />
+    <ProjectReference Include="..\..\shared-private\MessageTypes\MessageTypes.csproj" />
+    <ProjectReference Include="..\Nodes\Nodes.csproj" />
+  </ItemGroup>
+</Project>

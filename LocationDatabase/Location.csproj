@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="LocationDatabase_old.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared-public\DatabaseCore\DatabaseCore.csproj" />
+    <ProjectReference Include="..\KeyValuePairDatabase\KeyValuePairDatabase.csproj" />
+    <ProjectReference Include="..\LocationCore\LocationCore.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataMemberNames\Messages\" />
+    <Folder Include="DataMemberNames\Requests\" />
+    <Folder Include="DataMemberNames\Responses\" />
+  </ItemGroup>
+</Project>

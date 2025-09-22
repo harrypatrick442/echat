@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Responses\AddTagsResponse.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared-public\Initialization\CSharp\Initialization.csproj" />
+    <ProjectReference Include="..\..\shared-private\MessageTypes\MessageTypes.csproj" />
+    <ProjectReference Include="..\NodeAssignedIdRangesCore\NodeAssignedIdRangesCore.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,22 @@
+﻿namespace GlobalConstants
+{
+    public static class Intervals
+    {
+        public const int
+            SLEEP_BETWEEN_DISPOSED_CHECK_INTERVAL = 3000,
+            TRANSFER_SERVER_LOAD_BALANCER_UPDATE_INTERVAL = 20000,
+            WEBSOCKET_LOAD_BALANCING_INDEX_DYNAMIC_CACHED_FILE_UPDATE = 4000,
+            MULTIMEDIA_SERVER_LOAD_BALANCER_UPDATE = 20000,
+            BROADCAST_WEBSOCKET_LOADING = 10000,
+            CHAT_ROOM_MESSAGE_HANDLER_FLUSH_TO_DATABASE = 120000,
+            CHECK_WATCHED_LOCKS = 10000,
+            UPDATE_MOST_ACTIVE_ROOMS = 60000,
+            MIN_DELAY_BEFORE_TIMEOUT_MULTIMEDIA_UPLOAD = 20000;
+        [ExportToJavaScript]
+        public const int
+            SWITCH_ONLINE_RECENTLY_BUFFERS= 1*60*1000;
+        public const long
+            MAXIMUM_INTERVAL_BEFORE_FLAG_WATCHED_LOCK=10000,
+            PROCESS_DELETE_MULTIMEDIAS = 65*60*1000;
+    }
+}

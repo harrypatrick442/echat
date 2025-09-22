@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared-public\BaseMessages\CSharp\BaseMessages.csproj" />
+    <ProjectReference Include="..\..\shared-public\BasicEvents\CSharp\BasicEvents.csproj" />
+    <ProjectReference Include="..\DataMemberNames\DataMemberNames.csproj" />
+    <ProjectReference Include="..\..\shared-public\EnvironmentEnums\EnvironmentEnums.csproj" />
+    <ProjectReference Include="..\..\shared-public\JSON\CSharp\JSON.csproj" />
+    <ProjectReference Include="..\..\shared-public\Native\CSharp\Native.csproj" />
+    <ProjectReference Include="..\..\shared-public\VirtualSockets\CSharp\VirtualSockets.csproj" />
+  </ItemGroup>
+</Project>

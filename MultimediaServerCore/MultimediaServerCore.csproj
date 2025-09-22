@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ImageProcessing\ImageProcessing.csproj" />
+    <ProjectReference Include="..\..\shared-public\Logging\CSharp\Logging.csproj" />
+    <ProjectReference Include="..\..\echat-private\Statistics\Statistics.csproj" />
+    <ProjectReference Include="..\MultimediaCore\MultimediaCore.csproj" />
+    <ProjectReference Include="..\VideoProcessing\VideoProcessing.csproj" />
+    <ProjectReference Include="..\..\shared-public\WebAbstract\WebAbstract.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
+  </ItemGroup>
+</Project>

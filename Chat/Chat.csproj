@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Conversation.cs" />
+    <Compile Remove="DAL\DalConversations.cs" />
+    <Compile Remove="DAL\DalMessagesAppendedJsonFiles.cs" />
+    <Compile Remove="DAL\DalMessagesSQLiteSingleConversation.cs" />
+    <Compile Remove="DataMemberNames\Requests\GetConversationRequestDataMemberNames.cs" />
+    <Compile Remove="Messages\Client\Requests\GetConversationRequest.cs" />
+    <Compile Remove="Messages\Client\Responses\GetConversationResponse.cs" />
+    <Compile Remove="Messages\Client\Responses\GetWallConversationResponse.cs" />
+    <Compile Remove="Messages\Interserver\GetConversationInterserverRequest.cs" />
+    <Compile Remove="ReceivedMessage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
+    <Folder Include="Messages\Interserver\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Administration\Administration.csproj" />
+    <ProjectReference Include="..\..\shared-public\Core\CSharp\Core.csproj" />
+    <ProjectReference Include="..\HashTags\HashTags.csproj" />
+    <ProjectReference Include="..\KeyValuePairDatabase\KeyValuePairDatabase.csproj" />
+    <ProjectReference Include="..\MentionsCore\MentionsCore.csproj" />
+    <ProjectReference Include="..\..\shared-private\MessageTypes\MessageTypes.csproj" />
+    <ProjectReference Include="..\MultimediaCore\MultimediaCore.csproj" />
+    <ProjectReference Include="..\MultimediaServerCore\MultimediaServerCore.csproj" />
+    <ProjectReference Include="..\NodeAssignedIdRangesCore\NodeAssignedIdRangesCore.csproj" />
+    <ProjectReference Include="..\NotificationsCore\NotificationsCore.csproj" />
+    <ProjectReference Include="..\..\shared-public\SQLite\SQLite.csproj" />
+    <ProjectReference Include="..\UserRouting\UserRouting.csproj" />
+    <ProjectReference Include="..\Users\Users.csproj" />
+  </ItemGroup>
+</Project>

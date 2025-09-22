@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <BaseOutputPath>C:\repos\snippets\Build\FileServer2</BaseOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CertificateManagement\CertificateManagement.csproj" />
+    <ProjectReference Include="..\..\shared-public\Core\CSharp\Core.csproj" />
+    <ProjectReference Include="..\FileServerBase\FileServerBase.csproj" />
+    <ProjectReference Include="..\..\shared-public\Logging\CSharp\Logging.csproj" />
+    <ProjectReference Include="..\Logging_ClientFriendly\Logging_ClientFriendly.csproj" />
+    <ProjectReference Include="..\..\logging\CSharp\LogServerCore\LogServerCore.csproj" />
+    <ProjectReference Include="..\..\echat-private\MaintenanceCore\MaintenanceCore.csproj" />
+    <ProjectReference Include="..\Nodes\Nodes.csproj" />
+    <ProjectReference Include="..\..\shared-public\Shutdown\CSharp\Shutdown.csproj" />
+  </ItemGroup>
+</Project>

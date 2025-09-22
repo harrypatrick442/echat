@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared-public\DatabaseCore\DatabaseCore.csproj" />
+    <ProjectReference Include="..\InterserverComs\InterserverComs.csproj" />
+    <ProjectReference Include="..\..\shared-public\Shutdown\CSharp\Shutdown.csproj" />
+  </ItemGroup>
+</Project>

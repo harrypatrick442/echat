@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.FeatureManagement" Version="4.3.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Flagging\Flagging.csproj" />
+    <ProjectReference Include="..\..\shared-public\Logging\CSharp\Logging.csproj" />
+    <ProjectReference Include="..\Logging_ClientFriendly\Logging_ClientFriendly.csproj" />
+    <ProjectReference Include="..\..\echat-private\MaintenanceCore\MaintenanceCore.csproj" />
+    <ProjectReference Include="..\MultimediaServerControllers\MultimediaServerControllers.csproj" />
+    <ProjectReference Include="..\MultimediaServerCore\MultimediaServerCore.csproj" />
+    <ProjectReference Include="..\..\shared-public\WebAbstract\WebAbstract.csproj" />
+  </ItemGroup>
+</Project>

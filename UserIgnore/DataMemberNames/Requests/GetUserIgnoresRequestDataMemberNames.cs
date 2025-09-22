@@ -1,0 +1,10 @@
+﻿using MessageTypes.Attributes;
+
+namespace UserIgnore.DataMemberNames.Requests
+{
+    [MessageType(global::MessageTypes.MessageTypes.UserIgnoreGet)]
+    public static class GetUserIgnoresRequestDataMemberNames
+    {
+        public const string UserId = "u";
+    }
+}

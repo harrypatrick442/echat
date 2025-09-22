@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <BaseOutputPath>C:\repos\snippets\Build\EChat1</BaseOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CertificateManagement\CertificateManagement.csproj" />
+    <ProjectReference Include="..\..\shared-private\Dependencies\Dependencies.csproj" />
+    <ProjectReference Include="..\EChatGeneric\EChatGeneric.csproj" />
+    <ProjectReference Include="..\..\shared-public\Logging\CSharp\Logging.csproj" />
+  </ItemGroup>
+</Project>

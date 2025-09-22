@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="DynamicCachedFileHttpServer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.FeatureManagement.AspNetCore" Version="4.3.0" />
+    <PackageReference Include="Microsoft.NETCore.App" Version="2.2.8" />
+    <PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared-public\Core\CSharp\Core.csproj" />
+    <ProjectReference Include="..\FileServerCore\FileServerCore.csproj" />
+    <ProjectReference Include="..\..\shared-public\Logging\CSharp\Logging.csproj" />
+    <ProjectReference Include="..\Logging_ClientFriendly\Logging_ClientFriendly.csproj" />
+    <ProjectReference Include="..\..\echat-private\MaintenanceCore\MaintenanceCore.csproj" />
+    <ProjectReference Include="..\..\echat-private\Statistics\Statistics.csproj" />
+    <ProjectReference Include="..\..\shared-public\WebAbstract\WebAbstract.csproj" />
+  </ItemGroup>
+</Project>
