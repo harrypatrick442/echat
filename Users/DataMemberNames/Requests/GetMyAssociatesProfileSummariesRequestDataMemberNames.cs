@@ -2,7 +2,7 @@
 
 namespace Users.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.UsersGetMyAssociatesProfileSummaries)]
+    [MessageType(MessageTypes.UsersGetMyAssociatesProfileSummaries)]
     public static class GetMyAssociatesProfileSummariesRequestDataMemberNames
     {
 

@@ -3,8 +3,9 @@ using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Nodes;
 using MessageTypes.Internal;
+using UserMultimediaCore.DataMemberNames.Messages;
 
-namespace MultimediaServerCore.Requests
+namespace UserMultimediaCore.Requests
 {
     [DataContract]
     public class PushUserMultimediaMetadataUpdateToUserEndpoints:TypedMessageBase

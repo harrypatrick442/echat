@@ -16,12 +16,12 @@ namespace Chat.Messages.Client.Requests
         [DataMember(Name = GetUserRoomsRequestDataMemberNames.Operation)]
         public UserRoomsOperation Operation { get; set; }
         public GetUserRoomsRequest(long myUserId, UserRoomsOperation operation)
-            : base(global::MessageTypes.MessageTypes.ChatGetUserRooms)
+            : base(MessageTypes.ChatGetUserRooms)
         {
             MyUserId = myUserId;
             Operation = operation;
         }
         protected GetUserRoomsRequest()
-            : base(global::MessageTypes.MessageTypes.ChatGetUserRooms) { }
+            : base(MessageTypes.ChatGetUserRooms) { }
     }
 }

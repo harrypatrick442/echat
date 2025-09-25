@@ -26,7 +26,7 @@ namespace Chat.Messages.Client.Requests
         [DataMember(Name = RemoveAdministratorRequestDataMemberNames.AllowRemoveOnlyFullAdmin)]
         public bool AllowRemoveOnlyFullAdmin { get; protected set; }
         public RemoveAdministratorRequest(long conversationId, long myUserId, long userId, bool allowRemoveOnlyFullAdmin)
-            : base(global::MessageTypes.MessageTypes.ChatRemoveAdministrator)
+            : base(MessageTypes.ChatRemoveAdministrator)
         {
             ConversationId = conversationId;
             UserId = userId;
@@ -34,6 +34,6 @@ namespace Chat.Messages.Client.Requests
             AllowRemoveOnlyFullAdmin = allowRemoveOnlyFullAdmin;
         }
         protected RemoveAdministratorRequest()
-            : base(global::MessageTypes.MessageTypes.ChatRemoveAdministrator) { }
+            : base(MessageTypes.ChatRemoveAdministrator) { }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Users.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.UsersGetAllAssociateEntries)]
+    [MessageType(MessageTypes.UsersGetAllAssociateEntries)]
     public static class GetAllAssociateEntriesRequestDataMemberNames
     {
         public const string

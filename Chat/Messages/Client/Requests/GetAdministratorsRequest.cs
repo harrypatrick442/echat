@@ -18,12 +18,12 @@ namespace Chat.Messages.Client.Requests
         [DataMember(Name = GetAdministratorsRequestDataMemberNames.MyUserId)]
         public long MyUserId { get; protected set; }
         public GetAdministratorsRequest(long conversationId, long myUserId)
-            : base(global::MessageTypes.MessageTypes.ChatGetAdministrators)
+            : base(MessageTypes.ChatGetAdministrators)
         {
             ConversationId = conversationId;
             MyUserId = myUserId;
         }
         protected GetAdministratorsRequest()
-            : base(global::MessageTypes.MessageTypes.ChatGetAdministrators) { }
+            : base(MessageTypes.ChatGetAdministrators) { }
     }
 }

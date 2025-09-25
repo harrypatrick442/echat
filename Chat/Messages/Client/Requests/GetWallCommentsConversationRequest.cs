@@ -39,7 +39,7 @@ namespace Chat.Messages.Client.Requests
             long myUserId,
             long wallConversationId,
             long wallMessageId)
-            : base(global::MessageTypes.MessageTypes.ChatGetWallCommentsConversation)
+            : base(MessageTypes.ChatGetWallCommentsConversation)
         {
             MyUserId = myUserId;
             WallConversationId = wallConversationId;

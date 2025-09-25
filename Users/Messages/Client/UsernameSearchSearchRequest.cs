@@ -17,13 +17,13 @@ namespace Users.Messages.Client
         [DataMember(Name = UsernameSearchSearchRequestDataMemberNames.MaxNEntries)]
         public int MaxNEntries { get; protected set; }
         public UsernameSearchSearchRequest(string str, int maxNEntries) :
-            base(global::MessageTypes.MessageTypes.UsernameSearchSearch)
+            base(MessageTypes.UsernameSearchSearch)
         {
             Str = str;
             MaxNEntries = maxNEntries;
         }
         protected UsernameSearchSearchRequest() :
-            base(global::MessageTypes.MessageTypes.UsernameSearchSearch)
+            base(MessageTypes.UsernameSearchSearch)
         { }
 
     }

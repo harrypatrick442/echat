@@ -13,11 +13,11 @@ namespace Chat.Messages.Client.Requests
         [DataMember(Name = SearchRoomsRequestDataMemberNames.Str)]
         public string Str { get; protected set; }
         public SearchRoomsRequest(string str)
-            : base(global::MessageTypes.MessageTypes.ChatSearchRooms)
+            : base(MessageTypes.ChatSearchRooms)
         {
             Str = str;
         }
         protected SearchRoomsRequest()
-            : base(global::MessageTypes.MessageTypes.ChatSearchRooms) { }
+            : base(MessageTypes.ChatSearchRooms) { }
     }
 }

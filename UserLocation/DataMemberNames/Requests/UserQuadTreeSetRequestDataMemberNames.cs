@@ -3,7 +3,7 @@ using MessageTypes.Attributes;
 
 namespace UserLocation.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.UserQuadTreeSet)]
+    [MessageType(MessageTypes.UserQuadTreeSet)]
     public static class UserQuadTreeSetRequestDataMemberNames
     {
         [DataMemberNamesClass(typeof(LatLngDataMemberNames), isArray: false)]

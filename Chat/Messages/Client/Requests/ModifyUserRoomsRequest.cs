@@ -25,7 +25,7 @@ namespace Chat.Messages.Client.Requests
         [DataMember(Name = ModifyUserRoomsRequestDataMemberNames.Operations)]
         public UserRoomsOperation[] Operations { get; set; }
         public ModifyUserRoomsRequest(long myUserId, long conversationId, bool addElseRemove, UserRoomsOperation[] operations)
-            : base(global::MessageTypes.MessageTypes.ChatModifyUserRooms)
+            : base(MessageTypes.ChatModifyUserRooms)
         {
             MyUserId = myUserId;
             ConversationId = conversationId;
@@ -33,6 +33,6 @@ namespace Chat.Messages.Client.Requests
             Operations = operations;
         }
         protected ModifyUserRoomsRequest()
-            : base(global::MessageTypes.MessageTypes.ChatModifyUserRooms) { }
+            : base(MessageTypes.ChatModifyUserRooms) { }
     }
 }

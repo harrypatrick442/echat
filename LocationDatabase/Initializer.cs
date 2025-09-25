@@ -1,6 +1,4 @@
-﻿using LocationDatabase;
-
-namespace Location
+﻿namespace Location
 {
     public static class Initializer
     {

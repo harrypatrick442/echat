@@ -2,7 +2,7 @@
 
 namespace Users.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.UsersAcceptRequest)]
+    [MessageType(MessageTypes.UsersAcceptRequest)]
     public static class AcceptRequestRequestDataMemberNames
     {
         [DataMemberNamesIgnore]

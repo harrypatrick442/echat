@@ -25,7 +25,7 @@ namespace Chat.Messages.Client.Messages
             ConversationId = conversationId;
             UserIdBeingInvited = userIdBeingInvited;
             UserIdInviting = userIdInviting;
-            _Type = global::MessageTypes.MessageTypes.ChatRemoveRoomInvite;
+            _Type = MessageTypes.ChatRemoveRoomInvite;
         }
     }
 }

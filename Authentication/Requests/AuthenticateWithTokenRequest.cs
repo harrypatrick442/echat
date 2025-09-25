@@ -9,11 +9,11 @@ namespace Authentication.Requests
     public class AuthenticateWithTokenRequest : TicketedMessageBase
     {
 
-        public AuthenticateWithTokenRequest(string guid) : base(global::MessageTypes.MessageTypes.AuthenticateWithToken)
+        public AuthenticateWithTokenRequest(string guid) : base(MessageTypes.AuthenticateWithToken)
         {
             Token = guid;
         }
-        protected AuthenticateWithTokenRequest(): base(global::MessageTypes.MessageTypes.AuthenticateWithToken)
+        protected AuthenticateWithTokenRequest(): base(MessageTypes.AuthenticateWithToken)
         {
 
         }

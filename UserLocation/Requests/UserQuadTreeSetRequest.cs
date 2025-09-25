@@ -14,11 +14,11 @@ namespace UserLocation
         [DataMember(Name = UserQuadTreeGetRequestDataMemberNames.LatLng)]
         public LatLng LatLng { get; protected set; }
         public UserQuadTreeSetRequest(LatLng latLng)
-            : base(global::MessageTypes.MessageTypes.UserQuadTreeSet)
+            : base(MessageTypes.UserQuadTreeSet)
         {
             LatLng = latLng;
         }
         protected UserQuadTreeSetRequest()
-            : base(global::MessageTypes.MessageTypes.UserQuadTreeSet) { }
+            : base(MessageTypes.UserQuadTreeSet) { }
     }
 }

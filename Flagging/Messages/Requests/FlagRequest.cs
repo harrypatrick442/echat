@@ -44,7 +44,7 @@ namespace Flagging.Messages.Requests
         public FlagRequest(long myUserId, long userIdBeingFlagged, 
             FlagType flagType, long scopeType, long scopeId, long? scopeId2, 
             long flaggedAt, string description)
-            : base(global::MessageTypes.MessageTypes.FlaggingFlag)
+            : base(MessageTypes.FlaggingFlag)
         {
             UserIdFlagging = myUserId;
             UserIdBeingFlagged = userIdBeingFlagged;
@@ -56,7 +56,7 @@ namespace Flagging.Messages.Requests
             Description = description;
         }
         protected FlagRequest()
-            : base(global::MessageTypes.MessageTypes.FlaggingFlag) { 
+            : base(MessageTypes.FlaggingFlag) { 
             
         }
     }

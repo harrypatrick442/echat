@@ -2,7 +2,7 @@
 
 namespace Chat.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatGetRoomSummarys)]
+    [MessageType(MessageTypes.ChatGetRoomSummarys)]
     public static class GetRoomSummarysRequestDataMemberNames
     {
         public const string

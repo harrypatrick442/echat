@@ -36,7 +36,7 @@ namespace MentionsCore.Messages
             long conversationId,
             string contentSnapshot, bool seen)
         {
-            Type = global::MessageTypes.MessageTypes.MentionsMention;
+            Type = MessageTypes.MentionsMention;
             UserIdMentioning = userIdMentioning;
             AtTime = atTime;
             MessageId = messageId;

@@ -25,11 +25,11 @@ namespace Chat.Messages.Client.Messages
             MyUserId = myUserId;
             ConversationId = conversationId;
             MessageId = messageId;
-            _Type = global::MessageTypes.MessageTypes.ChatSetSeenMessage;
+            _Type = MessageTypes.ChatSetSeenMessage;
         }
         protected SetSeenMessage()
         {
-            _Type = global::MessageTypes.MessageTypes.ChatSetSeenMessage;
+            _Type = MessageTypes.ChatSetSeenMessage;
         }
     }
 }

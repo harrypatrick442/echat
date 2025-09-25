@@ -3,7 +3,7 @@ using Users.DataMemberNames.Messages;
 
 namespace Users.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.UsersModifyUserProfile)]
+    [MessageType(MessageTypes.UsersModifyUserProfile)]
     public class ModifyUserProfileRequestDataMemberNames
     {
         public const string MyUserId = "u";

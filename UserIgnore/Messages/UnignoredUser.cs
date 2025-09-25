@@ -15,7 +15,7 @@ namespace UserIgnore.Messages
             : base()
         {
             UserId = userId;
-            Type = global::MessageTypes.MessageTypes.UserIgnoreUnignored;
+            Type = MessageTypes.UserIgnoreUnignored;
         }
         protected UnignoredUser() { }
     }

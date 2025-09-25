@@ -26,7 +26,7 @@ namespace Chat.Messages.Client.Requests
         [DataMember(Name = SetAdministratorRequestDataMemberNames.Privilages)]
         public AdministratorPrivilages Privilages { get; protected set; }
         public SetAdministratorRequest(long conversationId, long myUserId, long userId, AdministratorPrivilages privilages)
-            : base(global::MessageTypes.MessageTypes.ChatSetAdministrator)
+            : base(MessageTypes.ChatSetAdministrator)
         {
             ConversationId = conversationId;
             UserId = userId;
@@ -34,6 +34,6 @@ namespace Chat.Messages.Client.Requests
             Privilages = privilages;
         }
         protected SetAdministratorRequest()
-            : base(global::MessageTypes.MessageTypes.ChatSetAdministrator) { }
+            : base(MessageTypes.ChatSetAdministrator) { }
     }
 }

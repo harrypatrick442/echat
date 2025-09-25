@@ -16,6 +16,7 @@ using MultimediaServerCore.Requests;
 using MultimediaServerCore;
 using Core.DAL;
 using Chat.Interfaces;
+using MultimediaServerCore.Messages.Messages;
 
 namespace Chat.Endpoints
 {
@@ -32,35 +33,35 @@ namespace Chat.Endpoints
         {
             _ClientEndpoint = clientEndpoint;
             _RemoveClientMessageTypeMappings = clientMessageTypeMappingsHandler.AddRange(new TupleList<string, DelegateHandleMessageOfType<TypeTicketedAndWholePayload>> {
-                { global::MessageTypes.MessageTypes.ChatGetConversationSnapshots, GetMyConversationSnapshots },
-                { global::MessageTypes.MessageTypes.ChatGetPmConversationWithLatestMessages, GetPmConversation},
+                { MessageTypes.ChatGetConversationSnapshots, GetMyConversationSnapshots },
+                { MessageTypes.ChatGetPmConversationWithLatestMessages, GetPmConversation},
                 //{ ClientMessageTypes.ChatGetConversation, GetConversation},
-                { global::MessageTypes.MessageTypes.ClientMessage, SendMessage},
-                { global::MessageTypes.MessageTypes.ChatFetchIndividualMessages, FetchIndividualMessages},
-                { global::MessageTypes.MessageTypes.ChatLoadMessagesHistory, LoadMessagesHistory},
-                { global::MessageTypes.MessageTypes.ChatUnreactToMessage, UnreactToMessage},
-                { global::MessageTypes.MessageTypes.ChatReactToMessage, ReactToMessage},
-                { global::MessageTypes.MessageTypes.ChatModifyMessage, ModifyMessage},
-                { global::MessageTypes.MessageTypes.ChatDeleteMessages, DeleteMessages},
-                { global::MessageTypes.MessageTypes.ChatGetUserRooms, GetUserRooms},
-                { global::MessageTypes.MessageTypes.ChatModifyUserRooms, ModifyUserRooms},
-                { global::MessageTypes.MessageTypes.ChatGetRoomSummarys, GetRoomSummarys},
-                { global::MessageTypes.MessageTypes.ChatCreateRoom, CreateRoom},
-                { global::MessageTypes.MessageTypes.ChatPmUploadMessagePicture, HandlePmUploadMessagePicture},
-                { global::MessageTypes.MessageTypes.ChatPmUploadMessageVideo, HandlePmUploadMessageVideo},
-                { global::MessageTypes.MessageTypes.MultimediaDeletePending, HandleDeletePendingMultimediaItem},
-                { global::MessageTypes.MessageTypes.ChatGetWallConversation, GetWallConversation},
-                { global::MessageTypes.MessageTypes.ChatGetWallCommentsConversation, GetWallCommentsConversation},
-                { global::MessageTypes.MessageTypes.ChatRemoveUserFromActiveConversations, RemoveUserFromActiveConversations},
-                { global::MessageTypes.MessageTypes.ChatRoomInvite, HandleRoomInvite},
-                { global::MessageTypes.MessageTypes.ChatGetMyReceivedInvites, HandleGetMyReceivedInvites},
-                { global::MessageTypes.MessageTypes.ChatGetMySentInvites, HandleGetMySentInvites },
-                { global::MessageTypes.MessageTypes.ChatAcceptRoomInvite, HandleAcceptRoomInvite },
-                { global::MessageTypes.MessageTypes.ChatRejectRoomInvite, HandleRejectRoomInvite},
-                { global::MessageTypes.MessageTypes.ChatCancelRoomInvite, HandleCancelRoomInvite },
-                { global::MessageTypes.MessageTypes.ChatLeaveRoom, HandleLeaveRoom },
-                { global::MessageTypes.MessageTypes.ChatSearchRooms, HandleSearchRooms },
-                { global::MessageTypes.MessageTypes.ChatSetSeenMessage, HandleSetSeenMessage }
+                { MessageTypes.ClientMessage, SendMessage},
+                { MessageTypes.ChatFetchIndividualMessages, FetchIndividualMessages},
+                { MessageTypes.ChatLoadMessagesHistory, LoadMessagesHistory},
+                { MessageTypes.ChatUnreactToMessage, UnreactToMessage},
+                { MessageTypes.ChatReactToMessage, ReactToMessage},
+                { MessageTypes.ChatModifyMessage, ModifyMessage},
+                { MessageTypes.ChatDeleteMessages, DeleteMessages},
+                { MessageTypes.ChatGetUserRooms, GetUserRooms},
+                { MessageTypes.ChatModifyUserRooms, ModifyUserRooms},
+                { MessageTypes.ChatGetRoomSummarys, GetRoomSummarys},
+                { MessageTypes.ChatCreateRoom, CreateRoom},
+                { MessageTypes.ChatPmUploadMessagePicture, HandlePmUploadMessagePicture},
+                { MessageTypes.ChatPmUploadMessageVideo, HandlePmUploadMessageVideo},
+                { MultimediaServerCore.MessageTypes.MultimediaDeletePending, HandleDeletePendingMultimediaItem},
+                { MessageTypes.ChatGetWallConversation, GetWallConversation},
+                { MessageTypes.ChatGetWallCommentsConversation, GetWallCommentsConversation},
+                { MessageTypes.ChatRemoveUserFromActiveConversations, RemoveUserFromActiveConversations},
+                { MessageTypes.ChatRoomInvite, HandleRoomInvite},
+                { MessageTypes.ChatGetMyReceivedInvites, HandleGetMyReceivedInvites},
+                { MessageTypes.ChatGetMySentInvites, HandleGetMySentInvites },
+                { MessageTypes.ChatAcceptRoomInvite, HandleAcceptRoomInvite },
+                { MessageTypes.ChatRejectRoomInvite, HandleRejectRoomInvite},
+                { MessageTypes.ChatCancelRoomInvite, HandleCancelRoomInvite },
+                { MessageTypes.ChatLeaveRoom, HandleLeaveRoom },
+                { MessageTypes.ChatSearchRooms, HandleSearchRooms },
+                { MessageTypes.ChatSetSeenMessage, HandleSetSeenMessage }
             });
         }
         private void GetMyConversationSnapshots(TypeTicketedAndWholePayload message)

@@ -14,11 +14,11 @@ namespace Authentication.Requests
         [JsonInclude]
         [DataMember(Name = LogInGuestRequestDataMemberNames.Username)]
         public string Username { get; protected set; }
-        public LogInGuestRequest(string username) : base(global::MessageTypes.MessageTypes.AuthenticationLogInGuest)
+        public LogInGuestRequest(string username) : base(MessageTypes.AuthenticationLogInGuest)
         {
             Username = username;
         }
-        protected LogInGuestRequest() : base(global::MessageTypes.MessageTypes.AuthenticationLogInGuest)
+        protected LogInGuestRequest() : base(MessageTypes.AuthenticationLogInGuest)
         {
 
         }

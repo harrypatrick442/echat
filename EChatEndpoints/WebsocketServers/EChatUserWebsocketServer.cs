@@ -4,7 +4,6 @@ using WebSocketSharp.Server;
 using Logging;
 using System.Net;
 using Core.InterserverComs;
-using Core.Authentication;
 using Core.Interfaces;
 using Users;
 using UserIgnore;
@@ -20,6 +19,10 @@ using NotificationsCore;
 using NotificationsCore.Messages.Messages;
 using EChat.Messages;
 using Users.Messages.Client;
+using WebAbstract;
+using UserMultimediaCore;
+using MentionsCore;
+using HashTags;
 
 namespace EChatEndpoints.WebsocketServers
 {

@@ -3,7 +3,7 @@ using Core.Exceptions;
 using Location.Interfaces;
 using System.Collections.Generic;
 
-namespace LocationDatabase
+namespace Location
 {
     public static class QuadTreeDatabasesInvolvedWithThisMachine
     {

@@ -20,14 +20,14 @@ namespace UserLocation
         public QuadrantNEntries[] QuadrantNEntriess { get; protected set; }
         public UserQuadTreeGetNEntriesResponse(long ticket, bool success, 
             QuadrantNEntries[] quadrantNEntriess)
-            : base(global::MessageTypes.MessageTypes.UserQuadTreeSet)
+            : base(MessageTypes.UserQuadTreeSet)
         {
             Success = success;
             QuadrantNEntriess = quadrantNEntriess;
             Ticket = ticket;
         }
         protected UserQuadTreeGetNEntriesResponse()
-            : base(global::MessageTypes.MessageTypes.UserQuadTreeSet) { }
+            : base(MessageTypes.UserQuadTreeSet) { }
         public static UserQuadTreeGetNEntriesResponse Successful(QuadrantNEntries[] quadrantNEntriess, long ticket)
         {
             return new UserQuadTreeGetNEntriesResponse(ticket, true, quadrantNEntriess);

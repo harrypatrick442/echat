@@ -3,7 +3,7 @@ using MessageTypes.Internal;
 
 namespace Flagging.DataMemberNames.Requests
 {
-    [MessageType(MessageTypes.MessageTypes.FlaggingFlag)]
+    [MessageType(MessageTypes.FlaggingFlag)]
     public static class FlagRequestDataMemberNames
     {
         [DataMemberNamesIgnore(toJSON:true)]

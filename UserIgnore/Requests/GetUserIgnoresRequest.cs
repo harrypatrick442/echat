@@ -13,11 +13,11 @@ namespace UserIgnore.Requests
         [DataMember(Name = GetUserIgnoresRequestDataMemberNames.UserId)]
         public long UserId { get; protected set; }
         public GetUserIgnoresRequest(long userId)
-            : base(global::MessageTypes.MessageTypes.UserIgnoreGet)
+            : base(MessageTypes.UserIgnoreGet)
         {
             UserId = userId;
         }
         protected GetUserIgnoresRequest()
-            : base(global::MessageTypes.MessageTypes.UserIgnoreGet) { }
+            : base(MessageTypes.UserIgnoreGet) { }
     }
 }

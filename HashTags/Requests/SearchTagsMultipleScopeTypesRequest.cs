@@ -27,7 +27,7 @@ namespace HashTags.Messages
         public int MaxNEntriesPerScopeType { get; protected set; }
         public SearchTagsMultipleScopeTypesRequest(string tag, HashTagScopeTypes[] scopeTypes, 
             bool allowPartialMatches, int maxNEntriesPerScopeType)
-            :base(global::MessageTypes.MessageTypes.SearchTagsMultipleScopeTypes)
+            :base(MessageTypes.SearchTagsMultipleScopeTypes)
         {
             Tag = tag;
             ScopeTypes = scopeTypes;
@@ -35,6 +35,6 @@ namespace HashTags.Messages
             MaxNEntriesPerScopeType = maxNEntriesPerScopeType;
         }
         protected SearchTagsMultipleScopeTypesRequest()
-            : base(global::MessageTypes.MessageTypes.SearchTagsMultipleScopeTypes) { }
+            : base(MessageTypes.SearchTagsMultipleScopeTypes) { }
     }
 }

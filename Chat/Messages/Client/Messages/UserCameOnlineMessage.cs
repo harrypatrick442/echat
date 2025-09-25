@@ -26,7 +26,7 @@ namespace Chat.Messages.Client.Messages
         }
         public UserCameOnlineMessage(long userId, long timestamp) : base()
         {
-            _Type = global::MessageTypes.MessageTypes.ChatRoomUserCameOnline;
+            _Type = MessageTypes.ChatRoomUserCameOnline;
             UserId = userId;
             Timestamp = timestamp;
         }

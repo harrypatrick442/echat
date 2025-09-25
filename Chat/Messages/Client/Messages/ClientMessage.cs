@@ -128,7 +128,7 @@ namespace Chat.Messages.Client.Messages
         }
         public ClientMessage(long id, int version, long sentAt, long userId, string content) : base()
         {
-            _Type = global::MessageTypes.MessageTypes.ClientMessage;
+            _Type = MessageTypes.ClientMessage;
             Id = id;
             Version = version;
             SentAt = sentAt;

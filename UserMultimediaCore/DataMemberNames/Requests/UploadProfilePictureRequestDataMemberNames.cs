@@ -2,7 +2,7 @@
 using MessageTypes.Attributes;
 namespace UserMultimediaCore.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.MultimediaUploadProfilePicture)]
+    [MessageType(MessageTypes.MultimediaUploadProfilePicture)]
     public class UploadProfilePictureRequestDataMemberNames
     {
         [DataMemberNamesClass(typeof(FileInfoDataMemberNames), isArray: false)]

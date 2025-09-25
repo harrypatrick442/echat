@@ -1,7 +1,7 @@
 ﻿using MessageTypes.Attributes;
-namespace Chat.DataMemberNames.Messages
+namespace MultimediaServerCore.DataMemberNames.Messages
 {
-    [MessageType(global::MessageTypes.MessageTypes.MultimediaDeletePending)]
+    [MessageType(MessageTypes.MultimediaDeletePending)]
     public class DeletePendingUserMultimediaItemDataMemberNames
     {
         public const string

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LocationDatabase
+namespace Location
 {
     public class LevelQuadrantNodeMappings
     {

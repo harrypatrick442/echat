@@ -10,7 +10,7 @@ using MentionsCore.Responses;
 using MentionsCore.Requests;
 using MentionsCore.Messages;
 
-namespace UserIgnore
+namespace MentionsCore
 {
     public class MentionsClientEndpoint
     {
@@ -23,8 +23,8 @@ namespace UserIgnore
         {
             _Endpoint = snippetsClientEndpoint;
             _RemoveClientMessageTypeMappings = clientMessageTypeMappingsHandler.AddRange(new TupleList<string, DelegateHandleMessageOfType<TypeTicketedAndWholePayload>> {
-                { MessageTypes.MessageTypes.MentionsGet, HandleGetMentions},
-                { MessageTypes.MessageTypes.MentionsSetSeen, HandleSetSeenMention}
+                { MessageTypes.MentionsGet, HandleGetMentions},
+                { MessageTypes.MentionsSetSeen, HandleSetSeenMention}
             });
         }
         private void HandleGetMentions(TypeTicketedAndWholePayload message)

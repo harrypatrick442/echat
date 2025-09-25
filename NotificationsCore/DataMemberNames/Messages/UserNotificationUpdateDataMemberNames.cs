@@ -2,7 +2,7 @@
 
 namespace NotificationsCore.DataMemberNames.Messages
 {
-    [MessageType(MessageTypes.MessageTypes.UserNotificationsUpdate)]
+    [MessageType(MessageTypes.UserNotificationsUpdate)]
     public static class UserNotificationUpdateDataMemberNames
     {
         public const string NotificationType = "n";

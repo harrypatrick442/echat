@@ -35,7 +35,7 @@ namespace MentionsCore.Messages
         public AddOrUpdateMention(long[] userIdsBeingMentioned, Mention mention, bool isUpdate)
             : base()
         {
-            Type = global::MessageTypes.MessageTypes.MentionsAddOrUpdate;
+            Type = MessageTypes.MentionsAddOrUpdate;
             UserIdsBeingMentioned = userIdsBeingMentioned;
             IsUpdate = isUpdate;
             Mention = mention;

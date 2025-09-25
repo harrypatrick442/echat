@@ -2,7 +2,7 @@
 
 namespace Users.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.UsersCounterRequest)]
+    [MessageType(MessageTypes.UsersCounterRequest)]
     public static class CounterRequestRequestDataMemberNames
     {
         public const string

@@ -2,7 +2,7 @@
 
 namespace Authentication.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.AuthenticationResetPasswordByEmail)]
+    [MessageType(MessageTypes.AuthenticationResetPasswordByEmail)]
     public class ResetPasswordByEmailRequestDataMemberNames
     {
         public const string Email = "e";

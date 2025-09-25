@@ -3,7 +3,7 @@ using JSON;
 using Core.Handlers;
 using InterserverComs;
 using Core;
-using MessageTypes.Internal;
+using KeyValuePairDatabase;
 
 namespace KeyValuePairDatabases.Appended
 {

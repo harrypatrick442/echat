@@ -3,7 +3,7 @@ using Chat.DataMemberNames.Messages;
 
 namespace Chat.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatRoomSendMessage)]
+    [MessageType(MessageTypes.ChatRoomSendMessage)]
     public static class SendChatRoomMessageRequestDataMemberNames
     {
         [DataMemberNamesClass(typeof(ClientMessageDataMemberNames),

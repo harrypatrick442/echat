@@ -2,7 +2,7 @@
 
 namespace Users.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.UsersInviteAssociateByUserId)]
+    [MessageType(MessageTypes.UsersInviteAssociateByUserId)]
     public static class InviteAssociateRequestDataMemberNames
     {
         public const string Email = "e",

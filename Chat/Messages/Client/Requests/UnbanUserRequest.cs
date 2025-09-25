@@ -13,11 +13,11 @@ namespace Chat.Messages.Client.Requests
         [DataMember(Name = UnbanUserRequestDataMemberNames.UserId)]
         public long UserId { get; protected set; }
         public UnbanUserRequest(long conversationId, long userId)
-            : base(global::MessageTypes.MessageTypes.ChatUnbanUser)
+            : base(MessageTypes.ChatUnbanUser)
         {
             UserId = userId;
         }
         protected UnbanUserRequest()
-            : base(global::MessageTypes.MessageTypes.ChatUnbanUser) { }
+            : base(MessageTypes.ChatUnbanUser) { }
     }
 }

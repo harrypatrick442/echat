@@ -5,7 +5,7 @@ using FileInfo = Core.Messages.Messages.FileInfo;
 using UsersEnums;
 using UserMultimediaCore.DataMemberNames.Requests;
 
-namespace MultimediaServerCore.Requests
+namespace UserMultimediaCore.Requests
 {
     [DataContract]
     public class UploadProfilePictureRequest : TicketedMessageBase
@@ -31,7 +31,7 @@ namespace MultimediaServerCore.Requests
         [DataMember(Name = UploadProfilePictureRequestDataMemberNames.SetAsMain)]
         public bool SetAsMain { get; protected set; }
         public UploadProfilePictureRequest(FileInfo fileInfo, XRating xRating, 
-            VisibleTo visibleTo, string description, bool setAsMain) : base(global::MessageTypes.MessageTypes.MultimediaUploadProfilePicture)
+            VisibleTo visibleTo, string description, bool setAsMain) : base(MessageTypes.MultimediaUploadProfilePicture)
         {
             FileInfo = fileInfo;
             XRating = xRating;
@@ -39,6 +39,6 @@ namespace MultimediaServerCore.Requests
             Description = description;
             SetAsMain = setAsMain;
         }
-        protected UploadProfilePictureRequest() : base(global::MessageTypes.MessageTypes.MultimediaUploadProfilePicture) { }
+        protected UploadProfilePictureRequest() : base(MessageTypes.MultimediaUploadProfilePicture) { }
     }
 }

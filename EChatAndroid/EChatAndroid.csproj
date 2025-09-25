@@ -17,7 +17,7 @@
     <None Remove="Resources\mipmap-anydpi-v26\appicon_round.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataMemberNames\DataMemberNames.csproj" />
+    <ProjectReference Include="..\..\snippets\API\DataMemberNames\DataMemberNames.csproj" />
     <ProjectReference Include="..\EChatNative\EChatNative.csproj" />
     <ProjectReference Include="..\..\shared-public\NativeAndroid\CSharp\NativeAndroid.csproj" />
     <ProjectReference Include="..\..\shared-public\Native\CSharp\Native.csproj" />

@@ -22,13 +22,13 @@ namespace HashTags.Messages
         [DataMember(Name = SearchToPredictTagRequestDataMemberNames.MaxNEntries)]
         public int MaxNEntries { get; protected set; }
         public SearchToPredictTagRequest(string str, HashTagScopeTypes? scopeType, int maxNEntries)
-            :base(global::MessageTypes.MessageTypes.SearchToPredictTag)
+            :base(MessageTypes.SearchToPredictTag)
         {
             Str = str;
             ScopeType = scopeType;
             MaxNEntries = maxNEntries;
         }
         protected SearchToPredictTagRequest()
-            : base(global::MessageTypes.MessageTypes.SearchToPredictTag) { }
+            : base(MessageTypes.SearchToPredictTag) { }
     }
 }

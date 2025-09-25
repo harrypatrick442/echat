@@ -2,7 +2,7 @@
 
 namespace Users.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.UsersGetAnotherUsersAssociatesUserProfileSummarys)]
+    [MessageType(MessageTypes.UsersGetAnotherUsersAssociatesUserProfileSummarys)]
     public class GetAnotherUsersAssociatesUserProfileSummarysRequestDataMemberNames
     {
         public const string OtherUserId = "o";

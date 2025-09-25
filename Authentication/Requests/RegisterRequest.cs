@@ -27,12 +27,12 @@ namespace Authentication.Requests
         [DataMember(Name = RegisterRequestDataMemberNames.Password)]
         public string Password { get; protected set; }
 
-        public RegisterRequest(string email, string password) : base(global::MessageTypes.MessageTypes.AuthenticationRegister)
+        public RegisterRequest(string email, string password) : base(MessageTypes.AuthenticationRegister)
         {
             Email = email;
             Password = password;
         }
-        protected RegisterRequest() : base(global::MessageTypes.MessageTypes.AuthenticationRegister)
+        protected RegisterRequest() : base(MessageTypes.AuthenticationRegister)
         {
 
         }

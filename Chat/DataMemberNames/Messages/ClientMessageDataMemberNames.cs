@@ -3,7 +3,7 @@ using MultimediaCore.DataMemberNames.Messages;
 
 namespace Chat.DataMemberNames.Messages
 {
-    [MessageType(global::MessageTypes.MessageTypes.ClientMessage)]
+    [MessageType(MessageTypes.ClientMessage)]
     public class ClientMessageDataMemberNames
     {
         public const string Id = "i";

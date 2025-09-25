@@ -3,7 +3,7 @@ using MessageTypes.Internal;
 
 namespace Authentication.DataMemberNames.Requests
 {
-    [MessageType(MessageTypes.MessageTypes.AuthenticationUpdatePassword)]
+    [MessageType(MessageTypes.AuthenticationUpdatePassword)]
     public class UpdatePasswordRequestDataMemberNames
     {
         public const string Secret = "secret";

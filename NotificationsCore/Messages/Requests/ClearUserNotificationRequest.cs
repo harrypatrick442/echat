@@ -22,9 +22,9 @@ namespace NotificationsCore.Messages.Requests
         [DataMember(Name = ClearUserNotificationRequestDataMemberNames.UpToAtInclusive)]
         public long UpToAtInclusive { get; protected set; }
         protected ClearUserNotificationRequest()
-            : base(global::MessageTypes.MessageTypes.UserNotificationsClear) { }
+            : base(MessageTypes.UserNotificationsClear) { }
         public ClearUserNotificationRequest(long userId, NotificationType notificationType, long upToAtInclusive) 
-            : base(global::MessageTypes.MessageTypes.UserNotificationsClear) {
+            : base(MessageTypes.UserNotificationsClear) {
             UserId = userId;
             NotificationType = notificationType;
             UpToAtInclusive = upToAtInclusive;

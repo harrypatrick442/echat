@@ -14,6 +14,7 @@ using MultimediaServerCore;
 using MultimediaServerCore.Requests;
 using Users.Messages.Client;
 using Users;
+using MultimediaServerCore.Messages.Messages;
 
 namespace Chat.Endpoints
 {
@@ -48,23 +49,23 @@ namespace Chat.Endpoints
             _ClientEndpoint = chatRoomSocket;
             _RemoveClientMessageTypeMappings = clientMessageTypeMappingsHandler
                 .AddRange(new TupleList<string, DelegateHandleMessageOfType<TypeTicketedAndWholePayload>> {
-                    { global::MessageTypes.MessageTypes.ChatRoomSendMessage, HandleMessage},
-                    { global::MessageTypes.MessageTypes.ChatLoadMessagesHistory, LoadMessagesHistory },
-                    { global::MessageTypes.MessageTypes.ChatUnreactToMessage, UnreactToMessage},
-                    { global::MessageTypes.MessageTypes.ChatReactToMessage, ReactToMessage},
-                    { global::MessageTypes.MessageTypes.ChatModifyMessage, ModifyMessage},
-                    { global::MessageTypes.MessageTypes.ChatDeleteMessages, DeleteMessages},
-                    { global::MessageTypes.MessageTypes.ChatUpdateRoomInfo, UpdateRoomInfo},
-                    { global::MessageTypes.MessageTypes.ChatUploadRoomPicture, UploadChatRoomPicture},
-                    { global::MessageTypes.MessageTypes.ChatUploadMessagePicture, HandleUploadMessagePicture},
-                    { global::MessageTypes.MessageTypes.ChatUploadMessageVideo, HandleUploadMessageVideo},
-                    { global::MessageTypes.MessageTypes.MultimediaDeletePending, HandleDeletePendingMultimediaItem},
-                    { global::MessageTypes.MessageTypes.ChatGetAdministrators, HandleGetAdministrators},
-                    { global::MessageTypes.MessageTypes.ChatSetAdministrator, HandleSetAdministrator},
-                    { global::MessageTypes.MessageTypes.ChatRemoveAdministrator, HandleRemoveAdministrator},
-                    { global::MessageTypes.MessageTypes.UsernameSearchSearch , HandleUsernameSearchSearch},
-                    { global::MessageTypes.MessageTypes.ChatBanUser, HandleBanUser },
-                    { global::MessageTypes.MessageTypes.ChatUnbanUser, HandleUnbanUser }
+                    { MessageTypes.ChatRoomSendMessage, HandleMessage},
+                    { MessageTypes.ChatLoadMessagesHistory, LoadMessagesHistory },
+                    { MessageTypes.ChatUnreactToMessage, UnreactToMessage},
+                    { MessageTypes.ChatReactToMessage, ReactToMessage},
+                    { MessageTypes.ChatModifyMessage, ModifyMessage},
+                    { MessageTypes.ChatDeleteMessages, DeleteMessages},
+                    { MessageTypes.ChatUpdateRoomInfo, UpdateRoomInfo},
+                    { MessageTypes.ChatUploadRoomPicture, UploadChatRoomPicture},
+                    { MessageTypes.ChatUploadMessagePicture, HandleUploadMessagePicture},
+                    { MessageTypes.ChatUploadMessageVideo, HandleUploadMessageVideo},
+                    { MultimediaServerCore.MessageTypes.MultimediaDeletePending, HandleDeletePendingMultimediaItem},
+                    { MessageTypes.ChatGetAdministrators, HandleGetAdministrators},
+                    { MessageTypes.ChatSetAdministrator, HandleSetAdministrator},
+                    { MessageTypes.ChatRemoveAdministrator, HandleRemoveAdministrator},
+                    { Users.MessageTypes.UsernameSearchSearch , HandleUsernameSearchSearch},
+                    { MessageTypes.ChatBanUser, HandleBanUser },
+                    { MessageTypes.ChatUnbanUser, HandleUnbanUser }
                 });
         }
         public void SendJSONString(string jsonString)

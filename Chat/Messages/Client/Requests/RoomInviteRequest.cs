@@ -36,14 +36,14 @@ namespace Chat.Messages.Client.Requests
             protected set;
         }
         public RoomInviteRequest(long conversationId, long otherUserId, long myUserId)
-            : base(global::MessageTypes.MessageTypes.ChatRoomInvite)
+            : base(MessageTypes.ChatRoomInvite)
         {
             ConversationId = conversationId;
             MyUserId = myUserId;
             OtherUserId = otherUserId;
         }
         public RoomInviteRequest()
-            : base(global::MessageTypes.MessageTypes.ChatRoomInvite)
+            : base(MessageTypes.ChatRoomInvite)
         {
         }
     }

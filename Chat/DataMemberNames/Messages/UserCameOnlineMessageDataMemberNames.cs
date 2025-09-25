@@ -2,7 +2,7 @@
 
 namespace Chat.DataMemberNames.Messages
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatRoomUserCameOnline)]
+    [MessageType(MessageTypes.ChatRoomUserCameOnline)]
     public static class UserCameOnlineMessageDataMemberNames
     {
         public const string

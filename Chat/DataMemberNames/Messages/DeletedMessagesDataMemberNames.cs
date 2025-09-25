@@ -2,7 +2,7 @@
 
 namespace Chat.DataMemberNames.Messages
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatDeleteMessages)]
+    [MessageType(MessageTypes.ChatDeleteMessages)]
     public static class DeletedMessagesDataMemberNames
     {
         public const string

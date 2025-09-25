@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace LocationDatabase
+namespace Location
 {
     public class SqlLiteQuadrantsLocalDatabase : IQuadrantsLocalDatabase
     {

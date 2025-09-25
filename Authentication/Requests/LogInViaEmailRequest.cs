@@ -15,7 +15,7 @@ namespace Authentication.Requests
         [JsonInclude]
         [DataMember(Name = LogInViaEmailRequestDataMemberNames.Email)]
         public string Email { get { return _Email; } protected set { _Email = value; } }
-        public LogInViaEmailRequest() : base(global::MessageTypes.MessageTypes.AuthenticationLogInViaEmail)
+        public LogInViaEmailRequest() : base(MessageTypes.AuthenticationLogInViaEmail)
         {
 
         }

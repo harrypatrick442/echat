@@ -26,7 +26,7 @@ namespace HashTags.Messages
         [DataMember(Name = SearchTagsRequestDataMemberNames.MaxNEntries)]
         public int MaxNEntries { get; protected set; }
         public SearchTagsRequest(string tag, HashTagScopeTypes scopeType, bool allowPartialMatches, int maxNEntries)
-            :base(global::MessageTypes.MessageTypes.SearchTags)
+            :base(MessageTypes.SearchTags)
         {
             Tag = tag;
             ScopeType = scopeType;
@@ -34,6 +34,6 @@ namespace HashTags.Messages
             MaxNEntries = maxNEntries;
         }
         protected SearchTagsRequest()
-            : base(global::MessageTypes.MessageTypes.SearchTags) { }
+            : base(MessageTypes.SearchTags) { }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace UserIgnore.DataMemberNames.Messages
 {
-    [MessageType(global::MessageTypes.MessageTypes.UserIgnoreUnignored)]
+    [MessageType(MessageTypes.UserIgnoreUnignored)]
     public static class UnignoredUserDataMemberNames
     {
         public const string UserId = "i";

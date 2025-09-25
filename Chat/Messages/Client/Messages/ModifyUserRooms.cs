@@ -23,7 +23,7 @@ namespace Chat.Messages.Client.Requests
         public ModifyUserRooms(long conversationId, bool addElseRemove, params UserRoomsOperation[] operations)
             : base()
         {
-            Type = global::MessageTypes.MessageTypes.ChatModifyUserRooms;
+            Type = MessageTypes.ChatModifyUserRooms;
             ConversationId = conversationId;
             AddElseRemove = addElseRemove;
             Operations = operations;

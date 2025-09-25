@@ -3,7 +3,7 @@ using Core.DataMemberNames.Messages;
 
 namespace Chat.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatUploadRoomPicture)]
+    [MessageType(MessageTypes.ChatUploadRoomPicture)]
     public static class UploadChatRoomPictureRequestDataMemberNames
     {
         [DataMemberNamesClass(typeof(FileInfoDataMemberNames))]

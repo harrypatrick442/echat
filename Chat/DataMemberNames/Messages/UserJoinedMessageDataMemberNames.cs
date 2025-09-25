@@ -2,7 +2,7 @@
 
 namespace Chat.DataMemberNames.Messages
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatRoomUserJoined)]
+    [MessageType(MessageTypes.ChatRoomUserJoined)]
     public static class UserJoinedMessageDataMemberNames
     {
         public const string

@@ -17,12 +17,12 @@ namespace Chat.Messages.Client.Requests
         [DataMember(Name = AcceptRoomInviteRequestDataMemberNames.UserId)]
         public long UserId { get; protected set; }
         public AcceptRoomInviteRequest(long conversationId, long userId)
-            : base(global::MessageTypes.MessageTypes.ChatAcceptRoomInvite)
+            : base(MessageTypes.ChatAcceptRoomInvite)
         {
             ConversationId = conversationId;
             UserId = userId;
         }
         protected AcceptRoomInviteRequest()
-            : base(global::MessageTypes.MessageTypes.ChatAcceptRoomInvite) { }
+            : base(MessageTypes.ChatAcceptRoomInvite) { }
     }
 }

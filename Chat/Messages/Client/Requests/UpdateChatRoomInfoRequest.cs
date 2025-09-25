@@ -56,7 +56,7 @@ namespace Chat.Messages.Client.Requests
         }
         public bool TagsChanged { get; protected set; }
         public UpdateChatRoomInfoRequest()
-            : base(global::MessageTypes.MessageTypes.ChatUpdateRoomInfo)
+            : base(MessageTypes.ChatUpdateRoomInfo)
         {
 
         }

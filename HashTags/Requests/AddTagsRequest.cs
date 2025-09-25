@@ -26,7 +26,7 @@ namespace HashTags.Messages
         [DataMember(Name = AddTagsRequestDataMemberNames.ScopeId2)]
         public long? ScopeId2 { get; protected set; }
         public AddTagsRequest(string[] tags, HashTagScopeTypes scopeType, long scopeId, long? scopeId2)
-            :base(global::MessageTypes.MessageTypes.AddTags)
+            :base(MessageTypes.AddTags)
         {
             Tags = tags;
             ScopeType = scopeType;
@@ -34,6 +34,6 @@ namespace HashTags.Messages
             ScopeId2 = scopeId2;
         }
         protected AddTagsRequest()
-            : base(global::MessageTypes.MessageTypes.AddTags) { }
+            : base(MessageTypes.AddTags) { }
     }
 }

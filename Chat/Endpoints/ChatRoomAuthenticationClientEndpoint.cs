@@ -8,8 +8,9 @@ using Core.Interfaces;
 using Chat;
 using Core.Chat;
 using Chat.Messages.Client.Messages;
+using Core;
 
-namespace Core.Authentication
+namespace Chat
 {
     public class ChatRoomAuthenticationClientEndpoint
     {
@@ -37,10 +38,10 @@ namespace Core.Authentication
             _EnterRoom = enterRoom;
             _Dispose = dispose;
             _RemoveMappings = clientMessageTypeMappingsHandler.AddRange(new TupleList<string, DelegateHandleMessageOfType<TypeTicketedAndWholePayload>> {
-                { global::MessageTypes.MessageTypes.ChatAttemptEnterRoom, HandleAttemptEnterRoom}
+                { MessageTypes.ChatAttemptEnterRoom, HandleAttemptEnterRoom}
             });
         }
-        /// <summary>
+        /// <summary>s
         /// 
         /// </summary>
         /// <param name="roomPasswordProvided"></param>

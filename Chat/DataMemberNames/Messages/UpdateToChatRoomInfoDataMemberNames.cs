@@ -2,7 +2,7 @@
 
 namespace Chat.DataMemberNames.Messages
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatUpdateRoomInfo)]
+    [MessageType(MessageTypes.ChatUpdateRoomInfo)]
     public static class UpdateToChatRoomInfoDataMemberNames
     {
         [DataMemberNamesClass(typeof(ChatRoomInfoDataMemberNames))]

@@ -13,11 +13,11 @@ namespace Users.Messages.Client
         [JsonInclude]
         [DataMember(Name = RemoveAssociateRequestDataMemberNames.OtherUserId)]
         public long OtherUserId { get { return _OtherUserId; } protected set { _OtherUserId = value; } }
-        public RemoveAsssociateRequest(long otherUserId) : base(global::MessageTypes.MessageTypes.UsersRemoveAssociate)
+        public RemoveAsssociateRequest(long otherUserId) : base(MessageTypes.UsersRemoveAssociate)
         {
             _OtherUserId = otherUserId;
         }
-        protected RemoveAsssociateRequest() : base(global::MessageTypes.MessageTypes.UsersRemoveAssociate)
+        protected RemoveAsssociateRequest() : base(MessageTypes.UsersRemoveAssociate)
         { }
 
     }

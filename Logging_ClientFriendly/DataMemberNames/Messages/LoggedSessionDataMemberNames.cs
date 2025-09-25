@@ -3,7 +3,7 @@ using Core.DataMemberNames;
 
 namespace Logging_ClientFriendly.DataMemberNames.Messages
 {
-    [MessageType(global::MessageTypes.MessageTypes.LogsLogSession)]
+    [MessageType(MessageTypes.LogsLogSession)]
     public class LoggedSessionDataMemberNames
     {
         public const string

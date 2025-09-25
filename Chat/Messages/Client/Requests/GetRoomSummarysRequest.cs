@@ -14,11 +14,11 @@ namespace Chat.Messages.Client.Requests
         [DataMember(Name =GetRoomSummarysRequestDataMemberNames.ConversationIds)]
         public long[] ConversationIds { get; protected set; }
         public GetRoomSummarysRequest(long[] conversatoinIds)
-            : base(global::MessageTypes.MessageTypes.ChatGetRoomSummarys)
+            : base(MessageTypes.ChatGetRoomSummarys)
         {
             ConversationIds = conversatoinIds;
         }
         protected GetRoomSummarysRequest()
-            : base(global::MessageTypes.MessageTypes.ChatGetRoomSummarys) { }
+            : base(MessageTypes.ChatGetRoomSummarys) { }
     }
 }

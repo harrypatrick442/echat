@@ -2,7 +2,7 @@
 
 namespace HashTags.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.SearchToPredictTag)]
+    [MessageType(MessageTypes.SearchToPredictTag)]
     public static class SearchToPredictTagRequestDataMemberNames
     {
         public const string

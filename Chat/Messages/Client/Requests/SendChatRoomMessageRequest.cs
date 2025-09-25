@@ -16,7 +16,7 @@ namespace Chat.Messages.Client.Requests
             get;
             protected set;
         }
-        public SendChatRoomMessageRequest() : base(global::MessageTypes.MessageTypes.ChatRoomSendMessage)
+        public SendChatRoomMessageRequest() : base(MessageTypes.ChatRoomSendMessage)
         {
 
         }

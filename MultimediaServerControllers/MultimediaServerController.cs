@@ -25,17 +25,13 @@ namespace MultimediaServer
         [RequestSizeLimit(GlobalConstants.Sizes.MULTIMEDIA_SERVER_MAXIMUM_FILE_SIZE)]
         public IActionResult Upload()
         {
-            Logs.Default.Info("Got the request for multimedia to upload");
             string token = _GetToken();
-            Logs.Default.Info(token);
             StatisticsLog(StatisticsEntryType.MultimediaServerUpload);
             try
             {
-                Logs.Default.Info("in try");
                 PendingMultimediaUpload? pendingMultimediaUpload = PendingMultimediaUploads.Instance.Take(token);
                 if (pendingMultimediaUpload == null)
                     return StatusCode(500);
-                Logs.Default.Info("no 500");
                 try 
                 {
                     UploadedMultimediaProcessor.ProcessMultimedia(Request.Body, pendingMultimediaUpload);
@@ -43,7 +39,6 @@ namespace MultimediaServer
                 catch(Exception ex){
                     Logs.Default.Error(ex);
                 }
-                Logs.Default.Info("returning ok");
                 return Ok();
             }
             catch (Exception ex) {

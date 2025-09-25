@@ -17,12 +17,12 @@ namespace Chat.Messages.Client.Requests
         [DataMember(Name = CancelRoomInviteRequestDataMemberNames.UserId)]
         public long UserId { get; protected set; }
         public CancelRoomInviteRequest(long conversationId, long userId)
-            : base(global::MessageTypes.MessageTypes.ChatCancelRoomInvite)
+            : base(MessageTypes.ChatCancelRoomInvite)
         {
             ConversationId = conversationId;
             UserId = userId;
         }
         protected CancelRoomInviteRequest()
-            : base(global::MessageTypes.MessageTypes.ChatCancelRoomInvite) { }
+            : base(MessageTypes.ChatCancelRoomInvite) { }
     }
 }

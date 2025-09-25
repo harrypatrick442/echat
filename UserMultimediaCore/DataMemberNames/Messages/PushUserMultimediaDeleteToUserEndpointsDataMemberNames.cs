@@ -1,4 +1,4 @@
-namespace MultimediaServerCore.Requests
+namespace UserMultimediaCore.DataMemberNames.Messages
 {
     public static class PushUserMultimediaDeleteToUserEndpointsDataMemberNames
     {

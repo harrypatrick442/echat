@@ -8,7 +8,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\shared-public\BaseMessages\CSharp\BaseMessages.csproj" />
     <ProjectReference Include="..\..\shared-public\BasicEvents\CSharp\BasicEvents.csproj" />
-    <ProjectReference Include="..\DataMemberNames\DataMemberNames.csproj" />
+    <ProjectReference Include="..\..\snippets\API\DataMemberNames\DataMemberNames.csproj" />
     <ProjectReference Include="..\..\shared-public\EnvironmentEnums\EnvironmentEnums.csproj" />
     <ProjectReference Include="..\..\shared-public\JSON\CSharp\JSON.csproj" />
     <ProjectReference Include="..\..\shared-public\Native\CSharp\Native.csproj" />

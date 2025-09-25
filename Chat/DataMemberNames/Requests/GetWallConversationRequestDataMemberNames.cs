@@ -2,7 +2,7 @@
 
 namespace Chat.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatGetWallConversation)]
+    [MessageType(MessageTypes.ChatGetWallConversation)]
     public static class GetWallConversationRequestDataMemberNames
     {
         public const string

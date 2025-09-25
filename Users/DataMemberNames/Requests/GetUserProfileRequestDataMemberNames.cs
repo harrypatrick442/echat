@@ -2,7 +2,7 @@
 
 namespace Users.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.UsersGetUserProfile)]
+    [MessageType(MessageTypes.UsersGetUserProfile)]
     public class GetUserProfileRequestDataMemberNames
     {
         public const string ProfileUserId = "p";

@@ -3,7 +3,7 @@ using MessageTypes.Attributes;
 
 namespace Chat.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatMultimediaUpload)]
+    [MessageType(MessageTypes.ChatMultimediaUpload)]
     public static class ChatMultimediaUploadRequestDataMemberNames
     {
         public const string

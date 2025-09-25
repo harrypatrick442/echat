@@ -2,7 +2,7 @@
 using MessageTypes.Attributes;
 namespace Chat.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatUploadMessageVideo)]
+    [MessageType(MessageTypes.ChatUploadMessageVideo)]
     public class UploadMessageVideoRequestDataMemberNames
     {
         [DataMemberNamesClass(typeof(FileInfoDataMemberNames), isArray: false)]

@@ -4,7 +4,7 @@ using Logging;
 using Nodes;
 using UserRouting;
 
-namespace MultimediaServerCore
+namespace UserMultimediaCore
 {
     public partial class UserMultimediaMesh
     {

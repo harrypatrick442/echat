@@ -13,11 +13,11 @@ namespace Chat.Messages.Client.Requests
         [DataMember(Name = GetMyReceivedInvitesRequestDataMemberNames.MyUserId)]
         public long MyUserId { get; protected set; }
         public GetMyReceivedInvitesRequest(long myUserId)
-            : base(global::MessageTypes.MessageTypes.ChatGetMyReceivedInvites)
+            : base(MessageTypes.ChatGetMyReceivedInvites)
         {
             MyUserId = myUserId;
         }
         protected GetMyReceivedInvitesRequest()
-            : base(global::MessageTypes.MessageTypes.ChatGetMyReceivedInvites) { }
+            : base(MessageTypes.ChatGetMyReceivedInvites) { }
     }
 }

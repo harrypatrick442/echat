@@ -4,8 +4,9 @@ using MultimediaServerCore.DataMemberNames.Messages;
 using Nodes;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
+using UserMultimediaCore.DataMemberNames.Messages;
 using FileInfo = Core.Messages.Messages.FileInfo;
-namespace MultimediaServerCore.Messages
+namespace UserMultimediaCore.Messages
 {
     [DataContract]
     public class PushMultimediaUploadToUserEndpoints : TypedMessageBase

@@ -2,7 +2,7 @@
 
 namespace MentionsCore.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.MentionsSetSeen)]
+    [MessageType(MessageTypes.MentionsSetSeen)]
     public static class SetSeenMentionDataMemberNames
     {
         [DataMemberNamesIgnore(toJSON:true)]

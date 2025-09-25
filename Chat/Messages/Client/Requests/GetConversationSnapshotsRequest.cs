@@ -44,13 +44,13 @@ namespace Chat.Messages.Client.Requests
         }
         public GetConversationSnapshotsRequest(
             long myUserId, long? idFromInclusive,
-            long? idToExclusive, int? nEntries) : base(global::MessageTypes.MessageTypes.ChatGetConversationSnapshots)
+            long? idToExclusive, int? nEntries) : base(MessageTypes.ChatGetConversationSnapshots)
         {
             _MyUserId = myUserId;
             IdFromInclusive = idFromInclusive;
             IdToExclusive = idToExclusive;
             NEntries = nEntries;
         }
-        protected GetConversationSnapshotsRequest() : base(global::MessageTypes.MessageTypes.ChatGetConversationSnapshots) { }
+        protected GetConversationSnapshotsRequest() : base(MessageTypes.ChatGetConversationSnapshots) { }
     }
 }

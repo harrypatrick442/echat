@@ -4,7 +4,7 @@ using Location.Interfaces;
 using LocationCore;
 using System.Linq;
 
-namespace LocationDatabase
+namespace Location
 {
     public partial class QuadTreeMesh
     {

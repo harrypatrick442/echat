@@ -2,7 +2,7 @@
 
 namespace Chat.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatGetMyReceivedInvites)]
+    [MessageType(MessageTypes.ChatGetMyReceivedInvites)]
     public static class GetMyReceivedInvitesRequestDataMemberNames
     {
         public const string

@@ -3,7 +3,7 @@ using Core.Exceptions;
 using Core.Ids;
 using Location.Interfaces;
 
-namespace LocationDatabase
+namespace Location
 {
     public abstract class QuadTree:IQuadTreeDatabase
     {

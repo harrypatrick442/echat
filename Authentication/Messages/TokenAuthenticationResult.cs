@@ -3,17 +3,18 @@ using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Sessions;
 using Authentication.DataMemberNames.Requests;
+using Core.DataMemberNames;
 
 namespace Authentication.Messages
 {
     [DataContract]
     public class TokenAuthenticationResult
     {
-        [JsonPropertyName(global::MessageTypes.MessageTypes.Type)]
+        [JsonPropertyName(MessageTypeDataMemberName.Value)]
         [JsonInclude]
-        [DataMember(Name = global::MessageTypes.MessageTypes.Type)]
+        [DataMember(Name = MessageTypeDataMemberName.Value)]
 
-        public string Type { get { return global::MessageTypes.MessageTypes.TokenAuthenticationResult; } protected set { } }
+        public string Type { get { return MessageTypes.TokenAuthenticationResult; } protected set { } }
         [JsonPropertyName(TokenAuthenticationResultDataMemberNames.Successful)]
         [JsonInclude]
         [DataMember(Name = TokenAuthenticationResultDataMemberNames.Successful)]

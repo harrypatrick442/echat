@@ -26,7 +26,7 @@ namespace HashTags.Messages
         [DataMember(Name = DeleteTagsRequestDataMemberNames.ScopeId2)]
         public long? ScopeId2 { get; protected set; }
         public DeleteTagsRequest(HashTagScopeTypes scopeType, long scopeId, long? scopeId2, string[] tags)
-            :base(global::MessageTypes.MessageTypes.DeleteTags)
+            :base(MessageTypes.DeleteTags)
         {
             ScopeType = scopeType;
             ScopeId = scopeId;
@@ -34,6 +34,6 @@ namespace HashTags.Messages
             Tags = tags;
         }
         protected DeleteTagsRequest()
-            : base(global::MessageTypes.MessageTypes.DeleteTags) { }
+            : base(MessageTypes.DeleteTags) { }
     }
 }

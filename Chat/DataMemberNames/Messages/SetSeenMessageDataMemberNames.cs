@@ -2,7 +2,7 @@
 
 namespace Chat.DataMemberNames.Messages
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatSetSeenMessage)]
+    [MessageType(MessageTypes.ChatSetSeenMessage)]
     public static class SetSeenMessageDataMemberNames
     {
         [DataMemberNamesIgnore(toJSON:true)]

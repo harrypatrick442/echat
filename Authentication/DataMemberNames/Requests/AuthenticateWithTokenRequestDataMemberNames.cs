@@ -3,7 +3,7 @@
 namespace Authentication.DataMemberNames.Requests
 {
 
-    [MessageType(global::MessageTypes.MessageTypes.AuthenticateWithToken)]
+    [MessageType(MessageTypes.AuthenticateWithToken)]
     public class AuthenticateWithTokenRequestDataMemberNames
     {
         public const string Token = "u";

@@ -2,7 +2,7 @@
 
 namespace Users.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.UsersAlterAssociate)]
+    [MessageType(MessageTypes.UsersAlterAssociate)]
     public static class AlterAssociationRequestDataMemberNames
     {
         public const string

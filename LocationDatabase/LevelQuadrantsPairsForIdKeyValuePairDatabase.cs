@@ -2,9 +2,8 @@
 using Location.Interfaces;
 using LocationCore;
 using System;
-using KeyValuePairDatabases.Interfaces;
 using KeyValuePairDatabases.Enums;
-namespace LocationDatabase
+namespace Location
 {
     public class LevelQuadrantsPairsForIdKeyValuePairDatabase : ILevelQuadrantPairsForIdLocalDatabase
     {

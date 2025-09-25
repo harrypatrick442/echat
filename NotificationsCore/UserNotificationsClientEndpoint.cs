@@ -20,7 +20,7 @@ namespace NotificationsCore
         {
             _ClientEndpoint = clientEndpoint;
             _RemoveClientMessageTypeMappings = clientMessageTypeMappingsHandler.AddRange(new TupleList<string, DelegateHandleMessageOfType<TypeTicketedAndWholePayload>> {
-                { global::MessageTypes.MessageTypes.UserNotificationsClear, ClearUserNotifications},
+                { MessageTypes.UserNotificationsClear, ClearUserNotifications},
             });
         }
         private void ClearUserNotifications(TypeTicketedAndWholePayload message)

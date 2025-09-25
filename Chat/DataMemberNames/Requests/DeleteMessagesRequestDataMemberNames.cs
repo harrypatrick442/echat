@@ -2,7 +2,7 @@
 
 namespace Chat.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatDeleteMessages)]
+    [MessageType(MessageTypes.ChatDeleteMessages)]
     public static class DeleteMessagesRequestDataMemberNames
     {
         [DataMemberNamesIgnore(toJSON: true)]

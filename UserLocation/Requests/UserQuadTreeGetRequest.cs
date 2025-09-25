@@ -22,12 +22,12 @@ namespace UserLocation
         [DataMember(Name = UserQuadTreeGetRequestDataMemberNames.LevelQuadrantPairs)]
         public LevelQuadrantPair[] LevelQuadrantPairs { get; protected set; }
         public UserQuadTreeGetRequest(LatLng latLng, double radiusKm)
-            : base(global::MessageTypes.MessageTypes.UserQuadTreeGet)
+            : base(MessageTypes.UserQuadTreeGet)
         {
             LatLng = latLng;
             RadiusKm = radiusKm;
         }
         protected UserQuadTreeGetRequest()
-            : base(global::MessageTypes.MessageTypes.UserQuadTreeGet) { }
+            : base(MessageTypes.UserQuadTreeGet) { }
     }
 }

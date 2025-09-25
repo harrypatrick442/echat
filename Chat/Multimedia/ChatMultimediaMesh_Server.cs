@@ -1,11 +1,7 @@
 ﻿using Core.Handlers;
 using Logging;
 using InterserverComs;
-using MessageTypes.Internal;
 using Core;
-using MultimediaServerCore.Requests;
-using MultimediaServerCore.Messages;
-using Users.Messages.Client;
 using MultimediaServerCore.Enums;
 using MultimediaCore;
 using JSON;
@@ -23,8 +19,8 @@ namespace MultimediaServerCore
             _MessageTypeMappingsHandler = InterserverMessageTypeMappingsHandler.Instance;
             _MessageTypeMappingsHandler.AddRange(
                 new TupleList<string, DelegateHandleMessageOfType<InterserverMessageEventArgs>> {
-                    { InterserverMessageTypes.ChatMultimediaUpload, HandleUpload},
-                    { InterserverMessageTypes.ChatUpdatePendingUserMultimediaItemStatus, HandleUpdatePendingUserMultimediaItemStatus}
+                    { Chat.InterserverMessageTypes.ChatMultimediaUpload, HandleUpload},
+                    { Chat.InterserverMessageTypes.ChatUpdatePendingUserMultimediaItemStatus, HandleUpdatePendingUserMultimediaItemStatus}
                 }
             );
         }

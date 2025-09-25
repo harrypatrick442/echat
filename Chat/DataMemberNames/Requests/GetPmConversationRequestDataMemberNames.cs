@@ -1,8 +1,8 @@
 ﻿using MessageTypes.Attributes;
 
-namespace Users.DataMemberNames.Requests
+namespace Chat.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatGetPmConversationWithLatestMessages)]
+    [MessageType(MessageTypes.ChatGetPmConversationWithLatestMessages)]
     public static class GetPmConversationRequestDataMemberNames
     {
         public const string

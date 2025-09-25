@@ -32,7 +32,7 @@ namespace Chat.Messages.Client.Requests
         public UnreactToMessage(long conversationId,
             MessageReaction messageResponse)
         {
-            Type = global::MessageTypes.MessageTypes.ChatUnreactToMessage;
+            Type = MessageTypes.ChatUnreactToMessage;
             ConversationId = conversationId;
             MessageReaction = messageResponse;
         }

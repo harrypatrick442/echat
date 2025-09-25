@@ -1,7 +1,7 @@
 ﻿using MessageTypes.Attributes;
 namespace UserMultimediaCore.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.MultimediaUpdateProfilePictureMetadata)]
+    [MessageType(MessageTypes.MultimediaUpdateProfilePictureMetadata)]
     public class UpdateProfilePictureMetadataRequestDataMemberNames
     {
         public const string MultimediaToken = "m";

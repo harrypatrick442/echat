@@ -3,7 +3,7 @@ using MessageTypes.Attributes;
 
 namespace Chat.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatFetchIndividualMessages)]
+    [MessageType(MessageTypes.ChatFetchIndividualMessages)]
     public static class FetchIndividualMessagesRequestDataMemberNames
     {
         public const string

@@ -2,7 +2,7 @@
 
 namespace Chat.DataMemberNames.Messages
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatFailedEnterRoom)]
+    [MessageType(MessageTypes.ChatFailedEnterRoom)]
     public static class FailedEnterRoomMessageDataMemberNames
     {
         public const string

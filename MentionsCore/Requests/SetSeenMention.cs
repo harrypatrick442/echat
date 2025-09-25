@@ -27,13 +27,13 @@ namespace MentionsCore.Requests
         public SetSeenMention(long userIdBeingMentioned, long messageId)
             :base()
         {
-            _Type = global::MessageTypes.MessageTypes.MentionsSetSeen;
+            _Type = MessageTypes.MentionsSetSeen;
             UserIdBeingMentioned = userIdBeingMentioned;
             MessageId = messageId;
         }
         protected SetSeenMention()
             : base() {
-            _Type = global::MessageTypes.MessageTypes.MentionsSetSeen;
+            _Type = MessageTypes.MentionsSetSeen;
         }
     }
 }

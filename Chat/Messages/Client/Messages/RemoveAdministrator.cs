@@ -15,7 +15,7 @@ namespace Chat.Messages.Client.Messages
         public RemoveAdministrator(long userId)
         {
             UserId = userId;
-            _Type = global::MessageTypes.MessageTypes.ChatRemoveAdministrator;
+            _Type = MessageTypes.ChatRemoveAdministrator;
         }
     }
 }

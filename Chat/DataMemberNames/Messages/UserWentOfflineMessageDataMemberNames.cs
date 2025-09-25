@@ -2,7 +2,7 @@
 
 namespace Chat.DataMemberNames.Messages
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatRoomUserWentOffline)]
+    [MessageType(MessageTypes.ChatRoomUserWentOffline)]
     public static class UserWentOfflineMessageDataMemberNames
     {
         public const string

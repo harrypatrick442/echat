@@ -14,7 +14,7 @@ namespace Chat.Messages.Client.Messages
         public string Password { get; protected set; }
         public AttemptEnterRoomMessage()
         {
-            _Type = global::MessageTypes.MessageTypes.ChatAttemptEnterRoom;
+            _Type = MessageTypes.ChatAttemptEnterRoom;
         }
     }
 }

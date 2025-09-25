@@ -2,7 +2,7 @@
 
 namespace Logging_ClientFriendly.DataMemberNames.Messages
 {
-    [MessageType(global::MessageTypes.MessageTypes.LogsLogBreadcrumb)]
+    [MessageType(MessageTypes.LogsLogBreadcrumb)]
     public static class BreadcrumbDataMemberNames
     {
         public const string

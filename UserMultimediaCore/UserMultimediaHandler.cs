@@ -9,6 +9,7 @@ using MultimediaServerCore.Requests;
 using JSON;
 using Users;
 using MultimediaCore;
+using UserMultimediaCore.Requests;
 namespace UserMultimediaCore
 {
     public static class UserMultimediaHandler

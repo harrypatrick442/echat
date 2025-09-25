@@ -21,13 +21,13 @@ namespace Chat.Messages.Client.Requests
         [DataMember(Name = LeaveRoomRequestDataMemberNames.AllowRemoveOnlyFullAdmin)]
         public bool AllowRemoveOnlyFullAdmin { get; protected set; }
         public LeaveRoomRequest(long conversationId, long userId, bool allowRemoveOnlyFullAdmin)
-            : base(global::MessageTypes.MessageTypes.ChatLeaveRoom)
+            : base(MessageTypes.ChatLeaveRoom)
         {
             ConversationId = conversationId;
             UserId = userId;
             AllowRemoveOnlyFullAdmin = allowRemoveOnlyFullAdmin;
         }
         protected LeaveRoomRequest()
-            : base(global::MessageTypes.MessageTypes.ChatLeaveRoom) { }
+            : base(MessageTypes.ChatLeaveRoom) { }
     }
 }

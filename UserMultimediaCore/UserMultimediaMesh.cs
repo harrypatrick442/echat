@@ -6,8 +6,9 @@ using MultimediaServerCore.Requests;
 using Nodes;
 using JSON;
 using UserRouting;
+using UserMultimediaCore.Requests;
 
-namespace MultimediaServerCore
+namespace UserMultimediaCore
 {
     public partial class UserMultimediaMesh
     {

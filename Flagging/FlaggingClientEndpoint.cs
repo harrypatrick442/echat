@@ -23,7 +23,7 @@ namespace Flagging.Endpoints
         {
             _ClientEndpoint = clientEndpoint;
             _RemoveClientMessageTypeMappings = clientMessageTypeMappingsHandler.AddRange(new TupleList<string, DelegateHandleMessageOfType<TypeTicketedAndWholePayload>> {
-                { global::MessageTypes.MessageTypes.FlaggingFlag, Flag }
+                { MessageTypes.FlaggingFlag, Flag }
             });
         }
         private void Flag(TypeTicketedAndWholePayload message)

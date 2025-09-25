@@ -1,4 +1,4 @@
-﻿namespace LocationDatabase
+﻿namespace Location
 {
     public struct QuadrantRangeToNodeId
     {

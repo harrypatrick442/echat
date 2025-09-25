@@ -35,13 +35,13 @@ namespace Users.Messages.Interserver
             protected set;
         }
         public AlterAssociationRequest(long myUserId, long otherUserId, AssociateType associationTypes)
-            : base(global::MessageTypes.MessageTypes.UsersAlterAssociate)
+            : base(MessageTypes.UsersAlterAssociate)
         {
             MyUserId = myUserId;
             OtherUserId = otherUserId;
             AssociateType = associationTypes;
         }
         protected AlterAssociationRequest()
-            : base(global::MessageTypes.MessageTypes.UsersAlterAssociate) { }
+            : base(MessageTypes.UsersAlterAssociate) { }
     }
 }

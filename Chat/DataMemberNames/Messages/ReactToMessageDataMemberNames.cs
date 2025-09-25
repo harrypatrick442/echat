@@ -2,7 +2,7 @@
 
 namespace Chat.DataMemberNames.Messages
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatReactToMessage)]
+    [MessageType(MessageTypes.ChatReactToMessage)]
     public static class ReactToMessageDataMemberNames
     {
         public const string ConversationId = "c";

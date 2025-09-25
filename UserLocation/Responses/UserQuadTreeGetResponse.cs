@@ -19,14 +19,14 @@ namespace UserLocation
         [DataMember(Name = UserQuadTreeGetResponseDataMemberNames.Quadrants)]
         public Quadrant[] Quadrants { get; protected set; }
         public UserQuadTreeGetResponse(long ticket, bool success, Quadrant[] quadrants)
-            : base(global::MessageTypes.MessageTypes.UserQuadTreeSet)
+            : base(MessageTypes.UserQuadTreeSet)
         {
             Success = success;
             Quadrants = quadrants;
             Ticket = ticket;
         }
         protected UserQuadTreeGetResponse()
-            : base(global::MessageTypes.MessageTypes.UserQuadTreeSet) { }
+            : base(MessageTypes.UserQuadTreeSet) { }
         public static UserQuadTreeGetResponse Successful(Quadrant[] quadrants, long ticket)
         {
             return new UserQuadTreeGetResponse(ticket, true, quadrants);

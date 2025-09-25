@@ -18,7 +18,7 @@ namespace Chat.Messages.Client.Messages
         }
         public UserLeftMessage(long userId) : base()
         {
-            _Type = global::MessageTypes.MessageTypes.ChatRoomUserLeft;
+            _Type = MessageTypes.ChatRoomUserLeft;
             UserId = userId;
         }
         protected UserLeftMessage() { }

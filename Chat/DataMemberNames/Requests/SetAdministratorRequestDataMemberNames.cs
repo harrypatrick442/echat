@@ -2,7 +2,7 @@
 
 namespace Chat.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatSetAdministrator)]
+    [MessageType(MessageTypes.ChatSetAdministrator)]
     public static class SetAdministratorRequestDataMemberNames
     {
         public const string

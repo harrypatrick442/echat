@@ -3,7 +3,7 @@ using Core.DataMemberNames;
 
 namespace Logging_ClientFriendly.DataMemberNames.Messages
 {
-    [MessageType(global::MessageTypes.MessageTypes.LogsLogError)]
+    [MessageType(MessageTypes.LogsLogError)]
     public class LoggedErrorDataMemberNames
     {
         public const string

@@ -2,7 +2,7 @@
 
 namespace UserLocation.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.UserQuadTreeGetNEntries)]
+    [MessageType(MessageTypes.UserQuadTreeGetNEntries)]
     public static class UserQuadTreeGetNEntriesRequestDataMemberNames
     {
         public const string Level = "l";

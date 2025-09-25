@@ -5,9 +5,9 @@ using Logging;
 using System.Net;
 using Chat;
 using Core.InterserverComs;
-using Core.Authentication;
 using Core.Interfaces;
 using Chat.Endpoints;
+using WebAbstract;
 
 namespace EChatEndpoints.WebsocketServers
 {

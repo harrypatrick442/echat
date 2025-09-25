@@ -1,5 +1,5 @@
 ﻿using MessageTypes.Attributes;
-namespace MultimediaServerCore.DataMemberNames.Messages
+namespace UserMultimediaCore.DataMemberNames.Messages
 {
     public class PushMultimediaUploadToUserEndpointsDataMemberNames
     {

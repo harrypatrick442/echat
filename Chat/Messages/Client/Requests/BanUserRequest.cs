@@ -13,11 +13,11 @@ namespace Chat.Messages.Client.Requests
         [DataMember(Name = BanUserRequestDataMemberNames.UserId)]
         public long UserId { get; protected set; }
         public BanUserRequest(long conversationId, long userId)
-            : base(global::MessageTypes.MessageTypes.ChatBanUser)
+            : base(MessageTypes.ChatBanUser)
         {
             UserId = userId;
         }
         protected BanUserRequest()
-            : base(global::MessageTypes.MessageTypes.ChatBanUser) { }
+            : base(MessageTypes.ChatBanUser) { }
     }
 }

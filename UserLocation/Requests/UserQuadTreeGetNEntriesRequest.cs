@@ -22,13 +22,13 @@ namespace UserLocation
         [DataMember(Name = UserQuadTreeGetNEntriesRequestDataMemberNames.WithLatLng)]
         public bool WithLatLng { get; protected set; }
         public UserQuadTreeGetNEntriesRequest(int level, long[] quadrants, bool withLatLng)
-            : base(global::MessageTypes.MessageTypes.UserQuadTreeGetNEntries)
+            : base(MessageTypes.UserQuadTreeGetNEntries)
         {
             Level = level;
             Quadrants = quadrants;
             WithLatLng = withLatLng;
         }
         protected UserQuadTreeGetNEntriesRequest()
-            : base(global::MessageTypes.MessageTypes.UserQuadTreeGetNEntries) { }
+            : base(MessageTypes.UserQuadTreeGetNEntries) { }
     }
 }

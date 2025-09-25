@@ -2,7 +2,7 @@
 
 namespace Chat.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatUpdateRoomInfo)]
+    [MessageType(MessageTypes.ChatUpdateRoomInfo)]
     public static class UpdateChatRoomInfoRequestDataMemberNames
     {
         public const string Name = "n";

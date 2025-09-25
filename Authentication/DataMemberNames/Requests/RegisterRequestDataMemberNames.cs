@@ -2,7 +2,7 @@
 
 namespace Authentication.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.AuthenticationRegister)]
+    [MessageType(MessageTypes.AuthenticationRegister)]
     public class RegisterRequestDataMemberNames
     {
         public const string Email = "e";

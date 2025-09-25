@@ -16,11 +16,11 @@ namespace Chat.Messages.Client.Requests
         [DataMember(Name = CreateRoomRequestDataMemberNames.Visibility)]
         public RoomVisibility? Visibility { get; protected set; }
         public CreateRoomRequest(string name)
-            : base(global::MessageTypes.MessageTypes.ChatCreateRoom)
+            : base(MessageTypes.ChatCreateRoom)
         {
             Name = name;
         }
         protected CreateRoomRequest()
-            : base(global::MessageTypes.MessageTypes.ChatCreateRoom) { }
+            : base(MessageTypes.ChatCreateRoom) { }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace NotificationsCore.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.UserNotificationsClear)]
+    [MessageType(MessageTypes.UserNotificationsClear)]
     public static class ClearUserNotificationRequestDataMemberNames
     {
         [DataMemberNamesIgnore(toJSON:true)]

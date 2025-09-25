@@ -2,7 +2,7 @@
 
 namespace Chat.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatBanUser)]
+    [MessageType(MessageTypes.ChatBanUser)]
     public static class BanUserRequestDataMemberNames
     {
         public const string

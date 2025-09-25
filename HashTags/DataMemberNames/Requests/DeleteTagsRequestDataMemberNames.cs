@@ -2,7 +2,7 @@
 
 namespace HashTags.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.DeleteTags)]
+    [MessageType(MessageTypes.DeleteTags)]
     public static class DeleteTagsRequestDataMemberNames
     {
         public const string

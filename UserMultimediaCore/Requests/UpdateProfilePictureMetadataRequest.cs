@@ -5,7 +5,7 @@ using FileInfo = Core.Messages.Messages.FileInfo;
 using UsersEnums;
 using UserMultimediaCore.DataMemberNames.Requests;
 
-namespace MultimediaServerCore.Requests
+namespace UserMultimediaCore.Requests
 {
     [DataContract]
     public class UpdateProfilePictureMetadataRequest : TicketedMessageBase
@@ -27,14 +27,14 @@ namespace MultimediaServerCore.Requests
         [DataMember(Name = UpdateProfilePictureMetadataRequestDataMemberNames.SetAsMain)]
         public bool SetAsMain { get; protected set; }
         public UpdateProfilePictureMetadataRequest(string multimediaToken, VisibleTo visibleTo,
-            string description, bool setAsMain) : base(global::MessageTypes.MessageTypes.MultimediaUpdateProfilePictureMetadata)
+            string description, bool setAsMain) : base(MessageTypes.MultimediaUpdateProfilePictureMetadata)
         {
             MultimediaToken = multimediaToken;
             VisibleTo = visibleTo;
             Description = description;
             SetAsMain = setAsMain;
         }
-        protected UpdateProfilePictureMetadataRequest() : base(global::MessageTypes.MessageTypes.MultimediaUpdateProfilePictureMetadata)
+        protected UpdateProfilePictureMetadataRequest() : base(MessageTypes.MultimediaUpdateProfilePictureMetadata)
         { }
     }
 }

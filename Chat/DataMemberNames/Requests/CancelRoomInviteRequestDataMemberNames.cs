@@ -2,7 +2,7 @@
 
 namespace Chat.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatCancelRoomInvite)]
+    [MessageType(MessageTypes.ChatCancelRoomInvite)]
     public static class CancelRoomInviteRequestDataMemberNames
     {
         public const string

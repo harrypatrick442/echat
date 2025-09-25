@@ -8,7 +8,7 @@ namespace Chat.Messages.Client.Messages
     public class IncorrectPasswordMessage : TicketedMessageBase
     {
         public IncorrectPasswordMessage()
-            : base(global::MessageTypes.MessageTypes.ChatIncorrectPassword)
+            : base(MessageTypes.ChatIncorrectPassword)
         {
         }
     }

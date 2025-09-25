@@ -21,13 +21,13 @@ namespace Chat.Messages.Client.Messages
         [DataMember(Name = FailedEnterRoomMessageDataMemberNames.Visibility, EmitDefaultValue =false)]
         public RoomVisibility? Visibility { get; }
         public FailedEnterRoomMessage(FailedEnterRoomReason failedReason, JoinFailedReason? joinFailedReason, RoomVisibility? visibility)
-            : base(global::MessageTypes.MessageTypes.ChatFailedEnterRoom)
+            : base(MessageTypes.ChatFailedEnterRoom)
         {
             FailedReason = failedReason;
             JoinFailedReason = joinFailedReason;
             Visibility = visibility;
         }
         protected FailedEnterRoomMessage()
-            : base(global::MessageTypes.MessageTypes.ChatFailedEnterRoom) { }
+            : base(MessageTypes.ChatFailedEnterRoom) { }
     }
 }

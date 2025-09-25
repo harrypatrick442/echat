@@ -2,7 +2,7 @@
 
 namespace MentionsCore.DataMemberNames.Messages
 {
-    [MessageType(global::MessageTypes.MessageTypes.MentionsMention)]
+    [MessageType(MessageTypes.MentionsMention)]
     public static class MentionDataMemberNames
     {
         public const string

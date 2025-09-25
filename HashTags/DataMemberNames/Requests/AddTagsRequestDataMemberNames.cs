@@ -2,7 +2,7 @@
 
 namespace HashTags.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.AddTags)]
+    [MessageType(MessageTypes.AddTags)]
     public static class AddTagsRequestDataMemberNames
     {
         public const string

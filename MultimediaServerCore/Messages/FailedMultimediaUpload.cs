@@ -21,7 +21,7 @@ namespace MultimediaServerCore.Messages
         {
             Token = token;
             UserId = userId;
-            Type = global::MessageTypes.MessageTypes.MultimediaUploadFailed;
+            Type = MessageTypes.MultimediaUploadFailed;
         }
         protected FailedMultimediaUpload() { }
     }

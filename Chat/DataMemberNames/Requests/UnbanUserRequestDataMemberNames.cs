@@ -2,7 +2,7 @@
 
 namespace Chat.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatUnbanUser)]
+    [MessageType(MessageTypes.ChatUnbanUser)]
     public static class UnbanUserRequestDataMemberNames
     {
         public const string

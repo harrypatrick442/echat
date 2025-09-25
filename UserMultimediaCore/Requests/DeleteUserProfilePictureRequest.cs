@@ -5,7 +5,7 @@ using FileInfo = Core.Messages.Messages.FileInfo;
 using UsersEnums;
 using UserMultimediaCore.DataMemberNames.Requests;
 
-namespace MultimediaServerCore.Requests
+namespace UserMultimediaCore.Requests
 {
     [DataContract]
     public class DeleteUserProfilePictureRequest : TicketedMessageBase
@@ -15,12 +15,12 @@ namespace MultimediaServerCore.Requests
         [DataMember(Name = DeleteUserProfilePictureRequestDataMemberNames.MultimediaToken)]
         public string MultimediaToken { get; protected set; }
         public DeleteUserProfilePictureRequest(string multimediaToken) : 
-            base(global::MessageTypes.MessageTypes.MultimediaDeleteProfilePicture)
+            base(MessageTypes.MultimediaDeleteProfilePicture)
         {
             MultimediaToken = multimediaToken;
         }
         protected DeleteUserProfilePictureRequest() :
-            base(global::MessageTypes.MessageTypes.MultimediaDeleteProfilePicture)
+            base(MessageTypes.MultimediaDeleteProfilePicture)
         { }
     }
 }

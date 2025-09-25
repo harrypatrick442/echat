@@ -14,7 +14,7 @@ namespace Authentication.Messages
         public string Message { get { return _Message; } protected set { _Message = value; } }
         public DoNotHavePermissionMessage(string message)
         {
-            _Type = global::MessageTypes.MessageTypes.AuthenticationDoNotHavePermission;
+            _Type = MessageTypes.AuthenticationDoNotHavePermission;
             _Message = message;
         }
         protected DoNotHavePermissionMessage() { 

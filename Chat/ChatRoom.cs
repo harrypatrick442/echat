@@ -24,6 +24,7 @@ using Chat.Endpoints;
 using Chat.DataMemberNames.Messages;
 using HashTags.Messages;
 using HashTags.Enums;
+using Core.DataMemberNames;
 namespace Chat
 {
     public class ChatRoom
@@ -645,9 +646,9 @@ namespace Chat
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("{\"");
-            sb.Append(global::MessageTypes.MessageTypes.Type);
+            sb.Append(MessageTypeDataMemberName.Value);
             sb.Append("\":\"");
-            sb.Append(global::MessageTypes.MessageTypes.ChatEnteredRoom);
+            sb.Append(MessageTypes.ChatEnteredRoom);
             sb.Append("\",\"");
             sb.Append(EnteredRoomMessageDataMemberNames.Messages);
             sb.Append("\":");

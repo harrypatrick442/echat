@@ -15,9 +15,9 @@ namespace Users.Messages.Client
         [DataMember(Name = GetAllAssociateEntriesRequestDataMemberNames.MyUserId)]
 
         public long MyUserId { get; protected set; }
-        public GetAllAssociateEntriesRequest(long myUserId):base(global::MessageTypes.MessageTypes.UsersGetAllAssociateEntries){
+        public GetAllAssociateEntriesRequest(long myUserId):base(MessageTypes.UsersGetAllAssociateEntries){
             MyUserId = myUserId;
         }
-        protected GetAllAssociateEntriesRequest():base(global::MessageTypes.MessageTypes.UsersGetAllAssociateEntries) { }
+        protected GetAllAssociateEntriesRequest():base(MessageTypes.UsersGetAllAssociateEntries) { }
     }
 }

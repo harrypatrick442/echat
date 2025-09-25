@@ -2,7 +2,7 @@
 
 namespace Chat.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatRemoveAdministrator)]
+    [MessageType(MessageTypes.ChatRemoveAdministrator)]
     public static class RemoveAdministratorRequestDataMemberNames
     {
         public const string

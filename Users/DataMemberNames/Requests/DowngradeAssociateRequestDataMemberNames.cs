@@ -2,7 +2,7 @@
 
 namespace Users.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.UsersDowngradeAssociation)]
+    [MessageType(MessageTypes.UsersDowngradeAssociation)]
     public static class DowngradeAssociateRequestDataMemberNames
     {
         public const string AssociationTypesToKeep = "a";

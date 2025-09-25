@@ -8,7 +8,7 @@ namespace Chat.Messages.Client.Requests
     public class GetMyConversationSnapshotsRequest : TicketedMessageBase
     {
         public GetMyConversationSnapshotsRequest()
-            : base(global::MessageTypes.MessageTypes.ChatGetConversationSnapshots)
+            : base(MessageTypes.ChatGetConversationSnapshots)
         {
 
         }

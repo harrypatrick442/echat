@@ -7,10 +7,11 @@ using JSON;
 using Core.Interfaces;
 using MultimediaServerCore.Requests;
 using MultimediaServerCore.Enums;
-using UserMultimediaCore;
 using MultimediaCore;
+using Core;
+using UserMultimediaCore.Requests;
 
-namespace Core.Authentication
+namespace UserMultimediaCore
 {
     public class UserMultimediaClientEndpoint
     {
@@ -23,9 +24,9 @@ namespace Core.Authentication
         {
             _Endpoint = endpoint;
             clientMessageTypeMappingsHandler.AddRange(new TupleList<string, DelegateHandleMessageOfType<TypeTicketedAndWholePayload>> {
-                { global::MessageTypes.MessageTypes.MultimediaUploadProfilePicture, HandleUploadProfilePicture},
-                { global::MessageTypes.MessageTypes.MultimediaUpdateProfilePictureMetadata, HandleUpdateUserProfilePictureMetadata },
-                { global::MessageTypes.MessageTypes.MultimediaDeleteProfilePicture, HandleDeleteUserProfilePicture }
+                { MessageTypes.MultimediaUploadProfilePicture, HandleUploadProfilePicture},
+                { MessageTypes.MultimediaUpdateProfilePictureMetadata, HandleUpdateUserProfilePictureMetadata },
+                { MessageTypes.MultimediaDeleteProfilePicture, HandleDeleteUserProfilePicture }
             });
         }
         protected void Initialize(IClientEndpoint endpoint)

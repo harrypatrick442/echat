@@ -41,7 +41,7 @@ namespace MentionsCore.Requests
             protected set;
         }
         public GetMentionsRequest(long userId, int nEntries, long? idToExclusive, long? idFromInclusive)
-            :base(global::MessageTypes.MessageTypes.MentionsGet)
+            :base(MessageTypes.MentionsGet)
         {
             UserId = userId;
             NEntries = nEntries;
@@ -49,6 +49,6 @@ namespace MentionsCore.Requests
             IdFromInclusive = idFromInclusive;
         }
         protected GetMentionsRequest()
-            : base(global::MessageTypes.MessageTypes.MentionsGet) { }
+            : base(MessageTypes.MentionsGet) { }
     }
 }

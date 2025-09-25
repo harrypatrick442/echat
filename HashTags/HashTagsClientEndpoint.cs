@@ -10,7 +10,7 @@ using HashTags;
 using Logging;
 using GlobalConstants;
 
-namespace UserIgnore
+namespace HashTags
 {
     public class HashTagsClientEndpoint
     {
@@ -23,8 +23,8 @@ namespace UserIgnore
         {
             _Endpoint = snippetsClientEndpoint;
             _RemoveClientMessageTypeMappings = clientMessageTypeMappingsHandler.AddRange(new TupleList<string, DelegateHandleMessageOfType<TypeTicketedAndWholePayload>> {
-                { MessageTypes.MessageTypes.SearchToPredictTag, HandleSearchToPredictTag},
-                { MessageTypes.MessageTypes.SearchTagsMultipleScopeTypes, HandleSearchTags}
+                { MessageTypes.SearchToPredictTag, HandleSearchToPredictTag},
+                { MessageTypes.SearchTagsMultipleScopeTypes, HandleSearchTags}
             });
         }
         public void HandleSearchToPredictTag(TypeTicketedAndWholePayload m)

@@ -53,7 +53,7 @@ namespace MultimediaServerCore.Messages
             ScopingId = scopingId;
             ScopingId2 = scopingId2;
             ScopingId3 = scopingId3;
-            Type = global::MessageTypes.MessageTypes.MultimediaStatusUpdate;
+            Type = MessageTypes.MultimediaStatusUpdate;
         }
         protected MultimediaStatusUpdate() { }
     }

@@ -2,7 +2,7 @@
 
 namespace Users.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.UsersCancelSentRequest)]
+    [MessageType(MessageTypes.UsersCancelSentRequest)]
     public static class CancelSentRequestRequestDataMemberNames
     {
         [DataMemberNamesIgnore]

@@ -3,7 +3,7 @@ using MessageTypes.Attributes;
 
 namespace Chat.DataMemberNames.Messages
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatEnteredRoom)]
+    [MessageType(MessageTypes.ChatEnteredRoom)]
     public static class EnteredRoomMessageDataMemberNames
     {
         [DataMemberNamesClass(typeof(ClientMessageDataMemberNames), isArray: true)]

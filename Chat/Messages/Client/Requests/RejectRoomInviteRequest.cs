@@ -13,11 +13,11 @@ namespace Chat.Messages.Client.Requests
         [DataMember(Name = RejectRoomInviteRequestDataMemberNames.ConversationId)]
         public long ConversationId { get; protected set; }
         public RejectRoomInviteRequest(long conversationId)
-            : base(global::MessageTypes.MessageTypes.ChatRejectRoomInvite)
+            : base(MessageTypes.ChatRejectRoomInvite)
         {
             ConversationId = conversationId;
         }
         protected RejectRoomInviteRequest()
-            : base(global::MessageTypes.MessageTypes.ChatRejectRoomInvite) { }
+            : base(MessageTypes.ChatRejectRoomInvite) { }
     }
 }

@@ -14,11 +14,11 @@ namespace Authentication.Requests
         [DataMember(Name = ResetPasswordByEmailRequestDataMemberNames.Email)]
         public string Email { get; protected set; }
 
-        public ResetPasswordByEmailRequest(string email) : base(global::MessageTypes.MessageTypes.AuthenticationResetPasswordByEmail)
+        public ResetPasswordByEmailRequest(string email) : base(MessageTypes.AuthenticationResetPasswordByEmail)
         {
             Email = email;
         }
-        protected ResetPasswordByEmailRequest() : base(global::MessageTypes.MessageTypes.AuthenticationResetPasswordByEmail)
+        protected ResetPasswordByEmailRequest() : base(MessageTypes.AuthenticationResetPasswordByEmail)
         {
 
         }

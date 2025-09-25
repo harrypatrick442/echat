@@ -15,7 +15,7 @@ namespace Chat.Messages.Client.Messages
         public UpdateToChatRoomInfo(ChatRoomInfo info)
             : base()
         {
-            Type = global::MessageTypes.MessageTypes.ChatUpdateRoomInfo;
+            Type = MessageTypes.ChatUpdateRoomInfo;
             Info = info;
         }
         protected UpdateToChatRoomInfo() { }

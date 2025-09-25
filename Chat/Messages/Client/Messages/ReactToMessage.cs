@@ -35,7 +35,7 @@ namespace Chat.Messages.Client.Messages
         public ReactToMessage(long conversationId, 
             ConversationType conversationType, MessageReaction messageResponse)
         {
-            Type = global::MessageTypes.MessageTypes.ChatReactToMessage;
+            Type = MessageTypes.ChatReactToMessage;
             ConversationId = conversationId;
             ConversationType = conversationType;
             MessageReaction = messageResponse;

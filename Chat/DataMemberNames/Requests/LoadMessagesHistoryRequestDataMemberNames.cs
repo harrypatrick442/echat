@@ -3,7 +3,7 @@ using Chat.DataMemberNames.Messages;
 
 namespace Chat.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatLoadMessagesHistory)]
+    [MessageType(MessageTypes.ChatLoadMessagesHistory)]
     public static class LoadMessagesHistoryRequestDataMemberNames
     {
         [DataMemberNamesIgnore(toJSON: true)]

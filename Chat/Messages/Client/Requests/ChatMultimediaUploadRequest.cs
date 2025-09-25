@@ -94,7 +94,7 @@ namespace Chat.Messages.Client.Requests
             MultimediaScopeType scopeType,  long conversationId, ConversationType conversationType,
             FileInfo fileInfo, long userId, long? sessionId, XRating xRating, string description, 
             bool alreadyCheckedPermission)
-            : base(global::MessageTypes.MessageTypes.ChatMultimediaUpload)
+            : base(MessageTypes.ChatMultimediaUpload)
         {
             MultimediaType = multimediaType;
             ConversationId = conversationId;
@@ -107,6 +107,6 @@ namespace Chat.Messages.Client.Requests
             AlreadyCheckedPermission = alreadyCheckedPermission;
         }
         protected ChatMultimediaUploadRequest()
-            : base(global::MessageTypes.MessageTypes.ChatMultimediaUpload) { }
+            : base(MessageTypes.ChatMultimediaUpload) { }
     }
 }

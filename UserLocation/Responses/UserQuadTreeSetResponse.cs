@@ -13,13 +13,13 @@ namespace UserLocation
         [DataMember(Name = UserQuadTreeSetResponseDataMemberNames.Success)]
         public bool Success { get; protected set; }
         public UserQuadTreeSetResponse(long ticket, bool success)
-            : base(global::MessageTypes.MessageTypes.UserQuadTreeSet)
+            : base(MessageTypes.UserQuadTreeSet)
         {
             Success = success;
             Ticket = ticket;
         }
         protected UserQuadTreeSetResponse()
-            : base(global::MessageTypes.MessageTypes.UserQuadTreeSet) { }
+            : base(MessageTypes.UserQuadTreeSet) { }
         public static UserQuadTreeSetResponse Successful(long ticket)
         {
             return new UserQuadTreeSetResponse(ticket, true);

@@ -37,12 +37,12 @@ namespace Authentication.Requests
         [DataMember(Name = LogInRequestDataMemberNames.UserId)]
         public int? UserId { get { return _UserId; } protected set { _UserId = value; } }
 
-        public LogInRequest(string email, string password) : base(global::MessageTypes.MessageTypes.AuthenticationLogIn)
+        public LogInRequest(string email, string password) : base(MessageTypes.AuthenticationLogIn)
         {
             _Email = email;
             _Password = password;
         }
-        protected LogInRequest() : base(global::MessageTypes.MessageTypes.AuthenticationLogIn)
+        protected LogInRequest() : base(MessageTypes.AuthenticationLogIn)
         {
 
         }

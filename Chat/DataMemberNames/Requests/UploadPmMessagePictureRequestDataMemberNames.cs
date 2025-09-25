@@ -1,7 +1,7 @@
 ﻿using MessageTypes.Attributes;
 namespace Chat.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatPmUploadMessagePicture)]
+    [MessageType(MessageTypes.ChatPmUploadMessagePicture)]
     public class UploadPmMessagePictureRequestDataMemberNames : UploadMessagePictureRequestDataMemberNames
     {
         public const string ConversationId = "c";

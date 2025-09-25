@@ -9,6 +9,6 @@
     <Compile Remove="DalClientStates.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\echat\KeyValuePairDatabase\KeyValuePairDatabase.csproj" />
+    <ProjectReference Include="..\KeyValuePairDatabase\KeyValuePairDatabase.csproj" />
   </ItemGroup>
 </Project>

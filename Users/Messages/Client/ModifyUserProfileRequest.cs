@@ -19,13 +19,13 @@ namespace Users.Messages.Client
         [DataMember(Name = ModifyUserProfileRequestDataMemberNames.UserProfileChanges)]
         public UserProfile UserProfileChanges { get { return _UserProfileChanges; } protected set { _UserProfileChanges = value; } }
         public ModifyUserProfileRequest(long myUserId, UserProfile userProfile) : 
-            base(global::MessageTypes.MessageTypes.UsersModifyUserProfile)
+            base(MessageTypes.UsersModifyUserProfile)
         {
             _MyUserId = myUserId;
             _UserProfileChanges = userProfile;
         }
         protected ModifyUserProfileRequest() :
-            base(global::MessageTypes.MessageTypes.UsersModifyUserProfile)
+            base(MessageTypes.UsersModifyUserProfile)
         { }
 
     }

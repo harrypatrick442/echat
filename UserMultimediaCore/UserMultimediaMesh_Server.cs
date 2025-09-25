@@ -5,8 +5,10 @@ using MessageTypes.Internal;
 using Core;
 using MultimediaServerCore.Requests;
 using MultimediaServerCore.Messages;
+using UserMultimediaCore.Messages;
+using UserMultimediaCore.Requests;
 
-namespace MultimediaServerCore
+namespace UserMultimediaCore
 {
     public partial class UserMultimediaMesh
     {

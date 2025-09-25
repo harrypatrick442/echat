@@ -13,11 +13,11 @@ namespace Users.Messages.Client
         [JsonInclude]
         [DataMember(Name = GetAnotherUsersAssociatesUserProfileSummarysRequestDataMemberNames.OtherUserId)]
         public long OtherUserId { get { return _OtherUserId; } protected set { _OtherUserId = value; } }
-        public GetAnotherUsersAssociatesUserProfileSummarysRequest(long otherUserId) : base(global::MessageTypes.MessageTypes.UsersGetAnotherUsersAssociatesUserProfileSummarys)
+        public GetAnotherUsersAssociatesUserProfileSummarysRequest(long otherUserId) : base(MessageTypes.UsersGetAnotherUsersAssociatesUserProfileSummarys)
         {
             _OtherUserId = otherUserId;
         }
-        protected GetAnotherUsersAssociatesUserProfileSummarysRequest() : base(global::MessageTypes.MessageTypes.UsersGetAnotherUsersAssociatesUserProfileSummarys)
+        protected GetAnotherUsersAssociatesUserProfileSummarysRequest() : base(MessageTypes.UsersGetAnotherUsersAssociatesUserProfileSummarys)
         { }
 
     }

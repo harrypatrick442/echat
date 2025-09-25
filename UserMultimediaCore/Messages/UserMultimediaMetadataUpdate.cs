@@ -23,14 +23,14 @@ namespace MultimediaServerCore.Requests
         public UserMultimediaItem UserMultimediaItem { get; protected set; }
         public UserMultimediaMetadataUpdate(long userId, MultimediaType multimediaType,
             UserMultimediaItem userMultimediaItem) : base(
-            global::MessageTypes.MessageTypes.MultimediaMetadataUpdate)
+            MessageTypes.MultimediaMetadataUpdate)
         {
             UserId = userId;
             MultimediaType = multimediaType;
             UserMultimediaItem = userMultimediaItem;
         }
         protected UserMultimediaMetadataUpdate() : base(
-            global::MessageTypes.MessageTypes.MultimediaMetadataUpdate)
+            MessageTypes.MultimediaMetadataUpdate)
         { }
     }
 }

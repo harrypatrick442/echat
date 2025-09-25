@@ -1,10 +1,9 @@
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
-using Chat.DataMemberNames.Messages;
 using Core.Messages.Messages;
 using MultimediaServerCore.DataMemberNames.Messages;
 
-namespace Chat.Messages.Client.Messages
+namespace MultimediaServerCore.Messages.Messages
 {
     [DataContract]
     public class DeletePendingUserMultimediaItem : TypedMessageBase
@@ -19,7 +18,7 @@ namespace Chat.Messages.Client.Messages
         }
         public DeletePendingUserMultimediaItem(string multimediaToken) : base()
         {
-            _Type = global::MessageTypes.MessageTypes.MultimediaDeletePending;
+            _Type = MessageTypes.MultimediaDeletePending;
             MultimediaToken = multimediaToken;
         }
         protected DeletePendingUserMultimediaItem() { }

@@ -1,5 +1,4 @@
 using LocationCore;
-using LocationDatabase;
 
 namespace Location.Interfaces
 {

@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using MultimediaServerCore.DataMemberNames.Messages;
 
-namespace MultimediaServerCore.Requests
+namespace UserMultimediaCore.Requests
 {
     [DataContract]
     public class MultimediaDelete : TicketedMessageBase
@@ -17,12 +17,12 @@ namespace MultimediaServerCore.Requests
         [DataMember(Name = MultimediaDeleteDataMemberNames.MultimediaToken)]
         public string MultimediaToken { get; protected set; }
         public MultimediaDelete(long userId, string multimediaToken) 
-            : base(global::MessageTypes.MessageTypes.MultimediaDelete)
+            : base(MultimediaServerCore.MessageTypes.MultimediaDelete)
         {
             UserId = userId;
             MultimediaToken = multimediaToken;
         }
         protected MultimediaDelete()
-            : base(global::MessageTypes.MessageTypes.MultimediaDelete) { }
+            : base(MultimediaServerCore.MessageTypes.MultimediaDelete) { }
     }
 }

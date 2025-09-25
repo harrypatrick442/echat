@@ -19,7 +19,7 @@ namespace Chat.Messages.Client.Messages
         public long? ConversationId { get; protected set; }
         public DeletedMessages(long[] deletedIds, long? conversationId)
         {
-            _Type = global::MessageTypes.MessageTypes.ChatDeleteMessages;
+            _Type = MessageTypes.ChatDeleteMessages;
             DeletedIds = deletedIds;
             ConversationId = conversationId;
         }

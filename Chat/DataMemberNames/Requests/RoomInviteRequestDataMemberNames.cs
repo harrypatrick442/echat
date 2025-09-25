@@ -2,7 +2,7 @@
 
 namespace Chat.DataMemberNames.Requests
 {
-    [MessageType(MessageTypes.MessageTypes.ChatRoomInvite)]
+    [MessageType(MessageTypes.ChatRoomInvite)]
     public static class RoomInviteRequestDataMemberNames
     {
         public const string

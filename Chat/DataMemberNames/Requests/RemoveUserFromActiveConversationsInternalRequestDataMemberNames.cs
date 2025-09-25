@@ -2,7 +2,7 @@
 
 namespace Chat.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatRemoveUserFromActiveConversations)]
+    [MessageType(MessageTypes.ChatRemoveUserFromActiveConversations)]
     public static class RemoveUserFromActiveConversationsInternalRequestDataMemberNames
     {
         public const string UserId = "i";

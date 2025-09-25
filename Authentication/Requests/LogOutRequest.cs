@@ -6,7 +6,7 @@ namespace Authentication.Requests
     [DataContract]
     public class LogOutRequest : TicketedMessageBase
     {
-        public LogOutRequest() : base(global::MessageTypes.MessageTypes.AuthenticationLogOut)
+        public LogOutRequest() : base(MessageTypes.AuthenticationLogOut)
         {
 
         }

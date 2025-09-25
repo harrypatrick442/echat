@@ -2,7 +2,7 @@
 
 namespace Chat.DataMemberNames.Messages
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatModifyUserRooms)]
+    [MessageType(MessageTypes.ChatModifyUserRooms)]
     public static class ModifyUserRoomsDataMemberNames
     {
         public const string ConversationId = "c";

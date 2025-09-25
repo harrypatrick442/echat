@@ -29,12 +29,12 @@ namespace Chat.Messages.Client.Messages
             protected set;
         }
         public ModifyMessage(long conversationId, ClientMessage message)
-            : base(global::MessageTypes.MessageTypes.ChatModifyMessage)
+            : base(MessageTypes.ChatModifyMessage)
         {
             ConversationId = conversationId;
             Message = message;
         }
         protected ModifyMessage()
-            : base(global::MessageTypes.MessageTypes.ChatModifyMessage) { }
+            : base(MessageTypes.ChatModifyMessage) { }
     }
 }

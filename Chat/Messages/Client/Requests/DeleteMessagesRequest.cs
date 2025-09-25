@@ -45,7 +45,7 @@ namespace Chat.Messages.Client.Requests
         [DataMember(Name = DeleteMessagesRequestDataMemberNames.ConversationType)]
         public ConversationType ConversationType { get; protected set; }
         public DeleteMessagesRequest(long userId, long conversationId, long[] messageIds, bool canDeleteAnyMessage)
-            : base(global::MessageTypes.MessageTypes.ChatDeleteMessages)
+            : base(MessageTypes.ChatDeleteMessages)
         {
             UserId = userId;
             ConversationId = conversationId;
@@ -53,6 +53,6 @@ namespace Chat.Messages.Client.Requests
             CanDeleteAnyMessage = canDeleteAnyMessage;
         }
         protected DeleteMessagesRequest()
-            : base(global::MessageTypes.MessageTypes.ChatDeleteMessages) { }
+            : base(MessageTypes.ChatDeleteMessages) { }
     }
 }

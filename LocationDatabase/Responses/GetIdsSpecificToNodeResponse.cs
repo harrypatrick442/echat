@@ -2,7 +2,6 @@ using Core.Messages.Messages;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using Core.DataMemberNames;
-using LocationDatabase;
 using LocationCore;
 using Location.DataMemberNames.Interserver.Responses;
 

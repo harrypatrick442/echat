@@ -2,7 +2,7 @@
 
 namespace HashTags.DataMemberNames.Messages
 {
-    [MessageType(MessageTypes.MessageTypes.SearchTagsMultipleScopeTypes)]
+    [MessageType(MessageTypes.SearchTagsMultipleScopeTypes)]
     public static class SearchTagsMultipleScopeTypesRequestDataMemberNames
     {
         public const string

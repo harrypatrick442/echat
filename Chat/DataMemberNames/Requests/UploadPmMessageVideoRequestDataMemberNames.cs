@@ -1,7 +1,7 @@
 ﻿using MessageTypes.Attributes;
 namespace Chat.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatPmUploadMessageVideo)]
+    [MessageType(MessageTypes.ChatPmUploadMessageVideo)]
     public class UploadPmMessageVideoRequestDataMemberNames : UploadMessageVideoRequestDataMemberNames
     {
         public const string ConversationId = "c";

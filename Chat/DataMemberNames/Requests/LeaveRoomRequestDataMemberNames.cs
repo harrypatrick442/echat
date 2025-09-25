@@ -2,7 +2,7 @@
 
 namespace Chat.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatLeaveRoom)]
+    [MessageType(MessageTypes.ChatLeaveRoom)]
     public static class LeaveRoomRequestDataMemberNames
     {
         public const string

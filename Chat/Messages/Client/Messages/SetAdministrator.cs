@@ -20,7 +20,7 @@ namespace Chat.Messages.Client.Messages
         {
             UserId = userId;
             Privilages = privilages;
-            _Type = global::MessageTypes.MessageTypes.ChatSetAdministrator;
+            _Type = MessageTypes.ChatSetAdministrator;
         }
     }
 }

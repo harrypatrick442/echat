@@ -2,7 +2,7 @@
 
 namespace Users.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.UsersRemoveAssociate)]
+    [MessageType(MessageTypes.UsersRemoveAssociate)]
     public static class RemoveAssociateRequestDataMemberNames
     {
         [DataMemberNamesIgnore]

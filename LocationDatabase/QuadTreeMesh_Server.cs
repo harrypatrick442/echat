@@ -6,10 +6,9 @@ using Location.Requests;
 using Location.Responses;
 using LocationCore;
 using Logging;
-using MessageTypes.Internal;
 using System;
 
-namespace LocationDatabase
+namespace Location
 {
     public partial class QuadTreeMesh
     {

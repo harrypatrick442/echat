@@ -2,7 +2,7 @@
 
 namespace Chat.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatGetUserRooms)]
+    [MessageType(MessageTypes.ChatGetUserRooms)]
     public static class GetUserRoomsRequestDataMemberNames
     {
         [DataMemberNamesIgnore(toJSON: true)]

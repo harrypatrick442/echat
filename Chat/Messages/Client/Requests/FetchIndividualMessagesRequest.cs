@@ -20,12 +20,12 @@ namespace Chat.Messages.Client.Requests
         public FetchIndividualMessagesRequest(
             long myUserId,
             ConversationAndMessageIds[] conversationAndMessageIds)
-            : base(global::MessageTypes.MessageTypes.ChatFetchIndividualMessages)
+            : base(MessageTypes.ChatFetchIndividualMessages)
         {
             MyUserId = myUserId;
             ConversationAndMessageIds = conversationAndMessageIds;
         }
         protected FetchIndividualMessagesRequest()
-            : base(global::MessageTypes.MessageTypes.ChatFetchIndividualMessages) { }
+            : base(MessageTypes.ChatFetchIndividualMessages) { }
     }
 }

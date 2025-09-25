@@ -2,7 +2,7 @@
 
 namespace Authentication.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.AuthenticationLogOut)]
+    [MessageType(MessageTypes.AuthenticationLogOut)]
     public class LogOutRequestDataMemberNames
     {
     }

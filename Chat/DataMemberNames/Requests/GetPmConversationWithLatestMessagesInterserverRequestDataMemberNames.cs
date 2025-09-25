@@ -2,7 +2,7 @@
 
 namespace Chat.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatGetPmConversationWithLatestMessages)]
+    [MessageType(MessageTypes.ChatGetPmConversationWithLatestMessages)]
     public static class GetPmConversationWithLatestMessagesInterserverRequestDataMemberNames
     {
         public const string

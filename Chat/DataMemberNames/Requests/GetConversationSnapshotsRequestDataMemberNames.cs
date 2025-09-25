@@ -2,7 +2,7 @@
 
 namespace Chat.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatGetConversationSnapshots)]
+    [MessageType(MessageTypes.ChatGetConversationSnapshots)]
     public static class GetConversationSnapshotsRequestDataMemberNames
     {
         [DataMemberNamesIgnore(toJSON: true)]

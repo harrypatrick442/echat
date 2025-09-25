@@ -2,7 +2,7 @@
 
 namespace Users.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.UsersGetMyReceivedRequests)]
+    [MessageType(MessageTypes.UsersGetMyReceivedRequests)]
     public static class GetMyReceivedRequestsDataMemberNames
     {
 

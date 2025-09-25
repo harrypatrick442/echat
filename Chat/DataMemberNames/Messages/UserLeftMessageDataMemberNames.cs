@@ -2,7 +2,7 @@
 
 namespace Chat.DataMemberNames.Messages
 {
-    [MessageType(global::MessageTypes.MessageTypes.ChatRoomUserLeft)]
+    [MessageType(MessageTypes.ChatRoomUserLeft)]
     public static class UserLeftMessageDataMemberNames
     {
         public const string

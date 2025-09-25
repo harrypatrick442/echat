@@ -2,7 +2,7 @@
 
 namespace UserIgnore.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.UserIgnoreGet)]
+    [MessageType(MessageTypes.UserIgnoreGet)]
     public static class GetUserIgnoresRequestDataMemberNames
     {
         public const string UserId = "u";

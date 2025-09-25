@@ -26,7 +26,7 @@ namespace Chat.Messages.Client.Messages
         }
         public UserWentOfflineMessage(long userId, long timestamp)
         {
-            _Type = global::MessageTypes.MessageTypes.ChatRoomUserWentOffline;
+            _Type = MessageTypes.ChatRoomUserWentOffline;
             UserId = userId;
             Timestamp = timestamp;
         }

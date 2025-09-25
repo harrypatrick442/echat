@@ -2,7 +2,7 @@
 
 namespace Authentication.DataMemberNames.Requests
 {
-    [MessageType(global::MessageTypes.MessageTypes.AuthenticationLogIn)]
+    [MessageType(MessageTypes.AuthenticationLogIn)]
     public class LogInRequestDataMemberNames
     {
         public const string Username = "un";

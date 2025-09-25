@@ -26,7 +26,7 @@ namespace Chat.Messages.Client.Messages
         }
         public UserJoinedMessage(long userId, long timestamp) : base()
         {
-            _Type = global::MessageTypes.MessageTypes.ChatRoomUserJoined;
+            _Type = MessageTypes.ChatRoomUserJoined;
             UserId = userId;
             Timestamp = timestamp;
         }

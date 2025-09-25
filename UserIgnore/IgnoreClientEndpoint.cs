@@ -21,9 +21,9 @@ namespace UserIgnore
         {
             _Endpoint = snippetsClientEndpoint;
             _RemoveClientMessageTypeMappings = clientMessageTypeMappingsHandler.AddRange(new TupleList<string, DelegateHandleMessageOfType<TypeTicketedAndWholePayload>> {
-                { global::MessageTypes.MessageTypes.UserIgnoreIgnore, HandleIgnoreUser},
-                { global::MessageTypes.MessageTypes.UserIgnoreUnignore, HandleUnignoreUser},
-                { global::MessageTypes.MessageTypes.UserIgnoreGet, HandleGetUserIgnores}
+                { MessageTypes.UserIgnoreIgnore, HandleIgnoreUser},
+                { MessageTypes.UserIgnoreUnignore, HandleUnignoreUser},
+                { MessageTypes.UserIgnoreGet, HandleGetUserIgnores}
             });
         }
         private void HandleGetUserIgnores(TypeTicketedAndWholePayload message)

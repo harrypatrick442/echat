@@ -22,12 +22,12 @@ namespace Users.Messages.Client
         [DataMember(Name = InviteAssociateRequestDataMemberNames.AssociateType)]
         public AssociateType AssociateType { get; protected set; }
         public InviteAssociateRequest(string email, string phoneNumber, AssociateType associateType) 
-            : base(global::MessageTypes.MessageTypes.UsersInviteAssociateByUserId) {
+            : base(MessageTypes.UsersInviteAssociateByUserId) {
             Email = email;
             PhoneNumber = phoneNumber;
             AssociateType = associateType;
         }
-        protected InviteAssociateRequest() : base(global::MessageTypes.MessageTypes.UsersInviteAssociateByUserId)
+        protected InviteAssociateRequest() : base(MessageTypes.UsersInviteAssociateByUserId)
         { }
     }
 }
