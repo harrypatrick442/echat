@@ -1,11 +1,4 @@
-﻿using Core.Enums;
-using Core.Exceptions;
-using DependencyManagement;
-using LocationCore;
-using LocationDatabase;
-using Users;
-
-namespace UserLocation
+﻿namespace UserLocation
 {
     public static class Initializer
     {

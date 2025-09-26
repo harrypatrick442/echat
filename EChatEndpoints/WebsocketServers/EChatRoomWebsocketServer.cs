@@ -7,7 +7,7 @@ using Chat;
 using Core.InterserverComs;
 using Core.Interfaces;
 using Chat.Endpoints;
-using WebAbstract;
+using WebAbstract.ClientEndpoints;
 
 namespace EChatEndpoints.WebsocketServers
 {

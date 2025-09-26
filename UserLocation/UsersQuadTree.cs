@@ -2,7 +2,7 @@
 using Core.Exceptions;
 using DependencyManagement;
 using LocationCore;
-using LocationDatabase;
+using Location;
 using Users;
 
 namespace UserLocation

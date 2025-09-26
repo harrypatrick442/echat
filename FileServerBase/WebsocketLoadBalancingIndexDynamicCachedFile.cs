@@ -1,4 +1,5 @@
 ﻿using Core.LoadBalancing;
+using WebAbstract.LoadBalancing;
 using Timer = System.Timers.Timer;
 
 namespace FileServerBase

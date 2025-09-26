@@ -134,3 +134,5 @@ EChatAndroid/Properties/PublishProfiles/FolderProfile.pubxml.user
 Nodes/Setups/Network/Network_before_changes_15_03_2024.json
 /Nodes/Setups/Nodes
 /VideoProcessing/ffmpeg
+/ProtectAndDeployEChat/bin
+/ProtectAndDeployEChat/obj

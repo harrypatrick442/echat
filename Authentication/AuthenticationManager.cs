@@ -221,6 +221,7 @@ namespace Authentication
             }
             return null;
         }
+        /*
         private void SendAuthenticationEmail(string emailAddress)
         {
             AuthenticationInfo authenticationInfo =
@@ -233,7 +234,7 @@ namespace Authentication
             {
                 smtp.Send(message);//Handles all messages in the protocol
             }
-        }
+        }*/
         public SessionInfo CreateToken(long userId, string deviceIdentifier,
             ISessionIdSource sessionIdSource)
         {

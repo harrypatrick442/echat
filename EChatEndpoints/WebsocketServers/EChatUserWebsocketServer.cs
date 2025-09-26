@@ -23,6 +23,7 @@ using WebAbstract;
 using UserMultimediaCore;
 using MentionsCore;
 using HashTags;
+using WebAbstract.ClientEndpoints;
 
 namespace EChatEndpoints.WebsocketServers
 {

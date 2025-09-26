@@ -1,6 +1,6 @@
 using EChatEndpoints.WebsocketServers;
-using Core.LoadBalancing;
 using Core.Exceptions;
+using WebAbstract.LoadBalancing;
 namespace EChatGeneric
 {
     public class EChatWebSocketLoadBroadcaster:LoadingBroadcaster

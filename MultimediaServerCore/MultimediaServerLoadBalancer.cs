@@ -1,6 +1,6 @@
 ﻿using Core.Exceptions;
-using Core.LoadBalancing;
 using GlobalConstants;
+using WebAbstract.LoadBalancing;
 
 namespace MultimediaServerCore
 {

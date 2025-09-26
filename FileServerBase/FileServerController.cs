@@ -7,6 +7,7 @@ using WebAbstract;
 using FileServerCore;
 using DependencyManagement;
 using Logging;
+using WebAbstract.LoadBalancing;
 
 namespace FileServerBase
 {
@@ -15,7 +16,7 @@ namespace FileServerBase
     {
         private static readonly object _LockObjectFilesRelayIndex = new object(),
             _LockObjectEChatIndex = new object();
-        private static FilesRelayIndex _FilesRelayIndex;
+        //private static FilesRelayIndex _FilesRelayIndex;
         private static EChatIndex _EChatIndex;
 
         private static readonly string[] _FilesRelayHosts = new string[] {
@@ -86,13 +87,14 @@ namespace FileServerBase
             Logs.Default.Info("ProvideDynamicCachedFile");
             if (!isIndex)
                 return null;
-            if (_FilesRelayHosts.Contains(host.Host))
-                return FilesRelayIndexDynamicCachedFile(filePath, relativePath, isIndex, host);
+            /*if (_FilesRelayHosts.Contains(host.Host))
+                return FilesRelayIndexDynamicCachedFile(filePath, relativePath, isIndex, host);*/
             if (_EChatHosts.Contains(host.Host))
                 return EChatIndexDynamicCachedFile(filePath, relativePath, isIndex, host);
             return null;
             //throw new NotImplementedException($"Not implemented for host \"{host.Host}\"");
         }
+        /*
         private static IDynamicCachedFile FilesRelayIndexDynamicCachedFile(string filePath, string relativePath,
             bool isIndex, DynamicCachedFilesHost host)
         {
@@ -114,7 +116,7 @@ namespace FileServerBase
             }
             ReceivingLoadBalancer.Instance.AddHandler(cachedFile);
             return cachedFile;
-        }
+        }*/
         private static IDynamicCachedFile EChatIndexDynamicCachedFile(string filePath, string relativePath,
             bool isIndex, DynamicCachedFilesHost host)
         {

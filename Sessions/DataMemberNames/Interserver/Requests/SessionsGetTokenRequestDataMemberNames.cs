@@ -1,5 +1,4 @@
 ﻿using MessageTypes.Attributes;
-using MessageTypes.Internal;
 
 namespace Sessions.DataMemberNames.Interserver.Requests
 {

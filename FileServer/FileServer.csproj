@@ -12,8 +12,8 @@
   <ItemGroup>
     <ProjectReference Include="..\CertificateManagement\CertificateManagement.csproj" />
     <ProjectReference Include="..\..\shared-public\Core\CSharp\Core.csproj" />
-    <ProjectReference Include="..\FileServerBase\FileServerBase.csproj" />
     <ProjectReference Include="..\..\shared-public\Logging\CSharp\Logging.csproj" />
+    <ProjectReference Include="..\FileServerBase\FileServerBase.csproj" />
     <ProjectReference Include="..\Logging_ClientFriendly\Logging_ClientFriendly.csproj" />
     <ProjectReference Include="..\..\logging\CSharp\LogServerCore\LogServerCore.csproj" />
     <ProjectReference Include="..\..\echat-private\MaintenanceCore\MaintenanceCore.csproj" />

@@ -1,6 +1,6 @@
 ﻿using Core.LoadBalancing;
 using Core.Ticketing;
-
+using WebAbstract.LoadBalancing;
 namespace FileServerBase
 {
     public class EChatIndex : WebsocketLoadBalancingIndexDynamicCachedFile, IDynamicCachedFile
