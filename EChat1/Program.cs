@@ -5,17 +5,19 @@ using Core.FileSystem;
 using Dependencies;
 using CertificateManagement;
 using Nodes;
+using Configurations;
 
 public class Program
 {
     public const int NODE_ID =
 #if DEBUG
-        GlobalConstants.Nodes.ECHAT_DEBUG;
+        Configurations.Nodes.ECHAT_DEBUG;
 #else 
-        GlobalConstants.Nodes.ECHAT_1;
+        Configurations.Nodes.ECHAT_1;
 #endif
     public static void Main(string[] args)
     {
+        Initializer.Initialize();
         Logs.Initialize(LogFilePathDefault.Value);
         AllStringDependenciesCrossProjects.Initialize();
         System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);

@@ -9,8 +9,7 @@
     <PackageReference Include="BCrypt" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CertificateManagement\CertificateManagement.csproj" />
-    <ProjectReference Include="..\Constants\GlobalConstants.csproj" />
+    <ProjectReference Include="..\..\echat-private\CertificateManagement\CertificateManagement.csproj" />
     <ProjectReference Include="..\..\shared-public\Logging\CSharp\Logging.csproj" />
     <ProjectReference Include="..\Logging_ClientFriendly\Logging_ClientFriendly.csproj" />
     <ProjectReference Include="..\..\shared-private\MessageTypes\MessageTypes.csproj" />

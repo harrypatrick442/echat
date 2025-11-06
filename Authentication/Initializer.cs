@@ -14,27 +14,25 @@ namespace Authentication
 {
     public static class Initializer
     {
-        public static void Initialize(bool isDebug,
+        public static void Initialize(
             IAuthenticationRelatedUserInfoSource authenticationRelatedUserInfoSource,
             CredentialsSetup credentialsSetup,
-            IAuthenticationEmailer authenticationEmailing
+            IAuthenticationEmailer authenticationEmailing,
+            int nodeId
         )
         {
             DalAuthenticationLocal.Initialize();
-            int authenticationNodeId = isDebug
-                ? GlobalConstants.Nodes.ECHAT_DEBUG 
-                : GlobalConstants.Nodes.ECHAT_1;
             DalAuthentication dalAuthentication = 
-                DalAuthentication.Initialize(authenticationNodeId);
+                DalAuthentication.Initialize(nodeId);
             AuthenticationAttemptByIPFrequencyManager.Initialize();
             AuthenticationManager.Initialize(
-                authenticationNodeId,
+                nodeId,
                 DalAuthentication.Instance,
                 authenticationRelatedUserInfoSource,
                 credentialsSetup,
                 authenticationEmailing
             );
-            if (authenticationNodeId == Nodes.Nodes.Instance.MyId) {
+            if (nodeId == Nodes.Nodes.Instance.MyId) {
                 PasswordResetManager.Initialize(dalAuthentication);
             }
         }

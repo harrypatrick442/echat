@@ -2,7 +2,7 @@
 using Shutdown;
 using Core.Ticketing;
 using Core.Messages.Messages;
-using Logging;
+using Initialization.Exceptions;
 
 namespace InterserverComs
 {

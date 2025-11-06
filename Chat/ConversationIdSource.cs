@@ -1,7 +1,7 @@
 ﻿using Core.Exceptions;
 using Core.Ids;
 using DependencyManagement;
-
+using Initialization.Exceptions;
 namespace Chat
 {
     public sealed class ConversationIdSource : NodeAssignedIdSource
@@ -20,7 +20,7 @@ namespace Chat
             _Instance = new ConversationIdSource();
             return _Instance;
         }
-        private ConversationIdSource() : base(DependencyManager.GetString(DependencyNames.ConversationIdSourceDirectory), GlobalConstants.IdTypes.CONVERSATION)
+        private ConversationIdSource() : base(DependencyManager.GetString(DependencyNames.ConversationIdSourceDirectory), Configurations.IdTypes.CONVERSATION)
         {
 
         }

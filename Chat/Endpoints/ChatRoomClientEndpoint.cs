@@ -251,7 +251,7 @@ namespace Chat.Endpoints
                 .Deserialize<UsernameSearchSearchRequest>(message.JsonString);
             try
             {
-                bool success = UsersMesh.Instance.UsernameSearchSearch(request.Str, GlobalConstants.Lengths.USERNAME_SEARCH_MAX_N_ENTRIES_RESULT, out long[] userIds);
+                bool success = UsersMesh.Instance.UsernameSearchSearch(request.Str, Configurations.Lengths.USERNAME_SEARCH_MAX_N_ENTRIES_RESULT, out long[] userIds);
                 if (userIds != null)
                 {
                     _ChatRoom.Info.UsingJoinedUsers((joinedUsers) =>

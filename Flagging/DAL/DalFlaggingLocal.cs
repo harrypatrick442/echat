@@ -2,6 +2,7 @@
 using Core.Timing;
 using Database;
 using Flagging.Messages.Requests;
+using Initialization.Exceptions;
 using Microsoft.Data.Sqlite;
 
 namespace Flagging.DAL

@@ -1,7 +1,6 @@
-﻿using Core.Exceptions;
-using Core.FileSystem;
+﻿using Core.FileSystem;
 using Core.Processes;
-using FFmpeg.AutoGen;
+using Initialization.Exceptions;
 using System.Text;
 namespace VideoProcessing
 {

@@ -84,7 +84,7 @@ namespace FileServerBase
                     receivesMaintenance: true, null);
                 FileServerStatisticsFileLogger.Initialize();
                 webSocketServer.Start();
-                Firewall.Initialize().OpenPortsUntilShutdown(GlobalConstants.Ports.Value);
+                Firewall.Initialize().OpenPortsUntilShutdown(Configurations.Ports.Value);
             }
             catch (Exception ex)
             {

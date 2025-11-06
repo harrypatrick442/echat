@@ -11,6 +11,7 @@ using KeyValuePairDatabases.Interfaces;
 using KeyValuePairDatabases.Enums;
 using System.Data;
 using DependencyManagement;
+using Initialization.Exceptions;
 namespace Users.DAL
 {
     public class DalUserProfiles

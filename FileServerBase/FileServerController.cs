@@ -131,7 +131,7 @@ namespace FileServerBase
                 ReceivingLoadBalancer.Instance.RemoveHandler(cachedFile);
             }
             cachedFile = new EChatIndex(
-                filePath, relativePath, GlobalConstants.Nodes.ECHAT_1);
+                filePath, relativePath, Configurations.Nodes.ECHAT_1);
             lock (_LockObjectEChatIndex)
             {
                 _EChatIndex = cachedFile;

@@ -7,7 +7,7 @@
     <BaseOutputPath>C:\repos\snippets\Build\EChat1</BaseOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CertificateManagement\CertificateManagement.csproj" />
+    <ProjectReference Include="..\..\shared-private\Configuration\Configurations.csproj" />
     <ProjectReference Include="..\..\shared-private\Dependencies\Dependencies.csproj" />
     <ProjectReference Include="..\EChatGeneric\EChatGeneric.csproj" />
     <ProjectReference Include="..\..\shared-public\Logging\CSharp\Logging.csproj" />

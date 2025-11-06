@@ -3,6 +3,7 @@ using Core.Exceptions;
 using Core.Handlers;
 using Core.Interfaces;
 using Core.Threading;
+using Initialization.Exceptions;
 using InterserverComs;
 using JSON;
 using Logging;
@@ -36,7 +37,7 @@ namespace UserRoutedMessages
         private Action _RemoveMessageTypeMappings;
         private UserRoutedMessagesManager() {
             _MyNodeId = Nodes.Nodes.Instance.MyId;
-            _ExceptionHandler = new RepeatExceptionLogHandler(GlobalConstants.Delays.LOG_REPEAT_ERROR, Logs.Default);
+            _ExceptionHandler = new RepeatExceptionLogHandler(Configurations.Delays.LOG_REPEAT_ERROR, Logs.Default);
             _RemoveMessageTypeMappings = InterserverMessageTypeMappingsHandler.Instance.AddRange(
                 new TupleList<string, DelegateHandleMessageOfType<InterserverMessageEventArgs>> {
                     { InterserverMessageTypes.UserRoutedMessagesMessage , HandleUserRoutedMessagesMessage}
@@ -59,7 +60,7 @@ namespace UserRoutedMessages
             ParallelOperationHelper.RunInParallelNoReturn(
                 nodeAndAssociatedUserIdsSessionIds_s,
                 Get_ForwardToUserDevices_SendToSpecificNode(serializedMessage),
-                GlobalConstants.Threading.MAX_N_THREADS_SEND_MESSAGE_TO_USERS_DEVICES
+                Configurations.Threading.MAX_N_THREADS_SEND_MESSAGE_TO_USERS_DEVICES
             );
         }
         private Action<NodeAndAssociatedUserIdsSessionIds> Get_ForwardToUserDevices_SendToSpecificNode(string serializedMessage) {
@@ -116,7 +117,7 @@ namespace UserRoutedMessages
                         _ExceptionHandler.Log(ex);
                     }
                 },
-                GlobalConstants.Threading.MAX_N_THREADS_SEND_MESSAGE_TO_USERS_DEVICES
+                Configurations.Threading.MAX_N_THREADS_SEND_MESSAGE_TO_USERS_DEVICES
             );
         }
         private void HandleUserRoutedMessagesMessage(InterserverMessageEventArgs e) {

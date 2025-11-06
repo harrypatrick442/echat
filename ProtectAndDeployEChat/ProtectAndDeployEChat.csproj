@@ -8,11 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\echat-private\Keys\Keys.csproj" />
     <ProjectReference Include="..\..\echat-private\RemoteAssistantCore\RemoteAssistantCore.csproj" />
+    <ProjectReference Include="..\..\shared-private\Configuration\Configurations.csproj" />
     <ProjectReference Include="..\..\shared-public\Building\CSharp\Building.csproj" />
     <ProjectReference Include="..\..\shared-public\Core\CSharp\Core.csproj" />
     <ProjectReference Include="..\..\shared-public\SSH\SSH.csproj" />
-    <ProjectReference Include="..\Constants\GlobalConstants.csproj" />
   </ItemGroup>
 
 </Project>

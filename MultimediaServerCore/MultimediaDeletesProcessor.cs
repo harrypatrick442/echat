@@ -1,5 +1,6 @@
 ﻿using Core.Exceptions;
 using Core.Timing;
+using Initialization.Exceptions;
 using Logging;
 using Shutdown;
 using System.IO;
@@ -30,7 +31,7 @@ namespace MultimediaServerCore
         private MultimediaDeletesProcessor() {
             _DalMultimediaDeletes = DalMultimediaDeletes.Instance;
             _Timer = new Timer();
-            _Timer.Interval = GlobalConstants.Intervals.PROCESS_DELETE_MULTIMEDIAS;
+            _Timer.Interval = Configurations.Intervals.PROCESS_DELETE_MULTIMEDIAS;
             _Timer.AutoReset = true;
             _Timer.Elapsed += DoDeletes;
             _Timer.Enabled = true;

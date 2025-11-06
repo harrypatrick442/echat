@@ -6,6 +6,8 @@ using InterserverComs;
 using Nodes;
 using KeyValuePairDatabases.Interfaces;
 using KeyValuePairDatabases.Enums;
+using DependencyManagement;
+using ConfigurationCore;
 
 namespace KeyValuePairDatabases.Appended
 {
@@ -65,7 +67,7 @@ namespace KeyValuePairDatabases.Appended
                 InterserverTicketedSender.Send<AppendedAppendRequest,
             AppendedAppendResponse>(
                     new AppendedAppendRequest(identifier, jsonString, _DatabaseIdentifier),
-                    GlobalConstants.Timeouts.TIMEOUT_REMOTE_LOCKING_OPERATION, 
+                    DependencyManager.Get<ITimeoutsConfiguration>().TimeoutRemoteLockingOperation, 
                     _CancellationTokenSourceDisposed.Token, endpoint.SendJSONString);
             indexToContinueFromToGoBackFromMessage = (long)response.IndexToContinueFromToGoBackFromMessage;
             if (!response.Successful)
@@ -99,7 +101,7 @@ namespace KeyValuePairDatabases.Appended
                 InterserverTicketedSender.Send<AppendedReadRequest,
             AppendedReadResponse>(
                     new AppendedReadRequest(identifier, nEntries, indexToReadFromBackwardsExclusive, _DatabaseIdentifier),
-                    GlobalConstants.Timeouts.TIMEOUT_REMOTE_LOCKING_OPERATION, _CancellationTokenSourceDisposed.Token, endpoint.SendJSONString);
+                    DependencyManager.Get<ITimeoutsConfiguration>().TimeoutRemoteLockingOperation, _CancellationTokenSourceDisposed.Token, endpoint.SendJSONString);
             if (!response.Successful)
                 throw new OperationFailedException($"{nameof(Read)}");
             toIndexFromBeginningExclusive = response.ToIndexFromBeginningExclusive;

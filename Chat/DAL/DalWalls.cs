@@ -5,6 +5,7 @@ using KeyValuePairDatabases;
 using Core.Ids;
 using KeyValuePairDatabases.Enums;
 using DependencyManagement;
+using Initialization.Exceptions;
 
 namespace Core.DAL
 {

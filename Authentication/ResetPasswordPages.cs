@@ -1,11 +1,4 @@
-﻿
-using Core.Exceptions;
-using Authentication.DAL;
-using System.Timers;
-using Timer = System.Timers.Timer;
-using Core.Collections;
-using Core.Strings;
-using GlobalConstants;
+﻿using Core.Strings;
 
 namespace Authentication
 {
@@ -22,11 +15,11 @@ namespace Authentication
 #if DEBUG
             string origin = "https://localhost:7161";
 #else
-                    string domainName = GlobalConstants.Nodes.FirstUniqueDomainForNode(
-                        GlobalConstants.Nodes.AuthenticationNodeId);
+                    string domainName = Configurations.Nodes.Instance.FirstUniqueDomainForNode(
+                        Configurations.Nodes.AuthenticationNodeId);
                     string origin = $"https://{domainName}";
 #endif
-            string url= $"{origin}/{RoutesWithoutSlash.RESET_PASSWORD_UPDATE_PASSWORD}";
+            string url= $"{origin}/{Configurations.RoutesWithoutSlash.RESET_PASSWORD_UPDATE_PASSWORD}";
 
             return StringHelper.Format(html, new Dictionary<string, string>
             {

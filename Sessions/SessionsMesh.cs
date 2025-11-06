@@ -5,6 +5,7 @@ using Sessions.Requests;
 using Sessions.Responses;
 using Logging;
 using Nodes;
+using Initialization.Exceptions;
 
 namespace Sessions
 {

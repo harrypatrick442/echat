@@ -1,7 +1,7 @@
 ﻿using Core.Exceptions;
 using Database;
 using DependencyManagement;
-using GlobalConstants;
+using Initialization.Exceptions;
 namespace HashTags
 {
     internal class HashTagNodeShardMappings
@@ -35,9 +35,9 @@ namespace HashTags
             List<LocalSQLite> localShards = new List<LocalSQLite>();
             _Root = ActivateRecursively(
 #if DEBUG
-                GlobalConstants.Nodes.HASH_TAGS_NODE_SHARD_MAPPINGS_DEBUG
+                Configurations.Nodes.HASH_TAGS_NODE_SHARD_MAPPINGS_DEBUG
 #else
-                GlobalConstants.Nodes.HASH_TAGS_NODE_SHARD_MAPPINGS
+                Configurations.Nodes.HASH_TAGS_NODE_SHARD_MAPPINGS
 #endif
                 , new List<string>(), localShards, isRoot: true);
             LocalShards = localShards.ToArray();
@@ -132,7 +132,7 @@ namespace HashTags
         private LocalSQLite CreateShardForLocalMapping(string segmentsJoined)
         {
             string filePath = $"{_DirectoryPathWithSeperatorOnEnd} {segmentsJoined}.sqlite";
-            LocalSQLite shard =  new LocalSQLite(filePath, true, GlobalConstants.Sizes.MAX_N_CONNECTIONS_HASH_TAGS_SHARD);
+            LocalSQLite shard =  new LocalSQLite(filePath, true, Configurations.Sizes.MAX_N_CONNECTIONS_HASH_TAGS_SHARD);
             return shard;
         }
         #endregion Private

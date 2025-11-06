@@ -10,8 +10,8 @@
     <PackageReference Include="Microsoft.NETCore.App" Version="2.2.8" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\shared-private\Configuration\Configurations.csproj" />
     <ProjectReference Include="..\Chat\Chat.csproj" />
-    <ProjectReference Include="..\Constants\GlobalConstants.csproj" />
     <ProjectReference Include="..\EChatEndpoints\EChatEndpoints.csproj" />
     <ProjectReference Include="..\Flagging\Flagging.csproj" />
     <ProjectReference Include="..\..\shared-public\Logging\CSharp\Logging.csproj" />

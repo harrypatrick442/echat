@@ -433,10 +433,10 @@ namespace Chat
 
             if (nEntries == null || (int)nEntries <= 0)
             {
-                   return GlobalConstants.Lengths.N_MESSAGES_LOAD_PUBLIC_CHATROOM;
+                   return Configurations.Lengths.N_MESSAGES_LOAD_PUBLIC_CHATROOM;
             }
-            if ((int)nEntries > GlobalConstants.Lengths.N_MESSAGES_LOAD_PUBLIC_CHATROOM)
-                return GlobalConstants.Lengths.N_MESSAGES_LOAD_PUBLIC_CHATROOM;
+            if ((int)nEntries > Configurations.Lengths.N_MESSAGES_LOAD_PUBLIC_CHATROOM)
+                return Configurations.Lengths.N_MESSAGES_LOAD_PUBLIC_CHATROOM;
             return (int)nEntries;
         }
     }

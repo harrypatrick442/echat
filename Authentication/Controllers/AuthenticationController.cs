@@ -29,7 +29,7 @@ namespace WebAPI.Controllers
         /// <param name="browserName"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route(GlobalConstants.Routes.RESET_PASSWORD_CLICKED_LINK)]
+        [Route(Configurations.Routes.RESET_PASSWORD_CLICKED_LINK)]
         public ContentResult ResetPasswordClickedLink()
         {
             try
@@ -63,7 +63,7 @@ namespace WebAPI.Controllers
             };
         }
         [HttpPost]
-        [Route(GlobalConstants.Routes.RESET_PASSWORD_UPDATE_PASSWORD)]
+        [Route(Configurations.Routes.RESET_PASSWORD_UPDATE_PASSWORD)]
         public ContentResult ResetPasswordUpdatePassword()
         {
             UpdatePasswordResponse response = null;
@@ -89,7 +89,7 @@ namespace WebAPI.Controllers
             };
         }
         [HttpGet]
-        [Route(GlobalConstants.Routes.RESET_PASSWORD_BY_EMAIL)]
+        [Route(Configurations.Routes.RESET_PASSWORD_BY_EMAIL)]
         public void ResetPasswordByEmail()
         {
             try

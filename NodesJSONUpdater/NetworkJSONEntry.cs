@@ -1,3 +1,5 @@
+using ConfigurationCore;
+using DependencyManagement;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
@@ -14,7 +16,7 @@ internal class NetworkJSONEntry {
     public int[] To{ get; protected set; }
     public bool HasDomain { 
         get {
-            return GlobalConstants.Nodes.FirstUniqueDomainForNode(Id) != null;
+            return DependencyManager.Get<INodesConfiguration>().FirstUniqueDomainForNode(Id) != null;
         }
     }
     protected NetworkJSONEntry() { }

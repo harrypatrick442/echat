@@ -5,6 +5,7 @@ using SQLite;
 using Database;
 using DependencyManagement;
 using Microsoft.Data.Sqlite;
+using Initialization.Exceptions;
 namespace Core.DAL
 {
     public class DalAbandonedRooms

@@ -131,7 +131,7 @@ namespace EChatEndpoints.WebsocketServers
             catch { return; }
             try
             {
-                string? token = Context?.QueryString[GlobalConstants.Parameters.TOKEN];
+                string? token = Context?.QueryString[Configurations.Parameters.TOKEN];
                 if (token != null)
                 {
                     new Thread(() =>

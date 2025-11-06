@@ -4,6 +4,7 @@ using Users.FrequentlyAccessedUserProfiles;
 using KeyValuePairDatabases;
 using KeyValuePairDatabases.Enums;
 using DependencyManagement;
+using Initialization.Exceptions;
 
 namespace Users.DAL
 {

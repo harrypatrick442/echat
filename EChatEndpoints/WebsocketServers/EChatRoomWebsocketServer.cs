@@ -72,7 +72,7 @@ namespace EChatEndpoints.WebsocketServers
             base.OnOpen();
             try
             {
-                string? conversationIdString = Context?.QueryString[GlobalConstants.Parameters.CONVERSATION_ID];
+                string? conversationIdString = Context?.QueryString[Configurations.Parameters.CONVERSATION_ID];
                 if (conversationIdString == null) throw new ArgumentNullException(nameof(conversationIdString));
                 lock (_LockObject)
                 {

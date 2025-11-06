@@ -14,6 +14,7 @@ using UserIgnore.Messages;
 using Users;
 using Core.Ids;
 using Core.DTOs;
+using Initialization.Exceptions;
 namespace UserIgnore
 {
     public sealed partial class UserIgnoresMesh

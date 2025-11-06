@@ -1,5 +1,4 @@
-﻿using GlobalConstants;
-using Core.DAL;
+﻿using Core.DAL;
 using Core.Exceptions;
 using Core.Timing;
 using HashTags;
@@ -8,6 +7,7 @@ using Shutdown;
 using System.Timers;
 using HashTags.Enums;
 using Timer = System.Timers.Timer;
+using Initialization.Exceptions;
 namespace Chat
 {
     public sealed class ChatRooms
@@ -32,7 +32,7 @@ namespace Chat
             ShutdownManager.Instance.Add(Dispose, ShutdownOrder.ChatRooms);
             _OnlineRecentlySwitchBuffersTimer = new Timer
             {
-                Interval = GlobalConstants.Intervals.SWITCH_ONLINE_RECENTLY_BUFFERS,
+                Interval = Configurations.Intervals.SWITCH_ONLINE_RECENTLY_BUFFERS,
                 AutoReset = true,
                 Enabled = true
             };

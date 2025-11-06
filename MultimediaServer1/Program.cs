@@ -8,7 +8,7 @@ using Nodes;
 
 public class Program
 {
-    public const int NODE_ID = GlobalConstants.Nodes.MULTIMEDIA_SERVER_1;
+    public const int NODE_ID = Configurations.Nodes.MULTIMEDIA_SERVER_1;
     public static void Main(string[] args)
     {
         Logs.Initialize(LogFilePathDefault.Value);

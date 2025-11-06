@@ -22,11 +22,11 @@ namespace FileServerBase
             string filePath, string requestPath, int defaultNodeId, 
             Tuple<string, Func<string>>[] additionalPlaceholderAndGetValue_s = null)
             :base(loadFactorType,
-                GlobalConstants.Intervals.WEBSOCKET_LOAD_BALANCING_INDEX_DYNAMIC_CACHED_FILE_UPDATE)
+                Configurations.Intervals.WEBSOCKET_LOAD_BALANCING_INDEX_DYNAMIC_CACHED_FILE_UPDATE)
         {
             RequestPath = requestPath;
             _ContentType = MimeTypes.MimeTypeMap.GetMimeType(filePath);
-            List<string> placeholders = new List<string>(4) { GlobalConstants
+            List<string> placeholders = new List<string>(4) { Configurations
                 .Placeholders.WEBSOCKET_LOAD_BALANCING_INDEX_DYNAMIC_CACHED_FILE_PLACEHOLDER };
             if (additionalPlaceholderAndGetValue_s != null) {
                 foreach (var a in additionalPlaceholderAndGetValue_s)
@@ -75,7 +75,7 @@ namespace FileServerBase
             return bytes;
         }
         private string GetDomainForNodeId(int nodeId) {
-            string[] domains = GlobalConstants.Nodes.UniqueDomainsForNode(nodeId);
+            string[] domains = new Configurations.Nodes().UniqueDomainsForNode(nodeId);
             string domain =  domains.Where(d=>d.ToLower().IndexOf("ws")==0).FirstOrDefault();
             return domain;
         }

@@ -10,6 +10,7 @@
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.7.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\shared-private\Configuration\Configurations.csproj" />
     <ProjectReference Include="..\Nodes\Nodes.csproj" />
   </ItemGroup>
 </Project>

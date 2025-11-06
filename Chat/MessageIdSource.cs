@@ -1,6 +1,7 @@
 ﻿using Core.Exceptions;
 using Core.Ids;
 using DependencyManagement;
+using Initialization.Exceptions;
 
 namespace Chat
 {
@@ -20,7 +21,7 @@ namespace Chat
             _Instance = new MessageIdSource();
             return _Instance;
         }
-        private MessageIdSource() : base(DependencyManager.GetString(DependencyNames.MessageIdSourceDirectory), GlobalConstants.IdTypes.MESSAGE)
+        private MessageIdSource() : base(DependencyManager.GetString(DependencyNames.MessageIdSourceDirectory), Configurations.IdTypes.MESSAGE)
         {
 
         }

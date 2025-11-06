@@ -15,6 +15,7 @@ using UserRoutedMessages;
 using Core.Threading;
 using NodeAssignedIdRanges;
 using JSON;
+using Initialization.Exceptions;
 
 namespace MentionsCore
 {
@@ -43,7 +44,7 @@ namespace MentionsCore
         private MentionsMesh() {
             _MyNodeId = Nodes.Nodes.Instance.MyId;
             _MentionsIdSource = MentionsIdSource.Initialize();
-            _NodesIdRangesUsersManager = NodesIdRangesManager.Instance.ForIdType(GlobalConstants.IdTypes.USER);
+            _NodesIdRangesUsersManager = NodesIdRangesManager.Instance.ForIdType(Configurations.IdTypes.USER);
             _DalMentionsSQLite = DalMentionsSQLite.Initialize();
             _UserIdToNodeId = UserIdToNodeId.Instance;
             _MessageTypeMappingsHandler = InterserverMessageTypeMappingsHandler.Instance;
@@ -117,7 +118,7 @@ namespace MentionsCore
                        catch (Exception ex) {
                            Logs.Default.Error(ex);
                        }
-                   }, GlobalConstants.Threading.MAX_N_THREADS_SEND_MESSAGE_TO_CORE_SERVERS_FOR_USER);
+                   }, Configurations.Threading.MAX_N_THREADS_SEND_MESSAGE_TO_CORE_SERVERS_FOR_USER);
             UserRoutedMessagesManager.Instance.ForwardStringToUserDevices(addMention, userIdBeingMentioneds);
         }
         public void SetSeen(long userIdBeingMentioned, long messageId)

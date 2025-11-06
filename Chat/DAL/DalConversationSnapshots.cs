@@ -8,6 +8,7 @@ using DependencyManagement;
 using Chat.Messages.Client.Messages;
 using Chat.Messages.Client;
 using Core.Enums;
+using Initialization.Exceptions;
 namespace Core.DAL
 {
     public class DalConversationSnapshots

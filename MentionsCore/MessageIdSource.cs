@@ -1,6 +1,7 @@
 ﻿using Core.Exceptions;
 using Core.Ids;
 using DependencyManagement;
+using Initialization.Exceptions;
 
 namespace MentionsCore
 {
@@ -20,7 +21,7 @@ namespace MentionsCore
             _Instance = new MentionsIdSource();
             return _Instance;
         }
-        private MentionsIdSource() : base(DependencyManager.GetString(DependencyNames.MentionIdSourceDirectory), GlobalConstants.IdTypes.MENTION)
+        private MentionsIdSource() : base(DependencyManager.GetString(DependencyNames.MentionIdSourceDirectory), Configurations.IdTypes.MENTION)
         {
 
         }

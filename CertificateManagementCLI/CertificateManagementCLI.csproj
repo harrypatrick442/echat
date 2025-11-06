@@ -6,7 +6,4 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
   </PropertyGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CertificateManagement\CertificateManagement.csproj" />
-  </ItemGroup>
 </Project>

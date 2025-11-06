@@ -7,7 +7,6 @@
     <PackageReference Include="Microsoft.FeatureManagement" Version="4.3.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CertificateManagement\CertificateManagement.csproj" />
     <ProjectReference Include="..\..\shared-private\Dependencies\Dependencies.csproj" />
     <ProjectReference Include="..\..\shared-public\Logging\CSharp\Logging.csproj" />
     <ProjectReference Include="..\Logging_ClientFriendly\Logging_ClientFriendly.csproj" />

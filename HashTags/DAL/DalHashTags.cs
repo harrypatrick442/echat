@@ -7,6 +7,7 @@ using Core.Exceptions;
 using HashTags.Messages;
 using DependencyManagement;
 using HashTags.Enums;
+using Initialization.Exceptions;
 namespace HashTags.DAL
 {
     internal class DalHashTags

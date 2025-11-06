@@ -1,6 +1,7 @@
 ﻿using Core.Ids;
 using NodeAssignedIdRanges;
 using Core.Exceptions;
+using Initialization.Exceptions;
 
 namespace Chat
 {
@@ -28,7 +29,7 @@ namespace Chat
         public MessageIdToNodeId()
         {
 
-            _NodesIdRangesForIdTypeManager = NodesIdRangesManager.Instance.ForIdType(GlobalConstants.IdTypes.MESSAGE);
+            _NodesIdRangesForIdTypeManager = NodesIdRangesManager.Instance.ForIdType(Configurations.IdTypes.MESSAGE);
         }
         public int GetNodeIdFromIdentifier(long identifier)
         {

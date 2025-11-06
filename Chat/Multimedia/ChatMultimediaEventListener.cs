@@ -11,6 +11,7 @@ using MultimediaServerCore.Exceptions;
 using Core.Interfaces;
 using UserRouting;
 using Chat.Endpoints;
+using Initialization.Exceptions;
 namespace UserMultimediaCore
 {
     public sealed class ChatMultimediaEventListener

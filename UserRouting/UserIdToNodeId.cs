@@ -1,6 +1,7 @@
 ﻿using Core.Ids;
 using NodeAssignedIdRanges;
 using Core.Exceptions;
+using Initialization.Exceptions;
 
 namespace Users
 {
@@ -26,7 +27,7 @@ namespace Users
         NodesIdRangesForIdTypeManager _NodesIdRangesForIdTypeManager;
         public UserIdToNodeId() {
 
-            _NodesIdRangesForIdTypeManager = NodesIdRangesManager.Instance.ForIdType(GlobalConstants.IdTypes.USER);
+            _NodesIdRangesForIdTypeManager = NodesIdRangesManager.Instance.ForIdType(Configurations.IdTypes.USER);
         }
         public int GetNodeIdFromIdentifier(long identifier)
         {

@@ -4,6 +4,7 @@ using KeyValuePairDatabases;
 using KeyValuePairDatabases.Enums;
 using DependencyManagement;
 using Logging;
+using Initialization.Exceptions;
 
 namespace Authentication.DAL
 {

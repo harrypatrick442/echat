@@ -15,6 +15,7 @@ using KeyValuePairDatabases.Enums;
 using DependencyManagement;
 using Chat;
 using Core.Timing;
+using Initialization.Exceptions;
 namespace Core.DAL
 {
     public class DalInvites

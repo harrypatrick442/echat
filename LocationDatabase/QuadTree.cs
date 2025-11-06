@@ -1,6 +1,7 @@
 ﻿using Core.Enums;
 using Core.Exceptions;
 using Core.Ids;
+using Initialization.Exceptions;
 using Location.Interfaces;
 
 namespace Location

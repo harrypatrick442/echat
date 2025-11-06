@@ -10,6 +10,9 @@ using System;
 using System.Threading;
 using Logging_ClientFriendly.Messages;
 using Ajax;
+using DependencyManagement;
+using ConfigurationCore;
+using Initialization.Exceptions;
 
 namespace Logging
 {
@@ -46,7 +49,7 @@ namespace Logging
         {
             try
             {
-                Ajax.AjaxHelper.PostWithoutWaitingForResponse(GlobalConstants.Urls.LOG_SERVER_LOG_ERROR,
+                Ajax.AjaxHelper.PostWithoutWaitingForResponse(DependencyManager.Get<IUrlsConfiguration>().LogServerLogError,
                     new LoggedError(_SessionId, TimeHelper.MillisecondsNow, ex.StackTrace, ex.Message,
                     _Platform, null, nodeId: _NodeId),
                     Json.Instance, timeoutMilliseconds: 3000);
@@ -57,7 +60,7 @@ namespace Logging
         {
             try
             {
-                Ajax.AjaxHelper.PostWithoutWaitingForResponse(GlobalConstants.Urls.LOG_SERVER_LOG_ERROR,
+                Ajax.AjaxHelper.PostWithoutWaitingForResponse(DependencyManager.Get<IUrlsConfiguration>().LogServerLogError,
                         new LoggedError(_SessionId, TimeHelper.MillisecondsNow, null, message, _Platform,
                         null, nodeId: _NodeId),
                     Json.Instance, timeoutMilliseconds: 3000);
@@ -68,7 +71,7 @@ namespace Logging
         {
             try
             {
-                Ajax.AjaxHelper.PostWithoutWaitingForResponse(GlobalConstants.Urls.LOG_SERVER_LOG_BREADCRUMB, 
+                Ajax.AjaxHelper.PostWithoutWaitingForResponse(DependencyManager.Get<IUrlsConfiguration>().LogServerLogBreadcrumb, 
                         new Breadcrumb(_SessionId, TimeHelper.MillisecondsNow,
                         type, description, value),
                     Json.Instance, timeoutMilliseconds: 3000);
@@ -84,6 +87,7 @@ namespace Logging
                 new IntervalNTimes(10000, 12),
                 new IntervalNTimes(120000, -1)
             );
+            IUrlsConfiguration urls = DependencyManager.Get<IUrlsConfiguration>();
             new Thread(() =>
             {
                 while (true)
@@ -92,7 +96,7 @@ namespace Logging
                     {
                         LoggedSession loggedSession = new LoggedSession(TimeHelper.MillisecondsNow, _Platform, null,
                             _Project, null, _NodeId);
-                        AjaxResult ajaxResult = Ajax.AjaxHelper.PostSync(GlobalConstants.Urls.LOG_SERVER_LOG_SESSION, 
+                        AjaxResult ajaxResult = Ajax.AjaxHelper.PostSync(urls.LogServerLogSession, 
                             loggedSession,
                             Json.Instance, timeoutMilliseconds: 2000);
                         if (ajaxResult.Successful)

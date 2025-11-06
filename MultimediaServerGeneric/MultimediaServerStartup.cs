@@ -75,7 +75,7 @@ namespace MultimediaServer
                 });
 
                 WebSocketServer webSocketServer = WebSocketStartup.Run(Configuration.GetValue<string>);
-                MemoryManager.Initialize(GlobalConstants.Sizes.GetBytesMemoryAllowedForNode(
+                MemoryManager.Initialize(Configurations.Sizes.GetBytesMemoryAllowedForNode(
                     Nodes.Nodes.Instance.MyId));
                 InterserverPort.Initialize(webSocketServer, CertificateManagement.Constants.TLS.FULL_CHAIN_PATH);
                 InterserverInverseTicketedSender.Initialize();
@@ -101,7 +101,7 @@ namespace MultimediaServer
                             ".png", ".jpg", ".webp")
                     ));
                 webSocketServer.Start();
-                Firewall.Initialize().OpenPortsUntilShutdown(GlobalConstants.Ports.Value);
+                Firewall.Initialize().OpenPortsUntilShutdown(Configurations.Ports.Value);
                 Logs.Default.Info("opening ports");
             }
             catch (Exception ex)

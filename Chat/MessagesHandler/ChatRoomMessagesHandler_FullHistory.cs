@@ -6,7 +6,7 @@ using Chat.Messages.Client.Requests;
 using Chat.Messages.Client;
 using MultimediaServerCore;
 using HashTags;
-using GlobalConstants;
+using Configurations;
 
 namespace Chat.MessagesHandler
 {
@@ -15,12 +15,12 @@ namespace Chat.MessagesHandler
         private long _ConversationId;
         private IDalMessages _DalMessages;
         public ChatRoomMessagesHandler_FullHistory(ConversationType conversationType, long conversationId)
-            :base(GlobalConstants.Lengths.MAX_N_MESSAGES_IN_OVERFLOWING_CHAT_ROOM)
+            :base(Configurations.Lengths.MAX_N_MESSAGES_IN_OVERFLOWING_CHAT_ROOM)
         {
             _ConversationId = conversationId;
             _DalMessages = DalMessages.ForConversationType(conversationType);
             ClientMessage[] latestMessages = _DalMessages.ReadFromEnd(
-                conversationId, GlobalConstants.Lengths.MAX_N_MESSAGES_IN_OVERFLOWING_CHAT_ROOM,
+                conversationId, Configurations.Lengths.MAX_N_MESSAGES_IN_OVERFLOWING_CHAT_ROOM,
                 out MessageReaction[] reactions, out MessageUserMultimediaItem[] messageUserMultimediaItems,
                 null);
             _LatestCachedMessages.Initialize(latestMessages, reactions, messageUserMultimediaItems);

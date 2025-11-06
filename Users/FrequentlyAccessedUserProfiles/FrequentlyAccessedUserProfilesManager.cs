@@ -7,6 +7,7 @@ using Users.Messages.Client;
 using JSON;
 using InterserverComs;
 using Users.DAL;
+using Initialization.Exceptions;
 
 namespace Users.FrequentlyAccessedUserProfiles
 {
@@ -63,7 +64,7 @@ namespace Users.FrequentlyAccessedUserProfiles
                     {
                         Logs.Default.Error(ex);
                     }
-                }, GlobalConstants.Threading.MAX_N_THREADS_DISTRIBUTE_FREQUENTLY_ACCESSED_USER_PROFILE_UPDATE);
+                }, Configurations.Threading.MAX_N_THREADS_DISTRIBUTE_FREQUENTLY_ACCESSED_USER_PROFILE_UPDATE);
             }
             catch (Exception ex) {
                 Logs.Default.Error(ex);

@@ -1,4 +1,5 @@
 ﻿using Core.Exceptions;
+using Initialization.Exceptions;
 using Microsoft.VisualBasic;
 using MultimediaServerCore.Enums;
 using FileInfo = Core.Messages.Messages.FileInfo;
@@ -33,7 +34,7 @@ namespace MultimediaServerCore
         public MultimediaFailedReason? Validate(
             MultimediaType multimediaType, string fileExtension, FileInfo fileInfo)
         {
-            if (fileInfo.Size > GlobalConstants.Sizes.MULTIMEDIA_SERVER_MAXIMUM_FILE_SIZE)
+            if (fileInfo.Size > Configurations.Sizes.MULTIMEDIA_SERVER_MAXIMUM_FILE_SIZE)
             {
                 return MultimediaFailedReason.FileTooLarge;
             }

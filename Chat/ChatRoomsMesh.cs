@@ -8,10 +8,10 @@ using Chat.Messages.Client.Requests;
 using Chat.Messages.Client.Responses;
 using Core.Messages.Responses;
 using Logging;
-using GlobalConstants;
 using Users;
 using Chat.Messages.Client.Messages;
 using UserRoutedMessages;
+using Initialization.Exceptions;
 namespace Chat
 {
     public partial class ChatRoomsMesh
@@ -38,7 +38,7 @@ namespace Chat
         private ChatRoomsMesh()
         {
             _MyNodeId = Nodes.Nodes.Instance.MyId;
-            _NodesIdRangesUsersManager = NodesIdRangesManager.Instance.ForIdType(GlobalConstants.IdTypes.USER);
+            _NodesIdRangesUsersManager = NodesIdRangesManager.Instance.ForIdType(Configurations.IdTypes.USER);
             _DalUserRooms = DalUserRooms.Instance;
             Initialize_Server();
             ShutdownManager.Instance.Add(Dispose, ShutdownOrder.ChatsManager);
@@ -70,9 +70,9 @@ namespace Chat
                 int nodeId = operation.Equals(UserRoomsOperation.Popular)
                     ?
 #if DEBUG
-                    GlobalConstants.Nodes.ECHAT_POPULAR_ROOMS_MANAGER_DEBUG
+                    Configurations.Nodes.ECHAT_POPULAR_ROOMS_MANAGER_DEBUG
 #else
-                    GlobalConstants.Nodes.ECHAT_POPULAR_ROOMS_MANAGER
+                    Configurations.Nodes.ECHAT_POPULAR_ROOMS_MANAGER
 #endif
                     : _NodesIdRangesUsersManager.GetNodeIdForIdInRange(myUserId);
                 OperationRedirectHelper.OperationRedirectedToNode<
@@ -132,7 +132,7 @@ namespace Chat
         {
             List<RoomActivity> allMostActiveRooms = new List<RoomActivity>();
             ParallelOperationHelper.RunInParallelNoReturn(
-                GlobalConstants.Nodes.GetNodeIdsAssociatedWithIdType(IdTypes.CONVERSATION)
+                Configurations.Nodes.Instance.GetNodeIdsAssociatedWithIdType(Configurations.IdTypes.CONVERSATION)
                 , (nodeId) =>
                 {
                     try
@@ -159,7 +159,7 @@ namespace Chat
                     catch (Exception ex) {
                         Logs.Default.Error(ex);
                     }
-                }, GlobalConstants.Threading.MAX_N_THREADS_SEND_MESSAGE_TO_CORE_SERVERS_FOR_USER);
+                }, Configurations.Threading.MAX_N_THREADS_SEND_MESSAGE_TO_CORE_SERVERS_FOR_USER);
             return allMostActiveRooms;
         }
         public string GetMostActiveRoomsFromManager()
@@ -167,7 +167,7 @@ namespace Chat
             string mostActiveRooms = null;
             OperationRedirectHelper.OperationRedirectedToNode<GetMostActiveRoomsFromManagerRequest,
                 GetMostActiveRoomsFromManagerResponse>(
-                GlobalConstants.Nodes.ECHAT_MOST_ACTIVE_ROOMS_MANAGER,
+                Configurations.Nodes.ECHAT_MOST_ACTIVE_ROOMS_MANAGER,
                 () =>
                 {
                     throw new Exception("Something went wrong. This should not be getting called on the manager node");
@@ -208,7 +208,7 @@ namespace Chat
                                 }
                             },
                             ShutdownManager.Instance.CancellationToken);
-                    }, GlobalConstants.Threading.MAX_N_THREADS_GET_ROOM_SNAPSHOTS);
+                    }, Configurations.Threading.MAX_N_THREADS_GET_ROOM_SNAPSHOTS);
                 roomSummarys = roomSummarysInternal.ToArray();
                 return true;
             }

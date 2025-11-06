@@ -1,4 +1,5 @@
 ﻿using Core.Exceptions;
+using Initialization.Exceptions;
 using System.Net;
 
 namespace Authentication

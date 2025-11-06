@@ -4,6 +4,7 @@ using DependencyManagement;
 using LocationCore;
 using Location;
 using Users;
+using Initialization.Exceptions;
 
 namespace UserLocation
 {
@@ -11,9 +12,9 @@ namespace UserLocation
     {
         private static readonly int[][] NODES_AT_EACH_LEVEL =
 #if DEBUG
-            GlobalConstants.Nodes.USERS_QUAD_TREE_NODE_IDS_AT_EACH_LEVEL_DEBUG
+            Configurations.Nodes.USERS_QUAD_TREE_NODE_IDS_AT_EACH_LEVEL_DEBUG
 #else
-            GlobalConstants.Nodes.USERS_QUAD_TREE_NODE_IDS_AT_EACH_LEVEL
+            Configurations.Nodes.USERS_QUAD_TREE_NODE_IDS_AT_EACH_LEVEL
 #endif
             ;
         private static UserQuadTree _Instance;

@@ -1,5 +1,7 @@
+using ConfigurationCore;
 using Core.Exceptions;
 using Core.Maths;
+using DependencyManagement;
 using Nodes;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
@@ -47,7 +49,8 @@ internal class NetworkPair
     }
     public string GetServerUrl(NetworkJSONEntry me)
     {
-        return IAmClientElseServer(me) ? $"wss://{GlobalConstants.Nodes.FirstUniqueDomainForNode(_Server.Id)}:8443" : null;
+        return IAmClientElseServer(me) ? $"wss://{DependencyManager.Get<INodesConfiguration>()
+            .FirstUniqueDomainForNode(_Server.Id)}:8443" : null;
     }
     public string GetExpectedIpAddressOfClient(NetworkJSONEntry me)
     {

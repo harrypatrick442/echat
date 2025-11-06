@@ -4,6 +4,7 @@ using Authentication.DAL;
 using System.Timers;
 using Timer = System.Timers.Timer;
 using Core.Collections;
+using Initialization.Exceptions;
 
 namespace Authentication
 {

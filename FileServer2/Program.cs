@@ -8,7 +8,7 @@ using Nodes;
 using FileServerBase;
 public class Program
 {
-    public const int NODE_ID = GlobalConstants.Nodes.FILE_SERVER_2;
+    public const int NODE_ID = Configurations.Nodes.FILE_SERVER_2;
     public static void Main(string[] args)
     {
         Logs.Initialize(LogFilePathDefault.Value);

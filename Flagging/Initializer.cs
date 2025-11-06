@@ -8,11 +8,11 @@ namespace Flagging
         {
             int flaggingNodeId, flaggingBackupNodeId;
 #if DEBUG
-            flaggingNodeId = GlobalConstants.Nodes.FLAGGING_NODE_ID_DEBUG;
-            flaggingBackupNodeId = GlobalConstants.Nodes.FLAGGING_BACKUP_NODE_ID_DEBUG;
+            flaggingNodeId = Configurations.Nodes.FLAGGING_NODE_ID_DEBUG;
+            flaggingBackupNodeId = Configurations.Nodes.FLAGGING_BACKUP_NODE_ID_DEBUG;
 #else
-            flaggingNodeId =GlobalConstants.Nodes.FLAGGING_NODE_ID;
-            flaggingBackupNodeId =GlobalConstants.Nodes.FLAGGING_BACKUP_NODE_ID;
+            flaggingNodeId = Configurations.Nodes.FLAGGING_NODE_ID;
+            flaggingBackupNodeId = Configurations.Nodes.FLAGGING_BACKUP_NODE_ID;
 #endif
             int myNodeId = Nodes.Nodes.Instance.MyId;
             bool iAmFlaggingNode = flaggingNodeId == myNodeId||flaggingBackupNodeId==myNodeId;

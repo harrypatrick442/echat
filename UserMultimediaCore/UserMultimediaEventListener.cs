@@ -6,6 +6,7 @@ using MultimediaServerCore.Messages;
 using JSON;
 using MultimediaServerCore.Requests;
 using MultimediaCore;
+using Initialization.Exceptions;
 namespace UserMultimediaCore
 {
     public sealed class UserMultimediaEventListener

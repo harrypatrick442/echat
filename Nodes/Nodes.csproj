@@ -14,15 +14,6 @@
     <ProjectReference Include="..\..\shared-public\Logging\CSharp\Logging.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="Setups\Network\RetrocauseLive.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Setups\Network\RetrocauseDevelopment.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Setups\Network\Network_before_changes_15_03_2024.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="Setups\Network\Development.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

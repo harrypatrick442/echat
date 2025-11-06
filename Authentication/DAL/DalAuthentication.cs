@@ -6,6 +6,7 @@ using Core.Ids;
 using KeyValuePairDatabases;
 using KeyValuePairDatabases.Enums;
 using DependencyManagement;
+using Initialization.Exceptions;
 
 namespace Authentication.DAL
 {

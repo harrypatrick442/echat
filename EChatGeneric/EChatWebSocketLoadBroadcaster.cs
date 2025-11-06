@@ -1,6 +1,8 @@
 using EChatEndpoints.WebsocketServers;
 using Core.Exceptions;
 using WebAbstract.LoadBalancing;
+using ConfigurationCore;
+using Initialization.Exceptions;
 namespace EChatGeneric
 {
     public class EChatWebSocketLoadBroadcaster:LoadingBroadcaster
@@ -12,7 +14,7 @@ namespace EChatGeneric
                 _Instance = new EChatWebSocketLoadBroadcaster();
                 return _Instance;
         }
-        private EChatWebSocketLoadBroadcaster():base(GlobalConstants.Nodes.ECHAT_FILESERVER_NODES,
+        private EChatWebSocketLoadBroadcaster():base(Configurations.Nodes.ECHAT_FILESERVER_NODES,
             LoadFactorType.EChatWebsocketServer, ()=>EChatUserWebsocketServer.NInstances){ 
         
         }

@@ -9,6 +9,7 @@ using MultimediaServerCore.Messages;
 using JSON;
 using Core.Messages.Responses;
 using Core.Threading;
+using Initialization.Exceptions;
 
 namespace MultimediaServerCore
 {
@@ -127,7 +128,7 @@ namespace MultimediaServerCore
                             _CancellationTokenSourceDisposed.Token
                         );
                     },
-                    GlobalConstants.Threading.MAX_N_THREADS_MULTIMEDIA_ITEMS_DELETE_PARALLEL_OPERATION,
+                    Configurations.Threading.MAX_N_THREADS_MULTIMEDIA_ITEMS_DELETE_PARALLEL_OPERATION,
                     throwExceptions:true
                 );
             }

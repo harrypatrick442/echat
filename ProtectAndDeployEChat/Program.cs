@@ -5,59 +5,64 @@ using System.Text;
 using Core.Processes;
 using RemoteAssistantCore;
 using Setup.Git;
-using System.Data.SqlTypes;
 using System.Xml;
-using Core.FileSystem;
 using Core;
+using System.Reflection;
+using System.Xml.Linq;
+using Core.FileSystem;
+using System.Security;
+using Renci.SshNet.Messages;
 public class Program
 {
     private const string DOTNET_REACTOR_PATH = "C:\\Program Files (x86)\\Eziriz\\.NET Reactor\\dotNET_Reactor.Console.exe";
     public static void Main(string[] args)
     {
-        while (true)
-        {
-            Console.WriteLine("Which project? \"fr\" for filesrelay, \"ec\" for echat, \"rc\" for retrocause....");
-            string str = Console.ReadLine();
-            switch (str)
-            {
-                case "fr":
-                    FilesRelay();
-                    return;
-                case "ec":
-                    EChat();
-                    return;
-                case "rc":
-                    Retrocause();
-                    return;
-            }
-        }
-    }
-    private static void EChat()
-    {
-        bool doBackend = AskYesNo("Build and deploy backend?", true);
-        bool doClient = AskYesNo("Build and deploy client?", true);
+        Configurations.Initializer.Initialize();
+        bool doBackend = AskYesNo("BuildDotNet and deploy backend?", true);
+        bool doClient = AskYesNo("BuildDotNet and deploy client?", true);
         bool doCleanupServerLogs = AskYesNo("Cleanup server logs?", true);
         bool doRetrySslCertificateIfFailed = AskYesNo("Retry SSL certificate if failed?", true);
         bool doRestartServersAfter = AskYesNo("Restart servers after?", true);
         bool doInstallFfmpeg = AskYesNo("Install ffmpeg?", false);
+        bool createFreshDb = AskToType("Create fresh db?", "Create fresh db");
+        string reposDirectory = Assembly.GetEntryAssembly()!.Location;
+        while (Path.GetFileName(reposDirectory).ToLower() != "repos")
+        {
+            reposDirectory = Directory.GetParent(reposDirectory)!.FullName;
+        }
+        string echatDirectory = Path.Combine(reposDirectory, "echat");
         if (doBackend)
         {
-            Build();
-            Action<string> protect = GetProtect(DOTNET_REACTOR_PATH);
-            protect("C:\\repos\\snippets\\DotNetReactor\\FileServer.nrproj");
-            protect("C:\\repos\\snippets\\DotNetReactor\\EChat1.nrproj");
-            protect("C:\\repos\\snippets\\DotNetReactor\\MultimediaServer1.nrproj");
-            protect("C:\\repos\\snippets\\DotNetReactor\\LogServer.nrproj");
-            PuttyCommands.AgentCopyProjetToServer("fileserver", "C:\\repos\\snippets\\Build\\FileServer\\Release\\net7.0\\FileServer_Secure", GlobalConstants.Nodes.FILE_SERVER_1);
-            PuttyCommands.AgentCopyProjetToServer("echat1", "C:\\repos\\snippets\\Build\\EChat1\\Release\\net7.0\\EChat1_Secure", GlobalConstants.Nodes.ECHAT_1);
-            PuttyCommands.AgentCopyProjetToServer("multimediaserver1", "C:\\repos\\snippets\\Build\\MultimediaServer1\\Release\\net7.0\\MultimediaServer1_Secure", GlobalConstants.Nodes.MULTIMEDIA_SERVER_1);
-            PuttyCommands.AgentCopyProjetToServer("logserver", "C:\\repos\\snippets\\Build\\LogServer\\Release\\net7.0\\LogServer_Secure", GlobalConstants.Nodes.LOG_SERVER_1);
+            string echatSolutionFilePath = Path.Combine(echatDirectory, "EChat.sln");
+            BuildDotNet(echatSolutionFilePath);
+            Func<string, string> protect = Create_Protect(DOTNET_REACTOR_PATH);
+            // protect("C:\\repos\\snippets\\DotNetReactor\\FileServer.nrproj");
+            // protect("C:\\repos\\snippets\\DotNetReactor\\EChat1.nrproj");
+            // protect("C:\\repos\\snippets\\DotNetReactor\\MultimediaServer1.nrproj");
+            // protect("C:\\repos\\snippets\\DotNetReactor\\LogServer.nrproj");
+
+            string node1SecureDirectory = protect(Path.Combine(echatDirectory, "DotNetReactor\\Node1.nrproj"));
+            string node2SecureDirectory = protect(Path.Combine(echatDirectory, "DotNetReactor\\Node2.nrproj"));
+            string node3SecureDirectory = protect(Path.Combine(echatDirectory, "DotNetReactor\\Node3.nrproj"));
+            string node4SecureDirectory = protect(Path.Combine(echatDirectory, "DotNetReactor\\Node5.nrproj"));
+
+            //PuttyCommands.AgentCopyProjetToServer("fileserver", "C:\\repos\\snippets\\Build\\FileServer\\Release\\net7.0\\FileServer_Secure", Configurations.Nodes.FILE_SERVER_1);
+            //PuttyCommands.AgentCopyProjetToServer("echat1", "C:\\repos\\snippets\\Build\\EChat1\\Release\\net7.0\\EChat1_Secure", Configurations.Nodes.ECHAT_1);
+            // PuttyCommands.AgentCopyProjetToServer("multimediaserver1", "C:\\repos\\snippets\\Build\\MultimediaServer1\\Release\\net7.0\\MultimediaServer1_Secure", Configurations.Nodes.MULTIMEDIA_SERVER_1);
+            //PuttyCommands.AgentCopyProjetToServer("logserver", "C:\\repos\\snippets\\Build\\LogServer\\Release\\net7.0\\LogServer_Secure", Configurations.Nodes.LOG_SERVER_1);
+
+            PuttyCommands.AgentCopyProjectToServer("/var/node2", node2SecureDirectory, Configurations.Nodes.NODE_2_FS);
+            PuttyCommands.AgentCopyProjectToServer("/var/node1", node1SecureDirectory, Configurations.Nodes.NODE_1_WS);
+            PuttyCommands.AgentCopyProjectToServer("/var/node3", node3SecureDirectory, Configurations.Nodes.NODE_3_MS);
+            PuttyCommands.AgentCopyProjectToServer("/var/node5", node4SecureDirectory, Configurations.Nodes.NODE_5);
 
         }
         if (doClient)
         {
-            NPMHelper.RunScript("build_echat", "C:\\repos\\snippets\\client\\");
-            PuttyCommands.AgentCopyProjetToServer("client/dev.e-chat.live", "C:\\repos\\snippets\\client\\build_echat", GlobalConstants.Nodes.FILE_SERVER_1);
+            string echatClientPath = Path.Combine(reposDirectory, "echat-client");
+            NPMHelper.RunScript("build_echat", echatClientPath);
+            CreateDirectoryOnServer("/var/client/dev.e-chat.live", Configurations.Nodes.FILE_SERVER_1);
+            PuttyCommands.AgentCopyProjectToServer("/var/client/dev.e-chat.live", Path.Combine(echatClientPath, "build_echat"), Configurations.Nodes.FILE_SERVER_1);
         }
         List<string> commands = new List<string> { };
         if (doCleanupServerLogs)
@@ -75,30 +80,39 @@ public class Program
         }
         if (doInstallFfmpeg)
         {
-            Console.WriteLine(RunUsingSsh(GlobalConstants.Nodes.MULTIMEDIA_SERVER_1,
+            Console.WriteLine(RunUsingSsh(Configurations.Nodes.MULTIMEDIA_SERVER_1,
                 new string[] {
                         "sudo apt update"
                 }
             )[0]);
-            Console.WriteLine(RunUsingSsh(GlobalConstants.Nodes.MULTIMEDIA_SERVER_1,
+            Console.WriteLine(RunUsingSsh(Configurations.Nodes.MULTIMEDIA_SERVER_1,
                 new string[] {
                         "sudo apt --yes --force-yes install ffmpeg"
                 }
             )[0]);
-            Console.WriteLine(RunUsingSsh(GlobalConstants.Nodes.MULTIMEDIA_SERVER_1,
+            Console.WriteLine(RunUsingSsh(Configurations.Nodes.MULTIMEDIA_SERVER_1,
                 new string[] {
                         "ffmpeg -version"
                 }
             )[0]);
         }
+        if (createFreshDb) {
+            StopNode(Configurations.Nodes.NODE_1_WS, "node1");
+            CreateIdFilesAndCopyToServer(Configurations.Nodes.NODE_1_WS, "/db/sessionIds/", "sessionId", 1);
+            CreateIdFilesAndCopyToServer(Configurations.Nodes.NODE_1_WS, "/db/requestUniqueIdentifier/", "currentId", 3);
+            CreateIdFilesAndCopyToServer(Configurations.Nodes.NODE_1_WS, "/db/userIdSourceDirectory/", "currentId", 3);
+            CreateIdFilesAndCopyToServer(Configurations.Nodes.NODE_1_WS, "/db/conversationIdSourceDirectory/", "currentId", 3);
+            CreateIdFilesAndCopyToServer(Configurations.Nodes.NODE_1_WS, "/db/messageIdSource/", "currentId", 3);
+            CreateIdFilesAndCopyToServer(Configurations.Nodes.NODE_1_WS, "/db/mentionIdSource/", "currentId", 3);
+        }
         if (commands.Count > 0)
         {
             foreach (int nodeId in new int[] {
-                GlobalConstants.Nodes.FILE_SERVER_1 ,
+                Configurations.Nodes.NODE_1_WS ,
             //      Constants.Nodes.FILES_RELAY_2 ,
-                GlobalConstants.Nodes.ECHAT_1,
-                GlobalConstants.Nodes.MULTIMEDIA_SERVER_1,
-                GlobalConstants.Nodes.LOG_SERVER_1
+                Configurations.Nodes.NODE_2_FS,
+                Configurations.Nodes.NODE_3_MS,
+                Configurations.Nodes.NODE_5
             })
             {
                 Console.WriteLine($"Now running commands on node {nodeId}");
@@ -110,113 +124,45 @@ public class Program
             }
         }
     }
-    private static void FilesRelay()
-    {
-
-        Build();
-        Action<string> protect = GetProtect(DOTNET_REACTOR_PATH);
-        protect("C:\\repos\\snippets\\DotNetReactor\\FileServer.nrproj");
-        //protect("C:\\repos\\snippets\\DotNetReactor\\FileServer2.nrproj");
-        protect("C:\\repos\\snippets\\DotNetReactor\\FilesRelay.nrproj");
-        //protect("C:\\repos\\snippets\\DotNetReactor\\FilesRelay2.nrproj");
-        protect("C:\\repos\\snippets\\DotNetReactor\\TransferServer.nrproj");
-        protect("C:\\repos\\snippets\\DotNetReactor\\TransferServer2.nrproj");
-        protect("C:\\repos\\snippets\\DotNetReactor\\TransferServer3.nrproj");
-        protect("C:\\repos\\snippets\\DotNetReactor\\LogServer.nrproj");
-        PuttyCommands.AgentCopyProjetToServer("fileserver", "C:\\repos\\snippets\\Build\\FileServer\\Release\\net7.0\\FileServer_Secure", GlobalConstants.Nodes.FILE_SERVER_1);
-        //PuttyCommands.AgentCopyProjetToServer("fileserver2", "C:\\repos\\snippets\\Build\\FileServer2\\Release\\net7.0\\FileServer2_Secure", Constants.Nodes.FILE_SERVER_2);
-        PuttyCommands.AgentCopyProjetToServer("filesrelay", "C:\\repos\\snippets\\Build\\FilesRelay\\Release\\net7.0\\FilesRelay_Secure", GlobalConstants.Nodes.FILES_RELAY_1);
-        //PuttyCommands.AgentCopyProjetToServer("filesrelay2", "C:\\repos\\snippets\\Build\\FilesRelay2\\Release\\net7.0\\FilesRelay2_Secure", Constants.Nodes.FILES_RELAY_2);
-        PuttyCommands.AgentCopyProjetToServer("transferserver", "C:\\repos\\snippets\\Build\\TransferServer\\Release\\net7.0\\TransferServer_Secure", GlobalConstants.Nodes.TRANSFER_SERVER_1);
-        PuttyCommands.AgentCopyProjetToServer("transferserver2", "C:\\repos\\snippets\\Build\\TransferServer2\\Release\\net7.0\\TransferServer2_Secure", GlobalConstants.Nodes.TRANSFER_SERVER_2);
-        PuttyCommands.AgentCopyProjetToServer("transferserver3", "C:\\repos\\snippets\\Build\\TransferServer3\\Release\\net7.0\\TransferServer3_Secure", GlobalConstants.Nodes.TRANSFER_SERVER_3);
-        PuttyCommands.AgentCopyProjetToServer("logserver", "C:\\repos\\snippets\\Build\\LogServer\\Release\\net7.0\\LogServer_Secure", GlobalConstants.Nodes.LOG_SERVER_1);
-        string[] commands = new string[]{
-                "rm -rf /var/log/syslog",
-                "rm -rf /var/log/snippets.log",
-                "rm -rf /db/DontTryCertifyAgain.json",
-                "sudo shutdown -r"
-            };
-        foreach (int nodeId in new int[] {
-                GlobalConstants.Nodes.FILES_RELAY_1 ,
-          //      Constants.Nodes.FILES_RELAY_2 ,
-                GlobalConstants.Nodes.TRANSFER_SERVER_1,
-                GlobalConstants.Nodes.TRANSFER_SERVER_2,
-                GlobalConstants.Nodes.TRANSFER_SERVER_3,
-                GlobalConstants.Nodes.LOG_SERVER_1,
-                GlobalConstants.Nodes.FILE_SERVER_1,
-            //    Constants.Nodes.FILE_SERVER_2
-            })
-        {
-            Console.WriteLine($"Now doing node {nodeId}");
-            string[] results = RunUsingSsh(nodeId,
-                commands
-            );
-            foreach (string result in results)
-                Console.WriteLine(result);
+    private static void CreateIdFilesAndCopyToServer(int nodeId, string dbDirectoryOnServer, string fileNamePrefix, int nCopies) {
+        using (TemporaryDirectory temporaryDirectory = new TemporaryDirectory()) {
+            for (int nCopy = 0; nCopy < nCopies; nCopy++){
+                string fileName = $"{fileNamePrefix}_{nCopy}.json";
+                string filePath = Path.Combine(temporaryDirectory.AbsolutePath, fileName);
+                File.WriteAllText(filePath, "0");
+            }
+            DeleteDirectoryOnServer(dbDirectoryOnServer, nodeId);
+            CreateDirectoryOnServer(dbDirectoryOnServer, nodeId);
+            PuttyCommands.AgentCopyProjectToServer(dbDirectoryOnServer, temporaryDirectory.AbsolutePath, nodeId);
         }
     }
-    private static void Retrocause()
+    private static void StopNode(int nodeId, string serviceName)
     {
-        bool doBackend = AskYesNo("Build and deploy backend?", true);
-        bool doCleanupServerLogs = AskYesNo("Cleanup server logs?", true);
-        bool doRetrySslCertificateIfFailed = AskYesNo("Retry SSL certificate if failed?", true);
-        bool doRestartServersAfter = AskYesNo("Restart servers after?", true);
-        if (doBackend)
-        {
-            Build();
-            Action<string> protect = GetProtect(DOTNET_REACTOR_PATH);
-            protect("C:\\repos\\snippets\\DotNetReactor\\RetrocauseModerator.nrproj");
-            protect("C:\\repos\\snippets\\DotNetReactor\\RetrocauseQuantus.nrproj");
-            protect("C:\\repos\\snippets\\DotNetReactor\\LogServer.nrproj");
-            PuttyCommands.AgentCopyProjetToServer("retrocause_moderator", "C:\\repos\\snippets\\Build\\FileServer\\Release\\net7.0\\RetrocauseModerator_Secure", GlobalConstants.Nodes.RETROCAUSE_MODERATOR);
-            PuttyCommands.AgentCopyProjetToServer("retrocause_quantus", "C:\\repos\\snippets\\Build\\EChat1\\Release\\net7.0\\RetrocauseQuantus_Secure", GlobalConstants.Nodes.RETROCAUSE_QUANTUS);
-            PuttyCommands.AgentCopyProjetToServer("multimediaserver1", "C:\\repos\\snippets\\Build\\MultimediaServer1\\Release\\net7.0\\MultimediaServer1_Secure", GlobalConstants.Nodes.MULTIMEDIA_SERVER_1);
-            PuttyCommands.AgentCopyProjetToServer("logserver", "C:\\repos\\snippets\\Build\\LogServer\\Release\\net7.0\\LogServer_Secure", GlobalConstants.Nodes.LOG_SERVER_1);
 
-        }
-        List<string> commands = new List<string> { };
-        if (doCleanupServerLogs)
-        {
-            commands.Add("rm -rf /var/log/syslog");
-            commands.Add("rm -rf /var/log/snippets.log");
-        }
-        if (doRetrySslCertificateIfFailed)
-        {
-            commands.Add("rm -rf /db/DontTryCertifyAgain.json");
-        }
-        if (doRestartServersAfter)
-        {
-            commands.Add("sudo shutdown -r");
-        }
-        if (commands.Count > 0)
-        {
-            foreach (int nodeId in new int[] {
-                GlobalConstants.Nodes.FILE_SERVER_1 ,
-            //      Constants.Nodes.FILES_RELAY_2 ,
-                GlobalConstants.Nodes.ECHAT_1,
-                GlobalConstants.Nodes.MULTIMEDIA_SERVER_1,
-                GlobalConstants.Nodes.LOG_SERVER_1
-            })
-            {
-                Console.WriteLine($"Now running commands on node {nodeId}");
-                string[] results = RunUsingSsh(nodeId,
-                    commands.ToArray()
-                );
-                foreach (string result in results)
-                    Console.WriteLine(result);
-            }
-        }
+        RunUsingSsh(nodeId,
+            $"systemctl stop {serviceName}"
+        );
+    }
+    private static void DeleteDirectoryOnServer(string path, int nodeId) {
+
+        string[] results = RunUsingSsh(nodeId,
+            $"rm -rf {path}"
+        );
+    }
+    private static void CreateDirectoryOnServer(string path, int nodeId) {
+
+        string[] results = RunUsingSsh(nodeId,
+            $"sudo mkdir -p {path}"
+        );
     }
     private static string[] RunUsingSsh(int nodeId, params string[] commands)
 
     {
 
         var user = "root";
-        var host = $"{GlobalConstants.Nodes.GetIpOrDomainForNode(nodeId)}";
-
-        var regularKey = File.ReadAllBytes(GlobalConstants.Keys.KEY_PATH_OPENSSH);
-        var pkRsa = new PrivateKeyFile(new MemoryStream(regularKey));
+        var host = $"{Configurations.Nodes.Instance.GetIpOrDomainForNode(nodeId)}";
+        byte[] openSshKey = Keys.Keys.GetOpenSSHs(nodeId);
+        var pkRsa = new PrivateKeyFile(new MemoryStream(openSshKey));
 
         RsaSha256.ConvertToKeyWithSha256Signature(pkRsa);
 
@@ -239,7 +185,7 @@ public class Program
         }
     }
 
-    private static Action<string> GetProtect(string dotnetReactorPath)
+    private static Func<string, string> Create_Protect(string dotnetReactorPath)
     {
         return (nrprojPath) =>
         {
@@ -260,6 +206,10 @@ public class Program
                 string output = sb.ToString();
                 Console.WriteLine(output);
             }
+            XDocument doc = XDocument.Load(nrprojPath);
+            var mainAssembly = doc.Root?.Element("Main_Assembly")?.Value;
+            string secureDirectory = Path.Combine(Path.GetDirectoryName(mainAssembly)!, $"{Path.GetFileNameWithoutExtension(nrprojPath)}_Secure");
+            return secureDirectory;
 
             /*
             var processStartInfo = new ProcessStartInfo()
@@ -322,10 +272,8 @@ public class Program
         string newDocumentString = XmlHelper.ToNicelyFormattedString(doc);
         File.WriteAllText(nrprojPath, newDocumentString);
     }
-    private static void Build()
+    private static void BuildDotNet(string solutionPath)
     {
-
-        string solutionPath = "C:\\repos\\snippets\\API\\WebAPI.sln";
         StringBuilder sb = new StringBuilder();
         var processStartInfo = new ProcessStartInfo()
         {
@@ -356,6 +304,11 @@ public class Program
             default:
                 return def;
         }
+    }
+    private static bool AskToType(string question, string expectedReply)
+    {
+        Console.WriteLine($"{question}? Type \"{expectedReply}\" and hit enter to confirm!");
+        return Console.ReadLine()==expectedReply;
     }
 
 }

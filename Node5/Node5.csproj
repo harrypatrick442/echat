@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <BaseOutputPath>..\Build\Node5</BaseOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Certes" Version="3.0.4" />
+    <PackageReference Include="Microsoft.FeatureManagement.AspNetCore" Version="2.6.1" />
+    <PackageReference Include="Microsoft.NETCore.App" Version="2.2.8" />
+    <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.1.8" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\echat-private\Statistics\Statistics.csproj" />
+    <ProjectReference Include="..\FileServerCore\FileServerCore.csproj" />
+    <ProjectReference Include="..\..\shared-private\EnvironmentVariables\EnvironmentVariables.csproj" />
+    <ProjectReference Include="..\..\shared-public\Logging\CSharp\Logging.csproj" />
+    <ProjectReference Include="..\..\shared-public\WebAbstract\WebAbstract.csproj" />
+    <ProjectReference Include="..\..\logging\CSharp\LogServerControllers\LogServerControllers.csproj" />
+    <ProjectReference Include="..\..\logging\CSharp\LogServerCore\LogServerCore.csproj" />
+    <ProjectReference Include="..\..\logging\CSharp\LogViewerControllers\LogViewerControllers.csproj" />
+    <ProjectReference Include="..\..\echat-private\MaintenanceControllers\MaintenanceControllers.csproj" />
+    <ProjectReference Include="..\NodeAssignedIdRangesCore\NodeAssignedIdRangesCore.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controller\" />
+  </ItemGroup>
+</Project>

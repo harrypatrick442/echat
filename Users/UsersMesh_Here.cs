@@ -24,7 +24,7 @@ namespace Users
                         //TODO deal with profile missing
                         UserProfileSummary userProfileSummary = userProfile?.ToPublicSummary(AssociateType.None);
                         return userProfileSummary;
-                    }, GlobalConstants.Threading.MAX_N_THREADS_GET_USER_PROFILE_SUMMARYS_WHICH_ARE_LOCAL); foreach (long userId in userIds) {
+                    }, Configurations.Threading.MAX_N_THREADS_GET_USER_PROFILE_SUMMARYS_WHICH_ARE_LOCAL); foreach (long userId in userIds) {
             }
             return result.Where(r => r.Success).Select(r => r.Return).ToArray();
         }

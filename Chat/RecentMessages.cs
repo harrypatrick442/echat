@@ -16,7 +16,7 @@ namespace Chat
         {
             _NMessages = nMessages;
             _CyclicalFile = new CyclicalFile(cyclicalFilePath, 
-                entrySize: GlobalConstants.Sizes.MAX_OVERFLOWING_CHAT_MESSAGE_SIZE, nMessages);
+                entrySize: Configurations.Sizes.MAX_OVERFLOWING_CHAT_MESSAGE_SIZE, nMessages);
             _Messages = _ReadCyclicalFile();
         }
         public ClientMessage[] AllMessages { get { lock (_Messages) { return _Messages.ToArray(); } } }
@@ -65,8 +65,8 @@ namespace Chat
         private byte[] _GetMessageBytesWithNullTerminator(ClientMessage message) {
             string jsonString = Json.Serialize(message);
             byte[] bytes =  System.Text.Encoding.UTF8.GetBytes(jsonString);
-            if (bytes.Length > GlobalConstants.Sizes.MAX_OVERFLOWING_CHAT_MESSAGE_SIZE)
-                throw new InvalidDataContractException($"Exceeded {nameof(GlobalConstants.Sizes.MAX_OVERFLOWING_CHAT_MESSAGE_SIZE)}");
+            if (bytes.Length > Configurations.Sizes.MAX_OVERFLOWING_CHAT_MESSAGE_SIZE)
+                throw new InvalidDataContractException($"Exceeded {nameof(Configurations.Sizes.MAX_OVERFLOWING_CHAT_MESSAGE_SIZE)}");
             return bytes;
         }
         private void _OverflowLinkedList(List<ClientMessage> linkedList) {

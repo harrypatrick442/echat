@@ -7,7 +7,6 @@
     <BaseOutputPath>C:\repos\snippets\Build\MultimediaServer1</BaseOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CertificateManagement\CertificateManagement.csproj" />
     <ProjectReference Include="..\..\shared-private\Dependencies\Dependencies.csproj" />
     <ProjectReference Include="..\..\shared-public\Logging\CSharp\Logging.csproj" />
     <ProjectReference Include="..\MultimediaServerGeneric\MultimediaServerGeneric.csproj" />

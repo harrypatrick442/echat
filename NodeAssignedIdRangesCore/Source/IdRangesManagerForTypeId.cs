@@ -3,6 +3,7 @@ using KeyValuePairDatabases.Enums;
 using KeyValuePairDatabases;
 using NodeAssignedIdRangesSource.Serializables;
 using DependencyManagement;
+using NodesConfiguration = Configurations.Nodes;
 
 namespace NodeAssignedIdRanges
 {
@@ -11,10 +12,12 @@ namespace NodeAssignedIdRanges
         //CHECKED
         public int IdType { get; }
         private string _DatabaseDirectoryPath;
+        private NodesConfiguration _NodesConfiguration;
         private KeyValuePairDatabase<long, IdRangesAssignedToNode> _IdRangesAssignedToANodeForIdTypeKeyValuePairDatabase;
         private KeyValuePairDatabase<long, NextIdFromForIdType> _NextIdFromForIdTypeKeyValuePairDatabase;
         public IdRangesManagerForTypeId(int idType, KeyValuePairDatabase<long, NextIdFromForIdType> nextIdFromForIdTypeKeyValuePairDatabase)
         {
+            _NodesConfiguration = new Configurations.Nodes();
             IdType = idType;
             _NextIdFromForIdTypeKeyValuePairDatabase = nextIdFromForIdTypeKeyValuePairDatabase;
             _DatabaseDirectoryPath = Path.Combine(DependencyManager.GetString(DependencyNames.IdRangesAssignedToNodesDatabaseDirectory), $"type_{idType}");
@@ -32,7 +35,7 @@ namespace NodeAssignedIdRanges
         public NodeIdRanges[] GetIdRangesAssignedToNodes()
         {
             List<NodeIdRanges> list = new List<NodeIdRanges>();
-            foreach (int otherNodesId in GlobalConstants.Nodes.GetNodeIdsAssociatedWithIdType(IdType))
+            foreach (int otherNodesId in _NodesConfiguration.GetNodeIdsAssociatedWithIdType(IdType))
             {
                 IdRangesAssignedToNode idRangesAssignedToNode =
                     _IdRangesAssignedToANodeForIdTypeKeyValuePairDatabase.Get(otherNodesId);

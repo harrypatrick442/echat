@@ -136,3 +136,14 @@ Nodes/Setups/Network/Network_before_changes_15_03_2024.json
 /VideoProcessing/ffmpeg
 /ProtectAndDeployEChat/bin
 /ProtectAndDeployEChat/obj
+/Build/Node1/Debug
+/Build
+/DotNetReactor/old
+/HashTagsCore/bin
+/HashTagsCore/obj
+/Node1/obj
+/Node2/bin
+/Node2/obj
+/Node3/obj
+/Node5/obj
+/NodeAssignedIdRangesControllers/obj

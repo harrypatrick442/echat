@@ -2,6 +2,7 @@
 using Core.Exceptions;
 using Core.Timing;
 using Core.Maths;
+using Initialization.Exceptions;
 
 namespace Authentication
 {

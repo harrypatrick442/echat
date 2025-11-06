@@ -12,7 +12,7 @@ using Nodes;
 
 public class Program
 {
-    public const int NODE_ID = GlobalConstants.Nodes.ID_SERVER_NODE_ID;
+    public const int NODE_ID = Configurations.Nodes.ID_SERVER_NODE_ID;
     public static void Main(string[] args)
     {
         Logs.Initialize(LogFilePathDefault.Value);

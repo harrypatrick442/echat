@@ -1,4 +1,7 @@
-﻿using Core.Exceptions;
+﻿using ConfigurationCore;
+using Core.Exceptions;
+using DependencyManagement;
+using Initialization.Exceptions;
 using InterserverComs;
 using Logging;
 using NodeAssignedIdRangesCore.Requests;
@@ -12,12 +15,12 @@ namespace NodeAssignedIdRanges
         private const int TIMEOUT_POPULATE = 3*60 * 1000;
         private readonly object _LockObjectDispose = new object();
         private bool _Disposed = false;
-        private const int _IdServerNodeId =
+        private int _IdServerNodeId =
 
 #if DEBUG
-            GlobalConstants.Nodes.ID_SERVER_NODE_ID_DEBUG
+            Configurations.Nodes.ID_SERVER_NODE_ID_DEBUG
 #else
-                GlobalConstants.Nodes.ID_SERVER_NODE_ID
+                Configurations.Nodes.ID_SERVER_NODE_ID
 #endif
             ;
         private int _MyNodeId;

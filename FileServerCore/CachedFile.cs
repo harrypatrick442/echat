@@ -1,4 +1,6 @@
-﻿using Core.Timing;
+﻿using ConfigurationCore;
+using Core.Timing;
+using DependencyManagement;
 using Logging;
 
 namespace FileServerCore
@@ -26,7 +28,8 @@ namespace FileServerCore
                         {
                             _CachedIndexHtmlContent = System.IO.
                                 File.ReadAllText(_Path);
-                            _CachedIndexHtmlContentExpiresAtMillisecondsUTC = now + GlobalConstants.Timeouts.CACHED_INDEX_HTML_EXPIRES_AFTER_MILLISECONDS;
+                            _CachedIndexHtmlContentExpiresAtMillisecondsUTC = now
+                                + DependencyManager.Get<ITimeoutsConfiguration>().CachedIndexHtmlExpiresAfterMilliseconds;
                         }
                         catch (Exception ex)
                         {

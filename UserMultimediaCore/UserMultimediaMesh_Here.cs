@@ -25,7 +25,7 @@ namespace UserMultimediaCore
                     {
                         Logs.Default.Error(ex);
                     }
-                }, GlobalConstants.Threading.MAX_N_THREADS_SEND_MESSAGE_TO_USERS_DEVICES_HERE);
+                }, Configurations.Threading.MAX_N_THREADS_SEND_MESSAGE_TO_USERS_DEVICES_HERE);
             }
             catch (Exception ex)
             {
@@ -49,7 +49,7 @@ namespace UserMultimediaCore
                     {
                         Logs.Default.Error(ex);
                     }
-                }, GlobalConstants.Threading.MAX_N_THREADS_SEND_MESSAGE_TO_USERS_DEVICES_HERE);
+                }, Configurations.Threading.MAX_N_THREADS_SEND_MESSAGE_TO_USERS_DEVICES_HERE);
             }
             catch (Exception ex)
             {
@@ -73,7 +73,7 @@ namespace UserMultimediaCore
                     {
                         Logs.Default.Error(ex);
                     }
-                }, GlobalConstants.Threading.MAX_N_THREADS_SEND_MESSAGE_TO_USERS_DEVICES_HERE);
+                }, Configurations.Threading.MAX_N_THREADS_SEND_MESSAGE_TO_USERS_DEVICES_HERE);
             }
             catch (Exception ex)
             {

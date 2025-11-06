@@ -48,16 +48,16 @@ public class Program
             protect("C:\\repos\\snippets\\DotNetReactor\\EChat1.nrproj");
             protect("C:\\repos\\snippets\\DotNetReactor\\MultimediaServer1.nrproj");
             protect("C:\\repos\\snippets\\DotNetReactor\\LogServer.nrproj");
-            PuttyCommands.AgentCopyProjetToServer("fileserver", "C:\\repos\\snippets\\Build\\FileServer\\Release\\net7.0\\FileServer_Secure", GlobalConstants.Nodes.FILE_SERVER_1);
-            PuttyCommands.AgentCopyProjetToServer("echat1", "C:\\repos\\snippets\\Build\\EChat1\\Release\\net7.0\\EChat1_Secure", GlobalConstants.Nodes.ECHAT_1);
-            PuttyCommands.AgentCopyProjetToServer("multimediaserver1", "C:\\repos\\snippets\\Build\\MultimediaServer1\\Release\\net7.0\\MultimediaServer1_Secure", GlobalConstants.Nodes.MULTIMEDIA_SERVER_1);
-            PuttyCommands.AgentCopyProjetToServer("logserver", "C:\\repos\\snippets\\Build\\LogServer\\Release\\net7.0\\LogServer_Secure", GlobalConstants.Nodes.LOG_SERVER_1);
+            PuttyCommands.AgentCopyProjectToServer("/var/fileserver", "C:\\repos\\snippets\\Build\\FileServer\\Release\\net7.0\\FileServer_Secure", Configurations.Nodes.FILE_SERVER_1);
+            PuttyCommands.AgentCopyProjectToServer("/var/echat1", "C:\\repos\\snippets\\Build\\EChat1\\Release\\net7.0\\EChat1_Secure", Configurations.Nodes.ECHAT_1);
+            PuttyCommands.AgentCopyProjectToServer("/var/multimediaserver1", "C:\\repos\\snippets\\Build\\MultimediaServer1\\Release\\net7.0\\MultimediaServer1_Secure", Configurations.Nodes.MULTIMEDIA_SERVER_1);
+            PuttyCommands.AgentCopyProjectToServer("/var/logserver", "C:\\repos\\snippets\\Build\\LogServer\\Release\\net7.0\\LogServer_Secure", Configurations.Nodes.LOG_SERVER_1);
 
         }
         if (doClient)
         {
             NPMHelper.RunScript("build_echat", "C:\\repos\\snippets\\client\\");
-            PuttyCommands.AgentCopyProjetToServer("client/dev.e-chat.live", "C:\\repos\\snippets\\client\\build_echat", GlobalConstants.Nodes.FILE_SERVER_1);
+            PuttyCommands.AgentCopyProjectToServer("/var/client/dev.e-chat.live", "C:\\repos\\snippets\\client\\build_echat", Configurations.Nodes.FILE_SERVER_1);
         }
         List<string> commands = new List<string> { };
         if (doCleanupServerLogs)
@@ -75,17 +75,17 @@ public class Program
         }
         if (doInstallFfmpeg)
         {
-            Console.WriteLine(RunUsingSsh(GlobalConstants.Nodes.MULTIMEDIA_SERVER_1,
+            Console.WriteLine(RunUsingSsh(Configurations.Nodes.MULTIMEDIA_SERVER_1,
                 new string[] {
                         "sudo apt update"
                 }
             )[0]);
-            Console.WriteLine(RunUsingSsh(GlobalConstants.Nodes.MULTIMEDIA_SERVER_1,
+            Console.WriteLine(RunUsingSsh(Configurations.Nodes.MULTIMEDIA_SERVER_1,
                 new string[] {
                         "sudo apt --yes --force-yes install ffmpeg"
                 }
             )[0]);
-            Console.WriteLine(RunUsingSsh(GlobalConstants.Nodes.MULTIMEDIA_SERVER_1,
+            Console.WriteLine(RunUsingSsh(Configurations.Nodes.MULTIMEDIA_SERVER_1,
                 new string[] {
                         "ffmpeg -version"
                 }
@@ -93,11 +93,11 @@ public class Program
         }
         if (commands.Count > 0) {
             foreach (int nodeId in new int[] {
-                GlobalConstants.Nodes.FILE_SERVER_1 ,
+                Configurations.Nodes.FILE_SERVER_1 ,
             //      Constants.Nodes.FILES_RELAY_2 ,
-                GlobalConstants.Nodes.ECHAT_1,
-                GlobalConstants.Nodes.MULTIMEDIA_SERVER_1,
-                GlobalConstants.Nodes.LOG_SERVER_1
+                Configurations.Nodes.ECHAT_1,
+                Configurations.Nodes.MULTIMEDIA_SERVER_1,
+                Configurations.Nodes.LOG_SERVER_1
             })
             {
                 Console.WriteLine($"Now running commands on node {nodeId}");
@@ -121,14 +121,14 @@ public class Program
         protect("C:\\repos\\snippets\\DotNetReactor\\TransferServer2.nrproj");
         protect("C:\\repos\\snippets\\DotNetReactor\\TransferServer3.nrproj");
         protect("C:\\repos\\snippets\\DotNetReactor\\LogServer.nrproj");
-        PuttyCommands.AgentCopyProjetToServer("fileserver", "C:\\repos\\snippets\\Build\\FileServer\\Release\\net7.0\\FileServer_Secure", GlobalConstants.Nodes.FILE_SERVER_1);
+        PuttyCommands.AgentCopyProjectToServer("/var/fileserver", "C:\\repos\\snippets\\Build\\FileServer\\Release\\net7.0\\FileServer_Secure", Configurations.Nodes.FILE_SERVER_1);
         //PuttyCommands.AgentCopyProjetToServer("fileserver2", "C:\\repos\\snippets\\Build\\FileServer2\\Release\\net7.0\\FileServer2_Secure", Constants.Nodes.FILE_SERVER_2);
-        PuttyCommands.AgentCopyProjetToServer("filesrelay", "C:\\repos\\snippets\\Build\\FilesRelay\\Release\\net7.0\\FilesRelay_Secure", GlobalConstants.Nodes.FILES_RELAY_1);
+        PuttyCommands.AgentCopyProjectToServer("/var/filesrelay", "C:\\repos\\snippets\\Build\\FilesRelay\\Release\\net7.0\\FilesRelay_Secure", Configurations.Nodes.FILES_RELAY_1);
         //PuttyCommands.AgentCopyProjetToServer("filesrelay2", "C:\\repos\\snippets\\Build\\FilesRelay2\\Release\\net7.0\\FilesRelay2_Secure", Constants.Nodes.FILES_RELAY_2);
-        PuttyCommands.AgentCopyProjetToServer("transferserver", "C:\\repos\\snippets\\Build\\TransferServer\\Release\\net7.0\\TransferServer_Secure", GlobalConstants.Nodes.TRANSFER_SERVER_1);
-        PuttyCommands.AgentCopyProjetToServer("transferserver2", "C:\\repos\\snippets\\Build\\TransferServer2\\Release\\net7.0\\TransferServer2_Secure", GlobalConstants.Nodes.TRANSFER_SERVER_2);
-        PuttyCommands.AgentCopyProjetToServer("transferserver3", "C:\\repos\\snippets\\Build\\TransferServer3\\Release\\net7.0\\TransferServer3_Secure", GlobalConstants.Nodes.TRANSFER_SERVER_3);
-        PuttyCommands.AgentCopyProjetToServer("logserver", "C:\\repos\\snippets\\Build\\LogServer\\Release\\net7.0\\LogServer_Secure", GlobalConstants.Nodes.LOG_SERVER_1);
+        PuttyCommands.AgentCopyProjectToServer("/var/transferserver", "C:\\repos\\snippets\\Build\\TransferServer\\Release\\net7.0\\TransferServer_Secure", Configurations.Nodes.TRANSFER_SERVER_1);
+        PuttyCommands.AgentCopyProjectToServer("/var/transferserver2", "C:\\repos\\snippets\\Build\\TransferServer2\\Release\\net7.0\\TransferServer2_Secure", Configurations.Nodes.TRANSFER_SERVER_2);
+        PuttyCommands.AgentCopyProjectToServer("/var/transferserver3", "C:\\repos\\snippets\\Build\\TransferServer3\\Release\\net7.0\\TransferServer3_Secure", Configurations.Nodes.TRANSFER_SERVER_3);
+        PuttyCommands.AgentCopyProjectToServer("/var/logserver", "C:\\repos\\snippets\\Build\\LogServer\\Release\\net7.0\\LogServer_Secure", Configurations.Nodes.LOG_SERVER_1);
         string[] commands = new string[]{
                 "rm -rf /var/log/syslog",
                 "rm -rf /var/log/snippets.log",
@@ -136,13 +136,13 @@ public class Program
                 "sudo shutdown -r"
             };
         foreach (int nodeId in new int[] {
-                GlobalConstants.Nodes.FILES_RELAY_1 ,
+                Configurations.Nodes.FILES_RELAY_1 ,
           //      Constants.Nodes.FILES_RELAY_2 ,
-                GlobalConstants.Nodes.TRANSFER_SERVER_1,
-                GlobalConstants.Nodes.TRANSFER_SERVER_2,
-                GlobalConstants.Nodes.TRANSFER_SERVER_3,
-                GlobalConstants.Nodes.LOG_SERVER_1,
-                GlobalConstants.Nodes.FILE_SERVER_1,
+                Configurations.Nodes.TRANSFER_SERVER_1,
+                Configurations.Nodes.TRANSFER_SERVER_2,
+                Configurations.Nodes.TRANSFER_SERVER_3,
+                Configurations.Nodes.LOG_SERVER_1,
+                Configurations.Nodes.FILE_SERVER_1,
             //    Constants.Nodes.FILE_SERVER_2
             })
         {
@@ -167,10 +167,10 @@ public class Program
             protect("C:\\repos\\snippets\\DotNetReactor\\RetrocauseModerator.nrproj");
             protect("C:\\repos\\snippets\\DotNetReactor\\RetrocauseQuantus.nrproj");
             protect("C:\\repos\\snippets\\DotNetReactor\\LogServer.nrproj");
-            PuttyCommands.AgentCopyProjetToServer("retrocause_moderator", "C:\\repos\\snippets\\Build\\FileServer\\Release\\net7.0\\RetrocauseModerator_Secure", GlobalConstants.Nodes.RETROCAUSE_MODERATOR);
-            PuttyCommands.AgentCopyProjetToServer("retrocause_quantus", "C:\\repos\\snippets\\Build\\EChat1\\Release\\net7.0\\RetrocauseQuantus_Secure", GlobalConstants.Nodes.RETROCAUSE_QUANTUS);
-            PuttyCommands.AgentCopyProjetToServer("multimediaserver1", "C:\\repos\\snippets\\Build\\MultimediaServer1\\Release\\net7.0\\MultimediaServer1_Secure", GlobalConstants.Nodes.MULTIMEDIA_SERVER_1);
-            PuttyCommands.AgentCopyProjetToServer("logserver", "C:\\repos\\snippets\\Build\\LogServer\\Release\\net7.0\\LogServer_Secure", GlobalConstants.Nodes.LOG_SERVER_1);
+            PuttyCommands.AgentCopyProjectToServer("/var/retrocause_moderator", "C:\\repos\\snippets\\Build\\FileServer\\Release\\net7.0\\RetrocauseModerator_Secure", Configurations.Nodes.RETROCAUSE_MODERATOR);
+            PuttyCommands.AgentCopyProjectToServer("/var/retrocause_quantus", "C:\\repos\\snippets\\Build\\EChat1\\Release\\net7.0\\RetrocauseQuantus_Secure", Configurations.Nodes.RETROCAUSE_QUANTUS);
+            PuttyCommands.AgentCopyProjectToServer("/var/multimediaserver1", "C:\\repos\\snippets\\Build\\MultimediaServer1\\Release\\net7.0\\MultimediaServer1_Secure", Configurations.Nodes.MULTIMEDIA_SERVER_1);
+            PuttyCommands.AgentCopyProjectToServer("/var/logserver", "C:\\repos\\snippets\\Build\\LogServer\\Release\\net7.0\\LogServer_Secure", Configurations.Nodes.LOG_SERVER_1);
 
         }
         List<string> commands = new List<string> { };
@@ -190,11 +190,11 @@ public class Program
         if (commands.Count > 0)
         {
             foreach (int nodeId in new int[] {
-                GlobalConstants.Nodes.FILE_SERVER_1 ,
+                Configurations.Nodes.FILE_SERVER_1 ,
             //      Constants.Nodes.FILES_RELAY_2 ,
-                GlobalConstants.Nodes.ECHAT_1,
-                GlobalConstants.Nodes.MULTIMEDIA_SERVER_1,
-                GlobalConstants.Nodes.LOG_SERVER_1
+                Configurations.Nodes.ECHAT_1,
+                Configurations.Nodes.MULTIMEDIA_SERVER_1,
+                Configurations.Nodes.LOG_SERVER_1
             })
             {
                 Console.WriteLine($"Now running commands on node {nodeId}");
@@ -211,9 +211,9 @@ public class Program
     {
 
         var user = "root";
-        var host = $"{GlobalConstants.Nodes.GetIpOrDomainForNode(nodeId)}";
+        var host = $"{new Configurations.Nodes().GetIpOrDomainForNode(nodeId)}";
 
-        var regularKey = File.ReadAllBytes(GlobalConstants.Keys.KEY_PATH_OPENSSH);
+        var regularKey = File.ReadAllBytes(Configurations.Keys.KEY_PATH_OPENSSH);
         var pkRsa = new PrivateKeyFile(new MemoryStream(regularKey));
 
         RsaSha256.ConvertToKeyWithSha256Signature(pkRsa);

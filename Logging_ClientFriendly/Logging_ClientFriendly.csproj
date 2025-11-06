@@ -8,7 +8,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\shared-private\MessageTypes\MessageTypes.csproj" />
     <ProjectReference Include="..\..\shared-public\Ajax\Ajax.csproj" />
-    <ProjectReference Include="..\Constants\GlobalConstants.csproj" />
     <ProjectReference Include="..\..\shared-public\EnvironmentEnums\EnvironmentEnums.csproj" />
     <ProjectReference Include="..\..\shared-public\Fundamental\CSharp\Fundamental.csproj" />
     <ProjectReference Include="..\Hashing\Hashing.csproj" />

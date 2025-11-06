@@ -1,7 +1,10 @@
-﻿using Core.Enums;
+﻿using ConfigurationCore;
+using Core.Enums;
 using Core.Exceptions;
 using Core.Ids;
 using Core.Threading;
+using DependencyManagement;
+using Initialization.Exceptions;
 using InterserverComs;
 using Location.Requests;
 using Location.Responses;
@@ -55,7 +58,7 @@ namespace Location
                 {
                     return GetIdsSpecificToNode(databaseIdentifier, nodeIdAndLevelQuadrantPair.NodeId, nodeIdAndLevelQuadrantPair.LevelQuadrantPairs);
                 },
-                GlobalConstants.Threading.MAX_N_THREADS_QUAD_TREE_GET_IDS);
+                DependencyManager.Get<IThreadingConfiguration>().MaxNThreadsQuadTreeGetIds);
             Dictionary<long, Quadrant> mapIdToQuadrant = new Dictionary<long, Quadrant>();
             foreach (var result in results)
             {
@@ -83,7 +86,7 @@ namespace Location
                     return GetNEntriesSpecificToNode(databaseIdentifier, nodeIdAndQuadrants.NodeId, level,
                         nodeIdAndQuadrants.Quadrants, withLatLng);
                 },
-                GlobalConstants.Threading.MAX_N_THREADS_QUAD_TREE_GET_IDS);
+                DependencyManager.Get<IThreadingConfiguration>().MaxNThreadsQuadTreeGetIds);
             List<QuadrantNEntries> quadrantNEntriess = new List<QuadrantNEntries>();
             foreach (var result in results)
             {

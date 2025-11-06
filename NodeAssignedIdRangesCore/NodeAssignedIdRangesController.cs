@@ -11,7 +11,7 @@ namespace NodeAssignedIdRanges
 
         }
         [HttpGet]
-        [Route(GlobalConstants.Routes.ID_SERVER_GET)]
+        [Route(Configurations.Routes.ID_SERVER_GET)]
         public IActionResult Get()
         {
             try

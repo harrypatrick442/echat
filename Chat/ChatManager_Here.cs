@@ -18,8 +18,6 @@ using UsersEnums;
 using Users;
 using Users.DAL;
 using Core.Chat;
-using System.Xml.Linq;
-using GlobalConstants;
 using HashTags;
 using NotificationsCore.Enums;
 using Core.DTOs;
@@ -171,11 +169,11 @@ namespace Chat
             {
                 case ConversationType.Pm:
                     return dalMessages.ReadFromEnd(conversationId,
-                        GlobalConstants.Lengths.N_MESSAGES_LOAD_PM, out reactions, out messageUserMultimediaItems,
+                        Configurations.Lengths.N_MESSAGES_LOAD_PM, out reactions, out messageUserMultimediaItems,
                         messageChildConversationOptions);
                 case ConversationType.GroupChat:
                     return dalMessages.ReadFromEnd(conversationId,
-                        GlobalConstants.Lengths.N_MESSAGES_LOAD_GROUP_CHAT, out reactions, out messageUserMultimediaItems,
+                        Configurations.Lengths.N_MESSAGES_LOAD_GROUP_CHAT, out reactions, out messageUserMultimediaItems,
                         messageChildConversationOptions);
                 case ConversationType.PublicChatroom:
                     throw new NotImplementedException();
@@ -404,16 +402,16 @@ namespace Chat
             switch (conversationType)
             {
                 case ConversationType.Pm:
-                    maxNEntries = GlobalConstants.Lengths.N_MESSAGES_LOAD_PM;
+                    maxNEntries = Configurations.Lengths.N_MESSAGES_LOAD_PM;
                     break;
                 case ConversationType.GroupChat:
-                    maxNEntries = GlobalConstants.Lengths.N_MESSAGES_LOAD_GROUP_CHAT;
+                    maxNEntries = Configurations.Lengths.N_MESSAGES_LOAD_GROUP_CHAT;
                     break;
                 case ConversationType.PublicChatroom:
-                    maxNEntries = GlobalConstants.Lengths.N_MESSAGES_LOAD_PUBLIC_CHATROOM;
+                    maxNEntries = Configurations.Lengths.N_MESSAGES_LOAD_PUBLIC_CHATROOM;
                     break;
                 default:
-                    maxNEntries = GlobalConstants.Lengths.DEFAULT_MAX_N_ENTRIES_LOAD;
+                    maxNEntries = Configurations.Lengths.DEFAULT_MAX_N_ENTRIES_LOAD;
                     break;
             }
             if (nEntries == null || nEntries <= 0)
@@ -483,7 +481,7 @@ namespace Chat
                            return;
                        }
                        _SendMessageToCoreServerForUsers_Remote(nodeAndAssociatedIds, message);
-                   }, GlobalConstants.Threading.MAX_N_THREADS_SEND_MESSAGE_TO_CORE_SERVERS_FOR_USER);
+                   }, Configurations.Threading.MAX_N_THREADS_SEND_MESSAGE_TO_CORE_SERVERS_FOR_USER);
 
         }
         private void SendMessageAsCoreServerForUsers_Here(long[] userIds,
@@ -499,7 +497,7 @@ namespace Chat
                         userIds,
                         Get_UpdateLatestMessageInConversationForUser(
                             message, userIdsInConversationNotAlwaysNeeded),
-                        GlobalConstants.Threading.MAX_N_THREADS_SEND_MESSAGE_AS_CORE_SERVER_FOR_USERS
+                        Configurations.Threading.MAX_N_THREADS_SEND_MESSAGE_AS_CORE_SERVER_FOR_USERS
                     );
                     UpdatePmsNotificationForUsers(userIds, message);
                 }
@@ -548,7 +546,7 @@ namespace Chat
             ParallelOperationHelper.RunInParallelNoReturn(
                 nodeAndAssociatedUserIdsSessionIds_s,
                 _SendMessageToUsersDevices_SpecificNode(receivedMessageJsonString),
-                GlobalConstants.Threading.MAX_N_THREADS_SEND_MESSAGE_TO_USERS_DEVICES
+                Configurations.Threading.MAX_N_THREADS_SEND_MESSAGE_TO_USERS_DEVICES
             );
         }
         private Action<NodeAndAssociatedUserIdsSessionIds> _SendMessageToUsersDevices_SpecificNode(
@@ -570,7 +568,7 @@ namespace Chat
             ParallelOperationHelper.RunInParallelNoReturn(
                 clientEndpoints,
                 _Get_SendMessageToUsersDevice(receivedMessageJsonString),
-                GlobalConstants.Threading.MAX_N_THREADS_SEND_MESSAGE_TO_USERS_DEVICES_HERE
+                Configurations.Threading.MAX_N_THREADS_SEND_MESSAGE_TO_USERS_DEVICES_HERE
             );
         }
         private void _SendMessageToUsersDevices_ToMachineWithUsersDevices(

@@ -2,6 +2,8 @@ using Core.Exceptions;
 using Nodes;
 using Logging;
 using InterserverComs.Delegates;
+using DependencyManagement;
+using ConfigurationCore;
 
 namespace InterserverComs
 {
@@ -10,7 +12,7 @@ namespace InterserverComs
         public InterserverWebsocketClient(long thisMachineNodeId,
             InterserverConnection interserverConnection,
             DelegateHandleMessage handleMessage, string publicKeyPath) 
-            : base(thisMachineNodeId, GlobalConstants.Endpoints.INTERSERVER_WEBSOCKET,
+            : base(thisMachineNodeId, DependencyManager.Get<IEndpointsConfiguration>().InterserverWebsocket,
                 interserverConnection.ServerUrl, handleMessage,
                 interserverConnection.Password, publicKeyPath, 
                 interserverConnection.NodeId)

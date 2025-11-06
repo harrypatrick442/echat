@@ -5,6 +5,7 @@ using Core.Exceptions;
 using DependencyManagement;
 using Core.Timing;
 using Logging;
+using Initialization.Exceptions;
 namespace Core.DAL
 {
     public class DalUserRooms

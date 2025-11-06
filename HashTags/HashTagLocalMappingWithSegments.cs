@@ -1,5 +1,4 @@
-﻿using GlobalConstants;
-namespace HashTags
+﻿namespace HashTags
 {
     public struct HashTagLocalMappingWithSegments
     {

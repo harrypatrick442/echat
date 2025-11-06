@@ -3,14 +3,14 @@ using Core.Enums;
 using Shutdown;
 using Core;
 using Ajax;
-using Core.Exceptions;
 using JSON;
 using Core.Threading;
 using Core.Timing;
-using System;
-using System.Threading;
 using Logging;
 using Logging_ClientFriendly.Messages;
+using Initialization.Exceptions;
+using DependencyManagement;
+using ConfigurationCore;
 
 namespace Logging_ClientFriendly
 {
@@ -47,7 +47,7 @@ namespace Logging_ClientFriendly
         {
             try
             {
-                AjaxHelper.PostWithoutWaitingForResponse(GlobalConstants.Urls.LOG_SERVER_LOG_ERROR,
+                AjaxHelper.PostWithoutWaitingForResponse(DependencyManager.Get<ILoggingConfiguration>().LogServerLogErrorUrl,
                     new LoggedError(_SessionId, TimeHelper.MillisecondsNow, ex.StackTrace, ex.Message,
                     _Platform, null, nodeId: _NodeId),
                     Json.Instance, timeoutMilliseconds: 3000);
@@ -58,7 +58,7 @@ namespace Logging_ClientFriendly
         {
             try
             {
-                AjaxHelper.PostWithoutWaitingForResponse(GlobalConstants.Urls.LOG_SERVER_LOG_ERROR,
+                AjaxHelper.PostWithoutWaitingForResponse(DependencyManager.Get<ILoggingConfiguration>().LogServerLogErrorUrl,
                         new LoggedError(_SessionId, TimeHelper.MillisecondsNow, null, message, _Platform,
                         null, nodeId: _NodeId),
                     Json.Instance, timeoutMilliseconds: 3000);
@@ -69,7 +69,7 @@ namespace Logging_ClientFriendly
         {
             try
             {
-                AjaxHelper.PostWithoutWaitingForResponse(GlobalConstants.Urls.LOG_SERVER_LOG_BREADCRUMB,
+                AjaxHelper.PostWithoutWaitingForResponse(DependencyManager.Get<ILoggingConfiguration>().LogServerLogBreadcrumbUrl,
                         new Breadcrumb(_SessionId, TimeHelper.MillisecondsNow,
                         type, description, value),
                     Json.Instance, timeoutMilliseconds: 3000);
@@ -93,7 +93,8 @@ namespace Logging_ClientFriendly
                     {
                         LoggedSession loggedSession = new LoggedSession(TimeHelper.MillisecondsNow, _Platform, null,
                             _Project, null, _NodeId);
-                        AjaxResult ajaxResult = AjaxHelper.PostSync(GlobalConstants.Urls.LOG_SERVER_LOG_SESSION,
+                        AjaxResult ajaxResult = AjaxHelper.PostSync(
+                            DependencyManager.Get<ILoggingConfiguration>().LogServerLogSessionUrl,
                             loggedSession,
                             Json.Instance, timeoutMilliseconds: 2000);
                         if (ajaxResult.Successful)

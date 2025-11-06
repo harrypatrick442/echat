@@ -1,5 +1,7 @@
-﻿using Core.Enums;
+﻿using ConfigurationCore;
+using Core.Enums;
 using Core.Threading;
+using DependencyManagement;
 using Location.Interfaces;
 using LocationCore;
 using System.Linq;
@@ -46,7 +48,7 @@ namespace Location
                             DeleteSpecificToNode(nodeIdAndLevelQuadrantPair.NodeId, databaseIdentifier, id, 
                                 nodeIdAndLevelQuadrantPair.LevelQuadrantPairs.Select(l => l.Level).ToArray());
                         },
-                        GlobalConstants.Threading.MAX_N_THREADS_QUAD_TREE_DELETE,
+                        DependencyManager.Get<IThreadingConfiguration>().MaxNThreadsQuadTreeDelete,
                         throwExceptions: true);
                     levelQuadrantPairsForId.LevelQuadrantPairs = newLevelQuadrantPairs;
                 }
@@ -62,7 +64,8 @@ namespace Location
                         SetSpecificToNode(databaseIdentifier, nodeIdAndLevelQuadrantPair.NodeId, 
                             id, latLng, nodeIdAndLevelQuadrantPair.LevelQuadrantPairs);
                     },
-                    GlobalConstants.Threading.MAX_N_THREADS_QUAD_TREE_SET, throwExceptions:true);
+                    DependencyManager.Get<IThreadingConfiguration>().MaxNThreadsQuadTreeSets,
+                    throwExceptions:true);
             });
         }
         private void SetSpecificToNode_Here(DatabaseIdentifier databaseIdentifier,
@@ -89,7 +92,7 @@ namespace Location
                             databaseIdentifier, id,
                             nodeIdAndLevelQuadrantPair.LevelQuadrantPairs.Select(l => l.Level).ToArray());
                     },
-                    GlobalConstants.Threading.MAX_N_THREADS_QUAD_TREE_DELETE,
+                    DependencyManager.Get<IThreadingConfiguration>().MaxNThreadsQuadTreeDelete,
                     throwExceptions: true);
                 levelQuadrantPairsForIdDatabase.Set(id, null);
             });

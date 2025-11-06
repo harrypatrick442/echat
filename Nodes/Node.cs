@@ -1,3 +1,5 @@
+using ConfigurationCore;
+using DependencyManagement;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
@@ -33,7 +35,7 @@ namespace Nodes
         public Node(int id, InterserverConnection[] interserverConnections) {
             Id = id;
             InterserverConnections = interserverConnections;
-            AssociatedIdTypes = GlobalConstants.Nodes.GetAssociatedIdTypes(id);
+            AssociatedIdTypes = DependencyManager.Get<INodesConfiguration>().GetAssociatedIdTypes(id);
         }
         protected Node() { }
         /*

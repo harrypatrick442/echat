@@ -6,10 +6,10 @@ using Timer = System.Timers.Timer;
 using KeyValuePairDatabases.Enums;
 using Logging;
 using InterserverComs;
-using GlobalConstants;
 using JSON;
 using DependencyManagement;
 using System.Linq;
+using Initialization.Exceptions;
 
 namespace Chat
 {
@@ -65,7 +65,7 @@ namespace Chat
                     Logs.Default.Error(ex);
                     UpdateAsManager();
                 }
-                _TimerUpdate = new Timer(GlobalConstants.Intervals.UPDATE_MOST_ACTIVE_ROOMS);
+                _TimerUpdate = new Timer(Configurations.Intervals.UPDATE_MOST_ACTIVE_ROOMS);
                 _TimerUpdate.AutoReset = true;
                 _TimerUpdate.Enabled = true;
                 _TimerUpdate.Elapsed += ElapsedUpdate;
@@ -155,11 +155,11 @@ namespace Chat
             }
             MostActiveChatrooms mostActiveChatrooms = new MostActiveChatrooms(mostActiveRooms);
             _MostActiveChatroomsDatabase.Set(MOST_ACTIVE_CHATROOMS_ALL_SERVERS_KEY, mostActiveChatrooms);
-            OperationRedirectHelper.SendMessageObjectToNodes(mostActiveChatrooms, GlobalConstants.Nodes.GetNodeIdsAssociatedWithIdType(IdTypes.CHAT_ROOM).Where(i=>i!=Nodes.Nodes.Instance.MyId));
+            OperationRedirectHelper.SendMessageObjectToNodes(mostActiveChatrooms, Configurations.Nodes.Instance.GetNodeIdsAssociatedWithIdType(Configurations.IdTypes.CHAT_ROOM).Where(i=>i!=Nodes.Nodes.Instance.MyId));
         }
         private void UpdateAsManager_NoLock() {
             RoomActivity[] mostActiveRooms = OrderByPriorityAndNUsers(
-                ChatRoomsMesh.Instance.GetMostActiveRoomsFromAllRoomServerNodes(GlobalConstants.Lengths.MAX_N_MOST_ACTIVE_CHATROOMS)
+                ChatRoomsMesh.Instance.GetMostActiveRoomsFromAllRoomServerNodes(Configurations.Lengths.MAX_N_MOST_ACTIVE_CHATROOMS)
             );
             SetMostActiveRoomActivities(mostActiveRooms);
         }
@@ -171,7 +171,7 @@ namespace Chat
         {
             return  roomActivities
                 .OrderByDescending(o=>o.NUsers)
-            .Take(GlobalConstants.Lengths.MAX_N_MOST_ACTIVE_CHATROOMS)
+            .Take(Configurations.Lengths.MAX_N_MOST_ACTIVE_CHATROOMS)
             .ToArray();
         }
         private void Dispose() {

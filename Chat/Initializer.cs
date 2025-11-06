@@ -30,8 +30,8 @@ namespace Chat
             ChatMultimediaEventListener.Initialize();
             bool isMostActiveChatroomsManager = myNodeId == (
                 isDebug
-                ? GlobalConstants.Nodes.ECHAT_MOST_ACTIVE_ROOMS_MANAGER_DEBUG
-                : GlobalConstants.Nodes.ECHAT_MOST_ACTIVE_ROOMS_MANAGER
+                ? Configurations.Nodes.ECHAT_MOST_ACTIVE_ROOMS_MANAGER_DEBUG
+                : Configurations.Nodes.ECHAT_MOST_ACTIVE_ROOMS_MANAGER
                 );
             MostActiveChatRoomsWatcher.Initialize(isMostActiveChatroomsManager);
         }

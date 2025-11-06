@@ -39,7 +39,7 @@ namespace MultimediaServerCore
                     return;
                 }
                 _PendingUserMultimediaItems.Add(userMultimediaItem!);
-                int nPendingToRemove = _PendingUserMultimediaItems.Count() - GlobalConstants.Lengths.MAX_N_MULTIMEDIA_ITEMS_PER_MESSAGE;
+                int nPendingToRemove = _PendingUserMultimediaItems.Count() - Configurations.Lengths.MAX_N_MULTIMEDIA_ITEMS_PER_MESSAGE;
                 if (nPendingToRemove > 0)
                 {
                     foreach (UserMultimediaItem toRemove in _PendingUserMultimediaItems.Take(nPendingToRemove))
@@ -79,9 +79,9 @@ namespace MultimediaServerCore
                     if (matching == null)
                         continue;
                     string description = fromRequest.Description;
-                    if (description.Length > GlobalConstants.Lengths.MAX_USER_MULTIMEDIA_DESCRIPTION_LENGTH)
+                    if (description.Length > Configurations.Lengths.MAX_USER_MULTIMEDIA_DESCRIPTION_LENGTH)
                         description = description
-                            .Substring(0, GlobalConstants.Lengths.MAX_USER_MULTIMEDIA_DESCRIPTION_LENGTH);
+                            .Substring(0, Configurations.Lengths.MAX_USER_MULTIMEDIA_DESCRIPTION_LENGTH);
                     matching.Description = description;
                     matches.Add(matching);
                     _PendingUserMultimediaItems.Remove(matching);

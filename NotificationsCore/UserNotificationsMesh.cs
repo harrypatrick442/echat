@@ -8,6 +8,7 @@ using Chat.Messages.Client.Responses;
 using Users;
 using NotificationsCore.Enums;
 using Logging;
+using Initialization.Exceptions;
 
 namespace NotificationsCore
 {

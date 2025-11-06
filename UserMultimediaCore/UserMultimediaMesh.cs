@@ -7,6 +7,7 @@ using Nodes;
 using JSON;
 using UserRouting;
 using UserMultimediaCore.Requests;
+using Initialization.Exceptions;
 
 namespace UserMultimediaCore
 {

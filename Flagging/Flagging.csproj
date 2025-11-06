@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\shared-private\Configuration\Configurations.csproj" />
     <ProjectReference Include="..\..\shared-public\DatabaseCore\DatabaseCore.csproj" />
     <ProjectReference Include="..\InterserverComs\InterserverComs.csproj" />
     <ProjectReference Include="..\..\shared-public\Shutdown\CSharp\Shutdown.csproj" />

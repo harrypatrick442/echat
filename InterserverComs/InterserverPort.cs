@@ -7,6 +7,9 @@ using MessageTypes.Internal;
 using Core.Messages.Messages;
 using Logging;
 using Core;
+using Initialization.Exceptions;
+using DependencyManagement;
+using ConfigurationCore;
 
 namespace InterserverComs
 {
@@ -41,7 +44,7 @@ namespace InterserverComs
             _PublicKeyPath = publicKeyPath;
             InterserverMessageTypeMappingsHandler.Initialize();
             webSocketServer.AddWebSocketService<InterserverWebsocketServer>(
-                GlobalConstants.Endpoints.INTERSERVER_WEBSOCKET, InitializeWebSocketServerInstance);
+                DependencyManager.Get<IEndpointsConfiguration>().InterserverWebsocket, InitializeWebSocketServerInstance);
             _InterserverEndpoints = new InterserverEndpoints(Nodes.Nodes.Instance.Me,
                 _HandleMessage, publicKeyPath);
             ShutdownManager.Instance.Add(this);

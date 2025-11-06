@@ -26,12 +26,12 @@ namespace Chat.MessagesHandler
                 }, new IdentifierLock<long>());
         private Timer _TimerFlushToDatabase;
         public ChatRoomMessagesHandler_Overflowing(long conversationId)
-            :base(GlobalConstants.Lengths.MAX_N_MESSAGES_IN_OVERFLOWING_CHAT_ROOM)
+            :base(Configurations.Lengths.MAX_N_MESSAGES_IN_OVERFLOWING_CHAT_ROOM)
         {
             _ConversationId= conversationId;
             ChatRoomMessages chatRoomMessages = _Database.Read(conversationId);
             _LatestCachedMessages.Initialize(chatRoomMessages.Messages, chatRoomMessages.Reactions, chatRoomMessages.UserMultimediaItems);
-            _TimerFlushToDatabase = new Timer(GlobalConstants.Intervals.CHAT_ROOM_MESSAGE_HANDLER_FLUSH_TO_DATABASE);
+            _TimerFlushToDatabase = new Timer(Configurations.Intervals.CHAT_ROOM_MESSAGE_HANDLER_FLUSH_TO_DATABASE);
             _TimerFlushToDatabase.AutoReset = true;
             _TimerFlushToDatabase.Enabled = true;
             _TimerFlushToDatabase.Elapsed += FlushToDatabaseIfChanged;

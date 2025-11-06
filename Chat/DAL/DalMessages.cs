@@ -1,6 +1,7 @@
 ﻿using Core.Exceptions;
 using Chat;
 using Chat.Interfaces;
+using Initialization.Exceptions;
 namespace Core.DAL
 {
     public class DalMessages

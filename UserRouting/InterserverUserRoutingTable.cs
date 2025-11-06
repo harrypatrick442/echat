@@ -43,7 +43,7 @@ namespace UserRouting
             _MyNodeId = Nodes.Nodes.Instance.MyId;
             _ToPushWhenNodesReconnect = new ToPushWhenNodesReconnect();
             _GetEndedSessionIds = getEndedSessionIds;
-            _NodesIdRangesForIdTypeManager = NodesIdRangesManager.Instance.ForIdType(GlobalConstants.IdTypes.USER);
+            _NodesIdRangesForIdTypeManager = NodesIdRangesManager.Instance.ForIdType(Configurations.IdTypes.USER);
             _KeyValuePairDatabase = new KeyValuePairDatabase<long, UserRoutingTableEntry>(
                 OnDiskDatabaseType.Sqlite,
                 new OnDiskDatabaseParams

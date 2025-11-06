@@ -3,6 +3,7 @@ using Core.Messages.Responses;
 using Core.Threading;
 using HashTags.Enums;
 using HashTags.Messages;
+using Initialization.Exceptions;
 using InterserverComs;
 using Logging;
 using NodeAssignedIdRanges;
@@ -93,8 +94,8 @@ namespace HashTags
                 partialMatches = null;
                 return false;
             }
-            if (maxNEntries > GlobalConstants.HashTags.MAX_N_SEARCH_ENTRIES) 
-                maxNEntries = GlobalConstants.HashTags.MAX_N_SEARCH_ENTRIES;
+            if (maxNEntries > Configurations.HashTags.MAX_N_SEARCH_ENTRIES) 
+                maxNEntries = Configurations.HashTags.MAX_N_SEARCH_ENTRIES;
             TagWithScopeIds[]? partialMatchesInternal = null;
             ScopeIds[]? exactMatchesInternal = null;
             bool success = true;
@@ -152,7 +153,7 @@ namespace HashTags
                     Logs.Default.Error(ex);
                 }
             },
-            maxNThreads: GlobalConstants.Threading.MAX_N_THREADS_HASH_TAGS, 
+            maxNThreads: Configurations.Threading.MAX_N_THREADS_HASH_TAGS, 
             throwExceptions: false);
             return success;
         }
@@ -186,7 +187,7 @@ namespace HashTags
                     Logs.Default.Error(ex);
                 }
             },
-            maxNThreads: GlobalConstants.Threading.MAX_N_THREADS_HASH_TAGS,
+            maxNThreads: Configurations.Threading.MAX_N_THREADS_HASH_TAGS,
             throwExceptions: false);
             return success;
         }

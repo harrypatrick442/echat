@@ -8,7 +8,6 @@ using Core;
 using HashTags.Messages;
 using HashTags;
 using Logging;
-using GlobalConstants;
 
 namespace HashTags
 {

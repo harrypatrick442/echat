@@ -4,6 +4,7 @@ using Core.Timing;
 using System.Text;
 using Core.Exceptions;
 using DependencyManagement;
+using Initialization.Exceptions;
 namespace MultimediaServerCore
 {
     internal class DalMultimediaDeletes
@@ -112,7 +113,7 @@ namespace MultimediaServerCore
             _LocalSQLite.UsingConnection((connection) =>
             {
                 StringBuilder sbCommand = new StringBuilder();
-                long maxscheduledAt = TimeHelper.MillisecondsNow - GlobalConstants.Delays.MIN_TIME_MILLISECONDS_BEFORE_MUTIMEDIA_DELETE_FILE_FROM_SCHEDULED;
+                long maxscheduledAt = TimeHelper.MillisecondsNow - Configurations.Delays.MIN_TIME_MILLISECONDS_BEFORE_MUTIMEDIA_DELETE_FILE_FROM_SCHEDULED;
                 using (SqliteCommand command = new SqliteCommand(
                     GET_PENDINGS_COMMAND, connection))
                 {

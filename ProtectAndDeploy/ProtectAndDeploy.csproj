@@ -10,8 +10,8 @@
     <PackageReference Include="Microsoft.Build" Version="17.9.5" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\shared-private\Configuration\Configurations.csproj" />
     <ProjectReference Include="..\..\shared-public\Building\CSharp\Building.csproj" />
-    <ProjectReference Include="..\Constants\GlobalConstants.csproj" />
     <ProjectReference Include="..\..\shared-public\Core\CSharp\Core.csproj" />
     <ProjectReference Include="..\..\echat-private\RemoteAssistantCore\RemoteAssistantCore.csproj" />
     <ProjectReference Include="..\..\shared-public\SSH\SSH.csproj" />

@@ -3,6 +3,7 @@ using Shutdown;
 using Logging;
 using Core.Ids;
 using DependencyManagement;
+using Initialization.Exceptions;
 
 namespace Sessions
 {

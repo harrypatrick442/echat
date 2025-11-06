@@ -10,6 +10,9 @@ using MessageTypes.Internal;
 using Ajax;
 using JSON;
 using System.Net.Http;
+using Initialization.Exceptions;
+using DependencyManagement;
+using ConfigurationCore;
 
 namespace NodeAssignedIdRanges
 {
@@ -46,8 +49,8 @@ namespace NodeAssignedIdRanges
         #region Public
         public NodesIdRangesForIdType[] GetNodesIdRangesForAllAssociatedIdTypesUsingAjax(int nodeId, int timeoutMilliseconds) {
 
-            string url = $"https://{GlobalConstants.Nodes.FirstUniqueDomainForNode(GlobalConstants.Nodes.
-                    ID_SERVER_NODE_ID)}/{GlobalConstants.RoutesWithoutSlash.ID_SERVER_GET}?nodeId={nodeId}";
+            string url = $"https://{
+                NodesConfiguration.FirstUniqueDomainForNode(Configurations.Nodes.ID_SERVER_NODE_ID)}/{Configurations.RoutesWithoutSlash.ID_SERVER_GET}?nodeId={nodeId}";
             AjaxResult result = AjaxHelper.Get(url, Json.Instance, null, timeoutMilliseconds);
             Logs.Default.Info("Did get ");
             if (!result.Successful) {
@@ -64,10 +67,9 @@ namespace NodeAssignedIdRanges
                 GetNodesIdRangesForAllAssociatedIdTypesRequest,
                 GetNodesIdRangesForAllAssociatedIdTypesResponse>(
 #if DEBUG
-                GlobalConstants.Nodes.
-                ID_SERVER_NODE_ID_DEBUG
+                Configurations.Nodes.ID_SERVER_NODE_ID_DEBUG
 #else
-                GlobalConstants.Nodes.ID_SERVER_NODE_ID
+                Configurations.Nodes.ID_SERVER_NODE_ID
 #endif
                 ,
                 () =>
@@ -95,9 +97,9 @@ namespace NodeAssignedIdRanges
                 GiveMeNewIdRangeResponse>(
 
 #if DEBUG
-                GlobalConstants.Nodes.ID_SERVER_NODE_ID_DEBUG
+                Configurations.Nodes.ID_SERVER_NODE_ID_DEBUG
 #else
-                GlobalConstants.Nodes.ID_SERVER_NODE_ID
+                Configurations.Nodes.ID_SERVER_NODE_ID
 #endif
                 ,
                 () =>
@@ -119,7 +121,7 @@ namespace NodeAssignedIdRanges
             int nodeIdAssignedTo, IdRange newIdRange)
         {
             IEnumerable<int> otherNodeIds =
-                GlobalConstants.Nodes.GetNodeIdsAssociatedWithIdType(idType)
+                Configurations.Nodes.Instance.GetNodeIdsAssociatedWithIdType(idType)
                 .Where(i=>i != nodeIdAssignedTo);
             foreach (int otherNodeId in otherNodeIds)
             {

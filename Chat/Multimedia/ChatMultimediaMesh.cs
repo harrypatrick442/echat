@@ -11,6 +11,7 @@ using Chat.Messages.Client.Responses;
 using MultimediaServerCore.Messages;
 using Chat.Messages.Client.Messages;
 using UserRouting;
+using Initialization.Exceptions;
 
 namespace MultimediaServerCore
 {

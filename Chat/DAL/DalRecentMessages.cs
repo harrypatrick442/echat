@@ -2,10 +2,11 @@
 using Chat;
 using Logging;
 using Shutdown;
-using GlobalConstants;
 using KeyValuePairDatabases;
 using Chat.Messages.Client.Messages;
 using DependencyManagement;
+using Initialization.Exceptions;
+using Configurations;
 
 namespace Core.DAL
 {
@@ -69,7 +70,7 @@ namespace Core.DAL
             _IdentifierLock.LockForWrite(conversationId, () => {
                 latestMessages = _LatestMessagesKeyValuePairInMemoryDatabase.Get(conversationId);
                 if (latestMessages != null) return;
-                latestMessages = new LatestMessages(GlobalConstants.Lengths.OVERFLOWING_CHAR_HISTORY_LENGTH,
+                latestMessages = new LatestMessages(Configurations.Lengths.OVERFLOWING_CHAR_HISTORY_LENGTH,
                     _GetCyclicalFilePath(conversationId));
                 _LatestMessagesKeyValuePairInMemoryDatabase.Set(conversationId, latestMessages);
             });

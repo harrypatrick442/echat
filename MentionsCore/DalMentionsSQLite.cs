@@ -5,6 +5,7 @@ using MentionsCore.Messages;
 using System.Data;
 using DependencyManagement;
 using MentionsCore;
+using Initialization.Exceptions;
 namespace Core.DAL
 {
     public class DalMentionsSQLite

@@ -13,10 +13,10 @@ using Logging;
 using UserRoutedMessages;
 using HashTags.Messages;
 using HashTags;
-using GlobalConstants;
 using Core.Strings;
 using Core.Threading;
 using HashTags.Enums;
+using Initialization.Exceptions;
 namespace Chat
 {
     public partial class ChatManager
@@ -39,7 +39,7 @@ namespace Chat
         private MessageIdSource _MessageIdSource;
         private ChatManager() {
             _MyNodeId = Nodes.Nodes.Instance.MyId;
-            _NodesIdRangesUsersManager = NodesIdRangesManager.Instance.ForIdType(GlobalConstants.IdTypes.USER);
+            _NodesIdRangesUsersManager = NodesIdRangesManager.Instance.ForIdType(Configurations.IdTypes.USER);
             _MessageIdSource = MessageIdSource.Instance;
             Initialize_Server();
             ShutdownManager.Instance.Add(Dispose, ShutdownOrder.ChatsManager);

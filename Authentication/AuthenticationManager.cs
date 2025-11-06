@@ -8,7 +8,7 @@ using Core.Exceptions;
 using Core.Timing;
 using DevOne.Security.Cryptography.BCrypt;
 using Emailing;
-using GlobalConstants;
+using Initialization.Exceptions;
 using Logging;
 using Sessions;
 using System.Net;
@@ -132,11 +132,11 @@ namespace Authentication
 #if DEBUG
     string origin = "https://localhost:7161";
 #else
-                    string domainName = GlobalConstants.Nodes.FirstUniqueDomainForNode(
+                    string domainName = Configurations.Nodes.Instance.FirstUniqueDomainForNode(
                         _AuthenticationNodeId);
                     string origin = $"https://{domainName}";
 #endif
-                string actionUrl =  $"{origin}/{RoutesWithoutSlash.RESET_PASSWORD_CLICKED_LINK}/{secret}";
+                string actionUrl =  $"{origin}/{Configurations.RoutesWithoutSlash.RESET_PASSWORD_CLICKED_LINK}/{secret}";
                 string username = _AuthenticationRelatedUserInfoSource
                     .GetInfoForEmailing(authenticationInfo.UserId);
                 _AuthenticationEmailing.SendPasswordResetEmail(

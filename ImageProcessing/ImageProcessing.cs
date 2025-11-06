@@ -1,14 +1,6 @@
-﻿using System;
-using System.Linq;
-using System.Runtime.InteropServices;
-using SixLabors.ImageSharp;
+﻿using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
-using SixLabors.ImageSharp.Advanced;
-using System.IO;
-using static System.Net.Mime.MediaTypeNames;
-using System.Runtime.CompilerServices;
-using GlobalConstants;
 using SixLabors.ImageSharp.Formats.Jpeg;
 using SixLabors.ImageSharp.Formats.Png;
 

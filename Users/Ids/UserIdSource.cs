@@ -1,6 +1,7 @@
 ﻿using Core.Exceptions;
 using Core.Ids;
 using DependencyManagement;
+using Initialization.Exceptions;
 
 namespace Users
 {
@@ -18,7 +19,7 @@ namespace Users
             _Instance = new UserIdSource();
             return _Instance;
         }
-        private UserIdSource() : base(DependencyManager.GetString(DependencyNames.UserIdSourceDirectory), GlobalConstants.IdTypes.USER)
+        private UserIdSource() : base(DependencyManager.GetString(DependencyNames.UserIdSourceDirectory), Configurations.IdTypes.USER)
         {
 
         }

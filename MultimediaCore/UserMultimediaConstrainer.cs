@@ -1,4 +1,7 @@
-﻿namespace MultimediaCore
+﻿using Configurations;
+using DependencyManagement;
+
+namespace MultimediaCore
 {
     public static class UserMultimediaConstrainer
     {
@@ -6,9 +9,10 @@
         {
             if (value == null) 
                 return null;
-            if (value.Length < GlobalConstants.Lengths.MAX_USER_MULTIMEDIA_DESCRIPTION_LENGTH)
+            int maxLength = DependencyManager.Get<Lengths>().MaxUserMultimediaDescriptionLength;
+            if (value.Length < maxLength)
                 return value;
-            return value.Substring(0, GlobalConstants.Lengths.MAX_USER_MULTIMEDIA_DESCRIPTION_LENGTH);
+            return value.Substring(0, maxLength);
         }
     }
 }

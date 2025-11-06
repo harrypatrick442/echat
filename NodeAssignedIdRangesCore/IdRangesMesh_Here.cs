@@ -1,10 +1,21 @@
-﻿using NodeAssignedIdRangesCore.Requests;
+﻿using ConfigurationCore;
+using DependencyManagement;
+using NodeAssignedIdRangesCore.Requests;
 
 namespace NodeAssignedIdRanges
 {
     public sealed partial class IdRangesMesh
     {
-        //CHECKED
+        private INodesConfiguration? _NodesConfiguration;
+        private INodesConfiguration NodesConfiguration { 
+            get 
+            {
+                if (_NodesConfiguration == null) {
+                    _NodesConfiguration = DependencyManager.Get<INodesConfiguration>();
+                }
+                return _NodesConfiguration;
+            } 
+        }
         private IdRange GiveMeNewIdRange_Here(int idType, int nodeId)
         {
             IdRange newIdRange = SourceIdRangesManager.Instance.ForIdType(idType)
@@ -19,7 +30,7 @@ namespace NodeAssignedIdRanges
         }
         public NodesIdRangesForIdType[] GetNodesIdRangesForAllAssociatedIdTypes_Here(int nodeId)
         {
-            int[] associatedIdTypes = GlobalConstants.Nodes.GetAssociatedIdTypes(nodeId);
+            int[] associatedIdTypes = NodesConfiguration.GetAssociatedIdTypes(nodeId);
             List<NodesIdRangesForIdType> list = new List<NodesIdRangesForIdType>();
             foreach (int idType in associatedIdTypes)
             {

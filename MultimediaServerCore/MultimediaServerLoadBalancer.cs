@@ -1,5 +1,4 @@
-﻿using Core.Exceptions;
-using GlobalConstants;
+﻿using Initialization.Exceptions;
 using WebAbstract.LoadBalancing;
 
 namespace MultimediaServerCore
@@ -20,7 +19,7 @@ namespace MultimediaServerCore
         public int GetNextNodeId()
         {
 #if DEBUG
-                return GlobalConstants.Nodes.MULTIMEDIA_SERVER_DEBUG;
+                return Configurations.Nodes.MULTIMEDIA_SERVER_DEBUG;
 #else
                 if(_CurrentIndex>= _NodeIdsLoadBalancingArray.Length)
                     _CurrentIndex = 0;
@@ -43,10 +42,10 @@ namespace MultimediaServerCore
             }
         }
 
-        private MultimediaServerLoadBalancer() :base(LoadFactorType.MultimediaServer, 
-            Intervals.MULTIMEDIA_SERVER_LOAD_BALANCER_UPDATE)
+        private MultimediaServerLoadBalancer() :base(LoadFactorType.MultimediaServer,
+            Configurations.Intervals.MULTIMEDIA_SERVER_LOAD_BALANCER_UPDATE)
         {
-            _NodeIdsLoadBalancingArray = GlobalConstants.Nodes.ECHAT_MULTIMEDIA_SERVER_NODES;
+            _NodeIdsLoadBalancingArray = Configurations.Nodes.ECHAT_MULTIMEDIA_SERVER_NODES;
             ReceivingLoadBalancer.Instance.AddHandler(this);
         }
     }

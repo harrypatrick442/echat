@@ -19,6 +19,7 @@ using Users.Users;
 using UsersEnums;
 using Core.Ids;
 using UserRoutedMessages;
+using Initialization.Exceptions;
 
 namespace Users
 {
@@ -44,12 +45,12 @@ namespace Users
             _MyNodeId = Nodes.Nodes.Instance.MyId;
             _UsernameSearchIdentifierToNodeId = new FixedNodeIdentifierToNodeId(
 #if DEBUG
-                GlobalConstants.Nodes.ECHAT_USERNAME_SEARCH_DEBUG
+                Configurations.Nodes.ECHAT_USERNAME_SEARCH_DEBUG
 #else
-                GlobalConstants.Nodes.ECHAT_USERNAME_SEARCH
+                Configurations.Nodes.ECHAT_USERNAME_SEARCH
 #endif
             );
-            _NodeidRangsForUserManager = NodesIdRangesManager.Instance.ForIdType(GlobalConstants.IdTypes.USER);
+            _NodeidRangsForUserManager = NodesIdRangesManager.Instance.ForIdType(Configurations.IdTypes.USER);
             DalAssociateRequests.Initialize();
             DalAssociates.Initialize();
             DalUserProfiles.Initialize();
@@ -116,7 +117,7 @@ namespace Users
                             );
                         return userProfileSummarys;
                     },
-                    GlobalConstants.Threading.MAX_N_THREADS_GET_USER_PROFILE_SUMMARYS_THREAD_FOR_EACH_NODE
+                    Configurations.Threading.MAX_N_THREADS_GET_USER_PROFILE_SUMMARYS_THREAD_FOR_EACH_NODE
             );
             /*
             List<UserProfileSummary> summarys = new List<UserProfileSummary>();
@@ -642,7 +643,7 @@ namespace Users
                 throw new OperationFailedException($"Failed to get {nameof(INodeEndpoint)} for node with id {node.Id}");
             TRemoteResponse removeAssociateResponse = InterserverTicketedSender.Send<TRemoteRequest, TRemoteResponse>(
                 callbackCreateRequest(),
-                GlobalConstants.Timeouts.TIMEOUT_REMOTE_DOUBLE_LOCK_OPERATION, _CancellationTokenSourceDisposed.Token, nodeEndpoint.SendJSONString);
+                Configurations.Timeouts.TIMEOUT_REMOTE_DOUBLE_LOCK_OPERATION, _CancellationTokenSourceDisposed.Token, nodeEndpoint.SendJSONString);
             didRemotely(removeAssociateResponse);
         }
         private void _OperationRedirectedToNodeWithHighestUserIdForSafeDoubleLocking<TRemoteRequest, TRemoteResponse>(
@@ -666,7 +667,7 @@ namespace Users
                 throw new OperationFailedException($"Failed to get {nameof(INodeEndpoint)} for node with id {nodeHighestUserId.Id}");
             TRemoteResponse removeAssociateResponse = InterserverTicketedSender.Send<TRemoteRequest, TRemoteResponse>(
                 callbackCreateRequest(),
-                GlobalConstants.Timeouts.TIMEOUT_REMOTE_DOUBLE_LOCK_OPERATION, _CancellationTokenSourceDisposed.Token, nodeEndpoint.SendJSONString);
+                Configurations.Timeouts.TIMEOUT_REMOTE_DOUBLE_LOCK_OPERATION, _CancellationTokenSourceDisposed.Token, nodeEndpoint.SendJSONString);
             didRemotely(removeAssociateResponse);
         }
         private Associate[] UpgradeAssociationTypeOnSharedAssociatesAndLimitOnRest(
@@ -700,7 +701,7 @@ namespace Users
                         }
                         return _GetUserProfileSummarysFromRemoteMachine(nodeIdAssociatesPair.NodeId,
                             nodeIdAssociatesPair.Associates);
-                    }, GlobalConstants.Threading.MAX_N_THREADS_GET_USER_PROFILE_SUMMARYS_THREAD_FOR_EACH_NODE);
+                    }, Configurations.Threading.MAX_N_THREADS_GET_USER_PROFILE_SUMMARYS_THREAD_FOR_EACH_NODE);
             List<UserProfileSummary> summarys = new List<UserProfileSummary>();
             foreach (ParallelOperationResult<NodeIdAssociatesPair, UserProfileSummary[]> result in results)
             {
@@ -742,7 +743,7 @@ namespace Users
             }
             GetUserProfileSummarysResponse result = InterserverTicketedSender.Send<GetUserProfileSummarysRequest, GetUserProfileSummarysResponse>(
                     new GetUserProfileSummarysRequest(associates),
-                    GlobalConstants.Timeouts.GET_USER_PROFILE_SUMMARYS_INTERSERVER,
+                    Configurations.Timeouts.GET_USER_PROFILE_SUMMARYS_INTERSERVER,
                     _CancellationTokenSourceDisposed.Token, 
                     nodeEndpoint.SendJSONString
                 );
@@ -759,7 +760,7 @@ namespace Users
                         UserProfile userProfile = DalUserProfiles.Instance.GetUserProfile(associate.UserId);
                        UserProfileSummary userProfileSummary = userProfile?.ToSummary(associate.AssociateType);
                         return userProfileSummary;
-                    }, GlobalConstants.Threading.MAX_N_THREADS_GET_USER_PROFILE_SUMMARYS_WHICH_ARE_LOCAL);
+                    }, Configurations.Threading.MAX_N_THREADS_GET_USER_PROFILE_SUMMARYS_WHICH_ARE_LOCAL);
             List<long> hadNoUserProfileFor = null;
             List<UserProfileSummary>  successes = new List<UserProfileSummary>();
 

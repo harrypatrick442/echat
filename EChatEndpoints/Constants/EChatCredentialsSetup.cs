@@ -1,4 +1,4 @@
-using GlobalConstants;
+using ConfigurationCore;
 namespace EChat.Constants
 {
     public class EChatCredentialsSetup

@@ -21,8 +21,8 @@ namespace MultimediaServer
 
         }
         [HttpPost]
-        [Route(GlobalConstants.Routes.MULTIMEDIA_SERVER_UPLOAD)]
-        [RequestSizeLimit(GlobalConstants.Sizes.MULTIMEDIA_SERVER_MAXIMUM_FILE_SIZE)]
+        [Route(Configurations.Routes.MULTIMEDIA_SERVER_UPLOAD)]
+        [RequestSizeLimit(Configurations.Sizes.MULTIMEDIA_SERVER_MAXIMUM_FILE_SIZE)]
         public IActionResult Upload()
         {
             string token = _GetToken();
@@ -47,7 +47,7 @@ namespace MultimediaServer
             }
         }
         [HttpGet]
-        [Route(GlobalConstants.Routes.MULTIMEDIA_SERVER_MULTIMEDIA + "{*any}")]
+        [Route(Configurations.Routes.MULTIMEDIA_SERVER_MULTIMEDIA + "{*any}")]
         public IActionResult Multimedia()
         {
             string? path = Request.Path.Value;
@@ -79,9 +79,9 @@ namespace MultimediaServer
         }
         private string _GetToken()
         {
-            string? token = Request.Query[GlobalConstants.Parameters.MULTIMEDIA_TOKEN];
+            string? token = Request.Query[Configurations.Parameters.MULTIMEDIA_TOKEN];
             if (string.IsNullOrEmpty(token)) 
-                throw new ArgumentException($"token \"{GlobalConstants.Parameters.MULTIMEDIA_TOKEN}=...\"");
+                throw new ArgumentException($"token \"{Configurations.Parameters.MULTIMEDIA_TOKEN}=...\"");
             return token;
         }
         private void StatisticsLog(StatisticsEntryType entryType) {

@@ -4,7 +4,8 @@ class Program
 {
     private const bool USE_EXISTING = true;
     public static void Main(string[] args)
-   {
+    {
+        Configurations.Initializer.Initialize();
         string exePath = System.Reflection.Assembly.GetExecutingAssembly().Location;
         string projectDirectory = Path.Combine(Directory.GetParent(Path.GetDirectoryName(exePath))
             .Parent.Parent.Parent.FullName, "Nodes");
@@ -25,8 +26,6 @@ class Program
         };
         generate("Development");
         generate("Live");
-        generate("RetrocauseDevelopment");
-        generate("RetrocauseLive");
 
         sb.AppendLine("\t}");
         sb.AppendLine("}");

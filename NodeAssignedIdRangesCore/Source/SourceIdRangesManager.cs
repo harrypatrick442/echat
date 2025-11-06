@@ -4,6 +4,7 @@ using NodeAssignedIdRangesCore.Interfaces;
 using NodeAssignedIdRangesSource.Serializables;
 using KeyValuePairDatabases.Enums;
 using DependencyManagement;
+using Initialization.Exceptions;
 
 namespace NodeAssignedIdRanges
 {

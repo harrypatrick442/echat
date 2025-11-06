@@ -3,6 +3,7 @@ using DependencyManagement;
 using Chat;
 using HashTags.Messages;
 using HashTags.Enums;
+using Initialization.Exceptions;
 namespace Core.DAL
 {
     public class DalMessagesWalls : DalMessagesSQLiteMultipleConversationsShards

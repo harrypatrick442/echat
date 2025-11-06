@@ -10,7 +10,6 @@
     <Compile Remove="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CertificateManagement\CertificateManagement.csproj" />
     <ProjectReference Include="..\..\shared-public\Core\CSharp\Core.csproj" />
     <ProjectReference Include="..\..\shared-public\Logging\CSharp\Logging.csproj" />
     <ProjectReference Include="..\FileServerBase\FileServerBase.csproj" />

@@ -7,7 +7,7 @@ namespace HashTags
         public static IEnumerable<string> SplitStringIntoTags(string str) {
             if (string.IsNullOrEmpty(str)) return null;
             return NormalizeRemoveIllegalCharactersAndRemoveDuplicates(
-                StringHelper.MultipleSplit(GlobalConstants.HashTags.Delimiters, str)
+                StringHelper.MultipleSplit(Configurations.HashTags.Delimiters, str)
             );
         }
         public static IEnumerable<string> NormalizeRemoveIllegalCharactersAndRemoveDuplicates(string[] tags) {
@@ -18,10 +18,10 @@ namespace HashTags
         public static string? NormalizeRemoveIllegalCharacters(string? tag)
         {
             if (tag == null) return null;
-            char[] chars = tag.ToLowerInvariant().Where(c => GlobalConstants.HashTags.ALLOWED_CHARACTERS_HASH_SET.Contains(c)).ToArray();
+            char[] chars = tag.ToLowerInvariant().Where(c => Configurations.HashTags.ALLOWED_CHARACTERS_HASH_SET.Contains(c)).ToArray();
             if (chars.Length < 1) return null;
-            if (chars.Length > GlobalConstants.HashTags.MAX_LENGTH) {
-                return new string(chars, 0, GlobalConstants.HashTags.MAX_LENGTH);
+            if (chars.Length > Configurations.HashTags.MAX_LENGTH) {
+                return new string(chars, 0, Configurations.HashTags.MAX_LENGTH);
             }
             return new string(chars);
         }

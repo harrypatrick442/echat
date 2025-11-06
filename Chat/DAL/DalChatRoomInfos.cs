@@ -3,6 +3,7 @@ using Chat;
 using KeyValuePairDatabases;
 using KeyValuePairDatabases.Enums;
 using DependencyManagement;
+using Initialization.Exceptions;
 
 namespace Core.DAL
 {

@@ -53,7 +53,7 @@ namespace Chat
                 }
                 Recent.Remove(conversationId);
                 Recent.Add(conversationId);
-                int nToRemove = Recent.Count - GlobalConstants.Lengths.MAX_RECENT_ROOMS;
+                int nToRemove = Recent.Count - Configurations.Lengths.MAX_RECENT_ROOMS;
                 if (nToRemove <= 0) return;
                 Recent.RemoveRange(0, nToRemove);
             }

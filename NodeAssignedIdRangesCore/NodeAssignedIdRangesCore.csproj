@@ -9,6 +9,7 @@
     <Compile Remove="NodeAssignedIdRangesIdentifierToNodeId.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\shared-private\Configuration\Configurations.csproj" />
     <ProjectReference Include="..\..\shared-public\Ajax\Ajax.csproj" />
     <ProjectReference Include="..\..\shared-public\DependencyManagement\DependencyManagement.csproj" />
     <ProjectReference Include="..\InterserverComs\InterserverComs.csproj" />

@@ -70,7 +70,7 @@ namespace IdServer
                 InterserverTicketedSender.Initialize();
                 NodeAssignedIdRanges.Initializer.Initialize(true);
                 webSocketServer.Start();
-                Firewall.Initialize().OpenPortsUntilShutdown(GlobalConstants.Ports.Value);
+                Firewall.Initialize().OpenPortsUntilShutdown(Configurations.Ports.Value);
             }
             catch (Exception ex)
             {

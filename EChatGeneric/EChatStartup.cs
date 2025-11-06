@@ -24,6 +24,7 @@ using WebAbstract.Csontrollers;
 using WebAbstract.Controllers;
 using WebAbstract.MachineMetricsMesh;
 using WebAbstract.LoadBalancing;
+using System.Diagnostics;
 namespace EChatGeneric
 {
     public class EChatStartup
@@ -107,29 +108,34 @@ namespace EChatGeneric
                 });
                 WebSocketServer webSocketServer = WebSocketStartup.Run(
                     Configuration.GetValue<string>);
-                MemoryManager.Initialize(GlobalConstants.Sizes.GetBytesMemoryAllowedForNode(
+                MemoryManager.Initialize(Configurations.Sizes.GetBytesMemoryAllowedForNode(
                     Nodes.Nodes.Instance.MyId));
                 InterserverComs.Initializer.Initialize(webSocketServer);
                 KeyValuePairDatabases.Initializer.Initialize();
                 //ProcessorMetricsSource.Initialize();
                 MachineMetricsMesh.Initialize(loggingEnabled:false);
 
-                NodeAssignedIdRanges.Initializer.Initialize(_IsDebug);
+                NodeAssignedIdRanges.Initializer.Initialize(
+                    _IsDebug||Nodes.Nodes.Instance.MyId==Configurations.Nodes.ID_SERVER_NODE_ID
+                );
                 UserRoutedMessages.Initializer.Initialize();
                 UserRouting.Initializer.Initialize(debugLoggingEnabled:false);
                 MaintenanceInitializer.Initialize(controlsMaintenance: false,
                     receivesMaintenance: true, null);
                 webSocketServer.AddWebSocketService<EChatRoomWebsocketServer>(
-                    GlobalConstants.Endpoints.ECHAT_ROOM_WEBSOCKET);
+                    Configurations.Endpoints.ECHAT_ROOM_WEBSOCKET);
                 webSocketServer.AddWebSocketService<EChatUserWebsocketServer>(
-                    GlobalConstants.Endpoints.ECHAT_USER_WEBSOCKET);
+                    Configurations.Endpoints.ECHAT_USER_WEBSOCKET);
                 webSocketServer.Start();
                 EChatWebSocketLoadBroadcaster.Initialize();
                 Sessions.Initializer.Initialize();
                 Users.Initializer.Initialize();
-                Authentication.Initializer.Initialize(_IsDebug,
+                Authentication.Initializer.Initialize(
                     UsersMesh.Instance, CREDENTIALS_SETUP,
-                    EChatEmailing.EChatEmailEmailer.Instance
+                    EChatEmailing.EChatEmailEmailer.Instance,
+                    nodeId: _IsDebug
+                        ? Configurations.Nodes.ECHAT_DEBUG
+                        : Configurations.Nodes.ECHAT_1
                 );
                 Location.Initializer.Initialize();
                 UserLocation.Initializer.Initialize();
@@ -159,7 +165,8 @@ namespace EChatGeneric
                     MultimediaServerCore.Initializer.InitializeClient();
                 }
                 UserMultimediaCore.Initializer.Initialize();
-                Firewall.Initialize().OpenPortsUntilShutdown(GlobalConstants.Ports.Value);
+                Firewall.Initialize().OpenPortsUntilShutdown(
+                    Configurations.Ports.Value);
             }
             catch (Exception ex)
             {

@@ -5,6 +5,7 @@ using Nodes;
 using NodeAssignedIdRanges;
 using DependencyManagement;
 using Core.Ids;
+using Initialization.Exceptions;
 
 namespace Users
 {

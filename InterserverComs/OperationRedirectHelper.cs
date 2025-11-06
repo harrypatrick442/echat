@@ -3,6 +3,8 @@ using Nodes;
 using Core.Exceptions;
 using JSON;
 using Logging;
+using DependencyManagement;
+using ConfigurationCore;
 
 namespace InterserverComs
 {
@@ -25,7 +27,7 @@ namespace InterserverComs
                 throw new OperationFailedException($"Failed to get {nameof(INodeEndpoint)} for node with id {nodeId}");
             TRemoteResponse removeAssociateResponse = InterserverTicketedSender.Send<TRemoteRequest, TRemoteResponse>(
                 callbackCreateRequest(),
-                GlobalConstants.Timeouts.TIMEOUT_TRANSFER_SERVER_REMOTE_OPERATION,
+                DependencyManager.Get<ITimeoutsConfiguration>().TimeoutRemoteOperation,
                 cancellationToken, nodeEndpoint.SendJSONString
             );
             didRemotely(removeAssociateResponse);
